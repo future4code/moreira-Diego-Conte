@@ -1,4 +1,4 @@
 #Aprendizados da semana
 
-*Hard skills e soft kills mergeados pela Labenu*. 
+*Hard skills e soft kills mergeados pela **Labenu***. 
 O aprendizado da semana mostrou a elementaridade de uma boa teoria acompanhada da prática; conceito e trabalho evoluindo concomitantemente. No que concerne ao conhecimento técnico, o uso básico do terminal, do Git e do GitHub envolto em real contexto ofereceram significado à prática: comandos, aqueles aprendidos na primeira aula, foram repetidamente visitados para se desvendar um assassinato, clonar repositório e criar pastas. Relativamente às competências menos técnicas, aprendemos como a auto-organização é essencial para se ter boa rotina de estudos, além de compreender que diferenças são mais do que necessárias, são espelhos por meio dos quais vemos nossos próprios processos.
