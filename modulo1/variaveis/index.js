@@ -61,8 +61,8 @@ console.log("O novo valor de b é", b)
 
 //Desafio//
 
-let valorUser1 = prompt("Olá. Informe o primeiro valor:")
-let valorUser2 = prompt("Agora, informe o segundo valor:")
+let valorUser1 = Number(prompt("Olá. Informe o primeiro valor:"))
+let valorUser2 = Number(prompt("Agora, informe o segundo valor:"))
 
 console.log("O primeiro número somado ao segundo resulta em", valorUser1+valorUser2)
 console.log("O primeiro número multiplicado pelo segundo resulta em", valorUser1*valorUser2)
