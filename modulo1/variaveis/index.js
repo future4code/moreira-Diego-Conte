@@ -38,13 +38,17 @@ console.log(typeof nome1, typeof idade1)
 
  //Exercício 2//
 
- let almocouHoje = prompt("Você já almoçou hoje?")
- let codouHoje = prompt("Você já programou em JavaScript hoje?")
- let aulaFer = prompt("Você gostou da aula da Fer hoje?")
+ let almocouHoje = "Você já almoçou hoje?"
+ let codouHoje = "Você já programou em JavaScript hoje?"
+ let aulaFer = "Você gostou da aula da Fer hoje?"
 
- console.log("Você já almoçou hoje?", almocouHoje)
- console.log("Você já programou em JavaScript hoje?", codouHoje)
- console.log("Você gostou da aula da Fer hoje?", aulaFer)
+ let respostaAlmoco = prompt(almocouHoje)
+ let respostaCodou = prompt(codouHoje)
+ let respostaAula = prompt(aulaFer)
+
+ console.log(almocouHoje, respostaAlmoco)
+ console.log(codouHoje, respostaCodou)
+ console.log(aulaFer, respostaAula)
 
  //Exercício 3//
  
