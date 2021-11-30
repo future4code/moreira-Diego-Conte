@@ -107,3 +107,47 @@ let desconto = Number(prompt("Insira o desconto (sem sinais, só números):"))
 let calculoDesconto = gasto * 0.15
 
 console.log("O valor a ser pago com desconto é de", gasto - calculoDesconto, "Reais.")
+
+// Exercício 3
+// a)
+ let libra = 20
+ let kiloExeA = libra / 2.2046
+
+ console.log("20lb equivalem a", kiloExeA, "kg.")
+
+ // b)
+let onca = 10.5
+let kiloExeB = onca / 35.274
+
+console.log("10.5oz equivalem a", kiloExeB, "kg.")
+
+// c)
+let milhas = 100
+let metroExeC = milhas / 0.00062137
+
+console.log("100mi equivalem a", metroExeC, "m.")
+
+// d
+let pes = 50
+let metroExeD = pes / 3.2808
+
+console.log("50ft equivalem a", metroExeD, "m.")
+
+// e)
+let galao = 103.56
+let litroExeD = galao / 0.26417
+
+console.log("103.56gal equivalem a", litroExeD, "l.")
+
+// f)
+let xicara = 450
+let litroExeE = xicara / 0.24
+
+console.log("450 xic equivalem a", litroExeE, "l.")
+
+// g)
+let libra = Number(prompt("Informe a quantidade em Libras a ser convertida em kg:"))
+let kiloExeA = libra / 2.2046
+
+console.log(libra, "libras equivalem a", kiloExeA, "kg.")
+
