@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*EXERCÍCIOS DE INTERPRETAÇÃO
 
 Exercício 1
@@ -21,7 +20,8 @@ alert('Voce recebe ${horasDiaTrabalhadas/remuneraDiaria} por hora') */
 
 /*EXRCÍCIOS DE ESCRITA DE CÓDIGO
 Exercício 1*/
-=======
+
+
 //EXERCÍCIOS DE INTEPRETAÇÃO DE CÓDIGO//
 
 /*Exercício1
@@ -42,13 +42,11 @@ alert(`Voce recebe ${remuneraDiaria/cargaHorariaDiaria} por hora`) */
 //EXERCÍCIOS DE ESCRITA DE CÓDIGO//
 
 //Exercício 1//
->>>>>>> 6b3350a9b0c44fcabf6a742dc571876e99c69603
 let nome1
 let idade1
 
 console.log(typeof nome1, typeof idade1)
 
-<<<<<<< HEAD
 /* O console apresentará undefined undefined, isso porque as variáveis estão vazias,
 sem valores atribuídos. */
 
@@ -81,8 +79,6 @@ let exchanger = a
 a = b
 b = exchanger
 
-console.log("O novo valor de a é", a)
-=======
 /*O console imprimirá 'undefined undefined' porque não houve nenhuma atribuição
  de valor. Destaca-se que 'undefined' não é o mesmo de 'null'. */
 
@@ -120,22 +116,21 @@ a = b
 b = c
 
 console.log("O novo valor de a é", a) 
->>>>>>> 6b3350a9b0c44fcabf6a742dc571876e99c69603
 console.log("O novo valor de b é", b)
 
 
 //Desafio//
-<<<<<<< HEAD
+
 let valorUser1 = Number(prompt("Olá. Informe o primeiro valor:"))
 let valorUser2 = Number(prompt("Agora, informe o segundo valor:"))
 
 console.log("O primeiro número somado ao segundo resulta em:", valorUser1+valorUser2)
 console.log("O primeiro número multiplicado pelo segundo resulta em:", valorUser1*valorUser2)
-=======
+
 
 let valorUser1 = Number(prompt("Olá. Informe o primeiro valor:"))
 let valorUser2 = Number(prompt("Agora, informe o segundo valor:"))
 
 console.log("O primeiro número somado ao segundo resulta em", valorUser1+valorUser2)
 console.log("O primeiro número multiplicado pelo segundo resulta em", valorUser1*valorUser2)
->>>>>>> 6b3350a9b0c44fcabf6a742dc571876e99c69603
+console.log("O primeiro número multiplicado pelo segundo resulta em", valorUser1*valorUser2)
