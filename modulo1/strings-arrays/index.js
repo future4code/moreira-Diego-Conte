@@ -37,19 +37,18 @@
     console.log("Essas são as minhas comidas preferidas: ", favorDishes)
 
 //  b)
-    let myDishesSpliced = favorDishes
+    console.log(`Essas são as minhas comidas preferidas:`);
+    console.log(favorDishes[0]);
+    console.log(favorDishes[1]);
+    console.log(favorDishes[2]);
+    console.log(favorDishes[3]);
+    console.log(favorDishes[4]);
 
-    console.log("Essas são as minhas comidas preferidas: ", myDishesSpliced.splice(0,1))
-    console.log(myDishesSpliced.splice(0,1))
-    console.log(myDishesSpliced.splice(0,1))
-    console.log(myDishesSpliced.splice(0,1))
-    console.log(myDishesSpliced.splice(0,1))
-    
 //  c)
-    let myFavorDishes = ["Gnocchi", "Macarronada", "Berinjela", "Ovo frito", "Pão de queijo"]
-    const favorDishUser = prompt("Qual é a sua comida favorita?")
-    myFavorDishes[1] = favorDishUser
-    console.log(myFavorDishes)
+    let favorDishUser = prompt("Qual é a sua comida favorita?")
+    favorDishes[1] = favorDishUser
+
+    console.log(favorDishes)
  
 
 //      Exercício 3
