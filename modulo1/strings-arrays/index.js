@@ -37,13 +37,13 @@
     console.log("Essas são as minhas comidas preferidas: ", favorDishes)
 
 //  b)
-    console.log(`Essas são as minhas comidas preferidas:`);
-    console.log(favorDishes[0]);
-    console.log(favorDishes[1]);
-    console.log(favorDishes[2]);
-    console.log(favorDishes[3]);
-    console.log(favorDishes[4]);
-
+    console.log(`Essas são as minhas comidas preferidas: 
+    ${favorDishes[0]},
+    ${favorDishes[1]},
+    ${favorDishes[2]},
+    ${favorDishes[3]},
+    ${favorDishes[4]}`);
+   
 //  c)
     let favorDishUser = prompt("Qual é a sua comida favorita?")
     favorDishes[1] = favorDishUser
