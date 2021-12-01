@@ -72,3 +72,19 @@
     listaDeTarefasRemovidas.splice(tarefasRealizadas, 1)
 
     console.log(listaDeTarefasRemovidas)
+
+
+//                          DESAFIO
+//  Exercício 1
+const sentenceUser = prompt("Digite uma frase:")
+const sentenceSpliced = sentenceUser.split(" ")
+
+console.log(sentenceSpliced)
+
+
+//  Exercício 2
+const fruits = ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"]
+let positionOfFruit = fruits.indexOf("Abacaxi")
+console.log(` 
+    Índice da palavra Abacaxi: ${positionOfFruit}. 
+    Tamanho completo do array: ${fruits.length}.`)
