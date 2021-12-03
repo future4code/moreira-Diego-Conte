@@ -21,8 +21,8 @@ function calculaAreaRetangulo() {
   const alturaRetangulo = Number(prompt("Digite a altura do retângulo"))
   const baseRetangulo = Number(prompt("Digite a largura do retângulo"))
   const area = alturaRetangulo * baseRetangulo
-  return console.log(area)
-
+  
+  console.log(area)
 }
 
 // EXERCÍCIO 02
@@ -31,7 +31,7 @@ function imprimeIdade() {
   const anoNascimento = Number(prompt("E em que ano você nasceu"))
   const idadeUser = anoAtual - anoNascimento
 
-  return console.log(idadeUser)
+  console.log(idadeUser)
 }
 
 // EXERCÍCIO 03
@@ -39,7 +39,6 @@ function calculaIMC(peso, altura) {
     const imcUser = peso / (altura * altura)
 
   return imcUser
-
 }
 
 // EXERCÍCIO 04
@@ -48,7 +47,7 @@ function imprimeInformacoesUsuario() {
   const idadeUsuario = Number(prompt("E qual é a sua idade"))
   const emailUser = prompt("E qual é o seu e-mail?")
   
-  return console.log(`Meu nome é ${nomeUser}, tenho ${idadeUsuario} anos, e o meu email é ${emailUser}.`)
+  console.log(`Meu nome é ${nomeUser}, tenho ${idadeUsuario} anos, e o meu email é ${emailUser}.`)
 }
 
 // EXERCÍCIO 05
@@ -58,7 +57,7 @@ function imprimeTresCoresFavoritas() {
   corFavorita[1] = prompt("E qual é a sua segunda cor favorita?")
   corFavorita[2] = prompt("E qual é a sua terceira cor favorita?")
 
-  return console.log(corFavorita)
+  console.log(corFavorita)
 
 }
 
@@ -108,17 +107,45 @@ function checaIgualdadeDesconsiderandoCase(string1, string2) {
 
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
-  // implemente sua lógica aqui
+  const exe13AnoAtual = Number(prompt("Seja bem-vindo. Em que ano estamos?"))
+  const exe13AnoNascimento = Number(prompt("Em que ano nasceu a pessoa a quem pertence o RG que deseja verificar?"))
+  const exe13AnoCarteira = Number(prompt("Em que ano foi emitido o RG?"))
 
+  const exe13IdadeUser = exe13AnoAtual - exe13AnoNascimento
+
+  console.log(((exe13IdadeUser <= 20 && exe13AnoAtual - exe13AnoCarteira >= 5) || 
+  exe13IdadeUser < 50 && exe13AnoAtual - exe13AnoCarteira >= 10) || 
+  exe13IdadeUser >= 50 && exe13AnoAtual - exe13AnoCarteira >= 15)
 }
+  // O conteúdo abaixo não foi estudado ainda, mas valeu para mim como forma de estruturar o pensamento.
+  //
+  // if (exe13IdadeUser <= 20){
+  //   let booleanExe = exe13AnoAtual - exe13AnoCarteira >= 5
+  //   return(console.log(booleanExe))
+  // } if (exe13IdadeUser > 20 && exe13IdadeUser <= 50) {
+  //   let booleanExe = exe13AnoAtual - exe13AnoCarteira >= 10
+  //   return(console.log(booleanExe))
+  //   } else {
+  //     let booleanExe = exe13AnoAtual - exe13AnoCarteira >= 15
+  //     return(console.log(booleanExe))
+  // }
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
-  // implemente sua lógica aqui
+  const bissexto1 = ano % 400 === 0
+  const bissexto2 = ano % 4 === 0
+  const noBissexto = ano % 100 === 0 && ano % 400 !== 0
+  let yesBissexto = bissexto1 || (bissexto2 && !noBissexto)
+
+  return yesBissexto
 
 }
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
-  // implemente sua lógica aqui
+  const exe15ques1 = prompt("Você tem mais de 18 anos? Responda informando 'sim' ou 'não'.").toLocaleLowerCase()
+  const exe15ques2 = prompt("Você possui ensino médio completo? Responda informando 'sim' ou 'não'.").toLocaleLowerCase()
+  const exe15ques3 = prompt("Você possui disponibilidade exclusiva durante os horários do curso? Responda informando 'sim' ou 'não'.").toLocaleLowerCase()
+  
+  console.log(exe15ques1 == "sim" && exe15ques2 === "sim" && exe15ques3 === "sim")
 }
