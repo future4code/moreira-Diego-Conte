@@ -5,9 +5,15 @@ Esse repositório vai acompanhar vocês até o final do curso, para mantermos a 
 ```
 .
 ├── modulo1
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   └── nome-do-projeto
+│   ├── Aula-Git
+│   └── Projeto-Readme-no-VSCode
+|
+│   ├── Aula-Variaveis
+│   ├── Aula-Operadores-e-Logica-de-Programacao
+│   ├── Aula-Strings-e-Arrays
+│   ├── Aula-Funcoes
+│   └── Projeto-Lista-de-Introducao-ao-JavaScript
+|   
 |
 ├── modulo2
 │   ├── nome-da-aula
