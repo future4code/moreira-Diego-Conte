@@ -31,7 +31,7 @@ EXERCÍCIO 1
 */
 
 //a), b) e c)
-/*
+
 const howManyAnimals = Number(prompt("Informe a quantidade de pets que você possui:"))
 let i = 0
 const namePets = []
@@ -48,8 +48,8 @@ if(howManyAnimals === 0){
 
 
 //EXERCÍCIO 1
-*/
-const originalArray = [20, 40, 60, 80, 11, 31, 51, 71, 91]/*
+
+const originalArray = [20, 40, 60, 80, 11, 31, 51, 71, 91]
 let index = 0
 
 //a)
@@ -90,7 +90,7 @@ while(index < originalArray.length){
     index ++
 }   
 console.log(arrayStrings)
-*/
+
 
 //e)
 
