@@ -66,7 +66,7 @@ const onlyBreed = (item) => {
 }
 
 const makingMessage = (item) =>{
-    let message = [`Você ganhou um cupom de desconto de 10% para tosar o/a ${item.nome}`]
+    let message = `Você ganhou um cupom de desconto de 10% para tosar o/a ${item.nome}`
     return message
 }
 
@@ -101,7 +101,7 @@ console.log(nameProducts)
 
 //b)
 const nameAndPrice = (item) => {
-    let namePrice = [item.nome, ((item.preco - ((item.preco * 5) / 100)).toFixed(2))]
+    let namePrice = [item.nome, (item.preco * 0.95).toFixed(2)]
     return namePrice
 }
 
@@ -137,3 +137,40 @@ const messageYpe =(item) => {
 
 const messageMarket = onlyYpe.map(messageYpe)
 console.log(messageMarket)
+
+
+
+//----------------------------------DESAFIOS
+
+
+
+//   Exercício 1
+//a)
+const pokemons = [
+    { nome: "Bulbasaur", tipo: "grama" },
+    { nome: "Bellsprout", tipo: "grama" },
+    { nome: "Charmander", tipo: "fogo" },
+    { nome: "Vulpix", tipo: "fogo" },
+    { nome: "Squirtle", tipo: "água" },
+    { nome: "Psyduck", tipo: "água" },
+ ]
+
+ const sortingPokemons = (item) => {
+     let justNames = item.nome
+     return justNames
+ }
+
+ const orderedNames = pokemons.map(sortingPokemons).sort()
+ console.log(orderedNames)
+
+ 
+ //b)
+ const filteringTypesOfPokemons = (item) => {
+     let typesOnly = item.tipo
+     return typesOnly
+ }
+ 
+ const redundantTypes = pokemons.map(filteringTypesOfPokemons)
+ const onceTypeOnly = [...new Set(redundantTypes)];
+ console.log(onceTypeOnly)
+
