@@ -30,7 +30,7 @@ a)  Será impresso o novoArrayC filtrando os apelidos diferentes de "Chijo"
 
     Exercício 1
 */
-/*
+
 const pets = [
     { nome: "Lupin", raca: "Salsicha"},
     { nome: "Polly", raca: "Lhasa Apso"},
@@ -77,7 +77,7 @@ console.log(messages)
 
 //   Exercício 2
 
-*/
+
 const produtos = [
     { nome: "Alface Lavada", categoria: "Hortifruti", preco: 2.5 },
     { nome: "Guaraná 2l", categoria: "Bebidas", preco: 7.8 },
@@ -90,7 +90,7 @@ const produtos = [
     { nome: "Berinjela kg", categoria: "Hortifruti", preco: 8.99 },
     { nome: "Sabão em Pó Ypê", categoria: "Limpeza", preco: 10.80 }
 ]
-/*
+
 //a)
 const lineProducts = (item) =>{
     return item.nome
@@ -117,7 +117,7 @@ const filterBeverages = (item) => {
 
 const beveragesOnly = produtos.filter(filterBeverages)
 console.log(beveragesOnly)
-*/
+
 
 //d)
 const seekingYpe = (item) => {
