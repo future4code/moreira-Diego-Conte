@@ -1,64 +1,108 @@
-let card1User;
-let card2User;
-let card1Pc;
-let card2Pc;
-let scoreUser;
-let scorePc;
+//-------------------------------------------------------------- VARs
+let cardUser = [];
+let cardPc = [];
+let scoreUser = [];
+let scorePc = [];
+let allUserSuits = " ";
+let allPcSuits = " ";
 
-
-function messages(){
-   //Winner or looser
-   if(scoreUser > scorePc){
-      alert("Você venceu! ^^");
-   } else if(scoreUser === scorePc) {
-      alert("Empate. Vamos à melhor de 3! ^^")
-   } else {
-      alert("O computador venceu! ^^")
-}
+//-------------------------------------------------------------- MINOR FUNCTIONS
+const arrayOfPoints = (item) => { // Return all points in array
+   return item.valor
 }
 
-//Game
+const arrayOfSuits = (item) =>{ // Return all suits in array
+   return item.texto
+}
 
-alert("Boas-vindas ao jogo de Blackjack!");
-let welcomeQuestion = confirm("Quer iniciar uma nova rodada?");
+function totalScore(array){ // Return total points
+   let totalPoints = 0
+   for(let i = 0; i < array.length; i++){
+      totalPoints = totalPoints + array[i]
+   } return totalPoints
+}
 
-function myBlackjack(){
-   if(welcomeQuestion === true){
-      card1User = comprarCarta()
-      card2User = comprarCarta()
-      card1Pc = comprarCarta()
-      card2Pc = comprarCarta()
+function suits(array){ // Return string of suits
+   let suits = ""
+   for(let i = 0; i < array.length; i++){
+      suits = suits + array[i] + "  "
+   } return suits
+}
 
-         if((card1User && card2User === "A") || (card1Pc && card2Pc === "A")){
-         cards();
-         }
+function returnAllUserSuits(){ // Calls functions 'arrayOfSuits' and 'suits' to return user's suits
+   return ((allUserSuits = cardUser.map(arrayOfSuits)), allUserSuits = suits(allUserSuits))
+}
 
-      scoreUser = card1User.valor + card2User.valor
-      scorePc = card1Pc.valor + card2Pc.valor
-   
-      alert(`
-      Você tirou as cartas ${card1User.texto} e ${card2User.texto}, totalizando ${scoreUser} pontos.
-      O computador tirou as cartas ${card1Pc.texto} e ${card2Pc.texto}, totalizando ${scorePc} pontos.`);
+function returnAllPCSuits(){ // Calls functions 'arrayOfSuits' and 'suits' to return Pc's suits
+   return ((allPcSuits = cardPc.map(arrayOfSuits)), allPcSuits = suits(allPcSuits))
+}
 
-         if(scoreUser > scorePc){
-            alert("Você venceu! ^^");
-         } else if(scoreUser === scorePc) {
-            alert("Empate. Vamos à melhor de 3! ^^")
-         } else {
-            alert("O computador venceu! ^^")
-         }
+//-------------------------------------------------------------- START
+let welcomeQuestion = confirm(`Boas-vindas ao jogo de Blackjack! 
+Quer iniciar uma nova rodada?`);
 
-   } else {
-      alert("O jogo acabou.")
-   }
-
-
-let playAgain = confirm("Deseja jogar novamente?")
-if(playAgain=== true){
+if(welcomeQuestion === true){
    myBlackjack()
 } else {
-   alert("Você pode fechar esta página.")
-}
+   alert("O jogo encerrou. Você pode fechar esta página.")
 }
 
-myBlackjack()
+//-------------------------------------------------------------- MAIN FUNCTION
+function myBlackjack(){
+   let i = 0
+   while(i < 2){
+      cardUser.push(comprarCarta())
+      cardPc.push(comprarCarta())
+      i++
+   }
+
+   if((cardUser[0].texto && cardUser[1].texto === "A") || (cardPc[0].texto && cardPc[1].texto === "A")){
+      myBlackjack()
+   }
+   
+   scoreUser = cardUser.map(arrayOfPoints); scoreUser = totalScore(scoreUser) //Adds user's points
+   scorePc = cardPc.map(arrayOfPoints); scorePc = totalScore(scorePc) // Adds computers's points
+   
+   if(scoreUser === 21 && scorePc === 21){
+      alert("Você: " + scoreUser + " pontos. Cartas: " + returnAllUserSuits() + "\n" +
+            "Computador: " + scorePc + " pontos. Cartas: " + returnAllPCSuits() + "\n" +
+            "A partida finaliou empatada.")  
+   } 
+   
+   let anotherCard = confirm("Você totaliza " + scoreUser + " pontos. Suas cartas são " + returnAllUserSuits() + "\n" +
+                           "O computador revelou a carta " + cardPc[0].texto + "\n" + 
+                           "\n" +
+                           "Deseja tirar outra carta?")
+   
+   while(anotherCard === true && scoreUser <= 21){
+      cardUser.push(comprarCarta())
+      scoreUser = cardUser.map(arrayOfPoints); scoreUser = totalScore(scoreUser)
+      if(scoreUser > 21) {
+      alert("Você: " + scoreUser + " pontos. Cartas: " + returnAllUserSuits() + "\n" +
+            "Computador: " + scorePc + " pontos. Cartas: " + returnAllPCSuits() + "\n" +
+            "\n" +
+            "O Computador ganhou!")
+      } else {
+         anotherCard = confirm(" As suas cartas são " + returnAllUserSuits() + "\n" +
+                               "\n" +
+                               "Deseja tirar outra carta?")}
+   }
+   
+   if(anotherCard === false){
+      while(scorePc < scoreUser || scorePc < 21){
+         cardPc.push(comprarCarta())
+         scorePc = cardPc.map(arrayOfPoints); scorePc = totalScore(scorePc)
+         if (scorePc === 21 && scoreUser === 21){
+            alert("Você: " + scoreUser + " pontos. Cartas: " + returnAllUserSuits() + "\n" +
+                  "Computador: " + scorePc + " pontos. Cartas: " + returnAllPCSuits() + "\n" +
+                  "\n" +
+                  "A partida termina empatada.")
+         } else if(scorePc > 21) {
+            alert("Você: " + scoreUser + " pontos. Cartas: " + returnAllUserSuits() + "\n" +
+                  "Computador: " + scorePc + " pontos. Cartas: " + returnAllPCSuits() + "\n" +
+                  "\n" +
+                  "Você ganhou!")
+         }
+      }
+   }
+}
