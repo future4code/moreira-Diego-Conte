@@ -6,7 +6,6 @@
 Exercício 1
 */
 
-/*
 alert("Boas-vindas ao jogo de Blackjack!")
 let welcomeQuestion = confirm("Quer iniciar uma nova rodada?")
 
@@ -45,4 +44,3 @@ if(playAgain=== true){
 }
 
 myBlackjack()
-*/
