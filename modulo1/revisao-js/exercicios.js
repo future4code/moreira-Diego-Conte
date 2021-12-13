@@ -54,12 +54,32 @@ function retornaMaiorNumero(array) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
+    let object = {}
+    let maiorMenor = 0
+    let menor = 0
+    if(num1 > num2){
+        object.maiorNumero = num1
+        maiorMenor = num1 - num2
+        menor = num2
+    } else {
+        object.maiorNumero = num2
+        maiorMenor = num2 - num1
+        menor = num1
+    }
 
+    if(object.maiorNumero % menor === 0){
+        object.maiorDivisivelPorMenor = true
+    } else {
+        object.maiorDivisivelPorMenor = false
+    }
+    object.diferenca = maiorMenor
+
+    return object
 }
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-   
+       
 }
 
 // EXERCÍCIO 09
