@@ -133,7 +133,12 @@ function retornaPessoaAnonimizada(pessoa) {
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
-   
+//     const novaPessoas = []
+//     for(let i = 0; i < pessoas.length; i++)
+//     if(pessoas.altura > 1.5 && pessoas.idade > 14 && pessoas.idade < 60){
+//         novaPessoas.push(pessoas)
+//    }
+//    return novaPessoas
 }
 
 // EXERCÍCIO 13B
@@ -148,12 +153,23 @@ function retornaContasComSaldoAtualizado(contas) {
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  
+    let result = {}
+    consultas.sort(function (a, b){
+        let aMin = a.nome.toLowerCase()
+        let bMin = b.nome.toLowerCase()
+        return aMin === bMin ? 0 : aMin > bMin ? 1 : -1;
+    })
+    return consultas
 }
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-   
+    consultas.sort(function (a, b){
+        let aToDate = Date(a.dataDaConsulta)
+        let bToDate = Date(b.dataDaConsulta)
+        return aToDate - bToDate
+    }) 
+    return consultas
 }
 
 
