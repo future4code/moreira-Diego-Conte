@@ -15,12 +15,16 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
+  array.sort((a, b) => a - b);
+  return array
 }
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
+    const pairs = (item) => {
+        return item % 2 === 0
+    }
+    return array.filter(pairs)
 }
 
 // EXERCÍCIO 05
@@ -87,3 +91,15 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 function retornaArrayOrdenadoPorData(consultas) {
    
 }
+
+
+//Desafios
+// function retornaNumerosPares(array) {
+//     let i = 0
+//     let NewArray = []
+//     while(i < array.length){
+//       if(array[i] % 2 === 0){
+//          NewArray.push(array[i])
+//       } i++
+//   } return NewArray
+// }
