@@ -79,12 +79,31 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-       
+    let multiplicado = n * 2
+    let regressivo = 0
+    let i = multiplicado - 1
+    let pares = []
+    while(i !== 0){
+        if(regressivo % 2 === 0){
+            pares.push(regressivo)
+            regressivo += 1
+            i--
+        } else{
+            regressivo += 1
+            i--
+        }
+    } return pares
 }
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-
+    if(ladoA === ladoB && ladoB === ladoC && ladoA === ladoC){
+        return "Equilátero"
+    } else if (ladoA === ladoB || ladoB === ladoC || ladoA === ladoC){
+        return "Isósceles"
+    } else {
+        return "Escaleno"
+    }
 }
 
 // EXERCÍCIO 10
