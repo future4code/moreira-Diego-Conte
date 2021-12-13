@@ -108,12 +108,18 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  
+
 }
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-   
+    const atores = []
+    
+    for(let i = 0; i < filme.atores.length; i++)
+    atores.push(` ${filme.atores[i]}`)
+    
+    const chamada = `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${atores}.`   
+    return chamada
 }
 
 // EXERCÍCIO 12
