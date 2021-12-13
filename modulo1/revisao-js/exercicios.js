@@ -29,7 +29,17 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+    const onlyPairs = (item)  => {
+        let pairs = item % 2 === 0
+        return pairs
+    }
+    
+    const pairs = array.filter(onlyPairs)
+    let squared = []
+
+    for(let i = 0; i < pairs.length; i ++){
+       squared[i] = pairs[i] ** 2
+    } return squared
 }
 
 // EXERCÍCIO 06
