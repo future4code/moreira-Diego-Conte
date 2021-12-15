@@ -1,0 +1,221 @@
+/*               INDEX *
+----------------------------------------------------------------------------------------------------------------------------*/
+
+body{
+    background-color: rgb(194, 196, 202);
+}
+
+p{
+    font-size: 20px;
+}
+
+#menuCtrlEstoque{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+#menuAddProduto{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+#menuFuncionarios{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+
+
+
+#logo img{
+    float: left;
+    border: transparent thin solid;
+    padding: 5px;
+    margin: 0px 10px 10px 0;
+    max-width: 90px;
+}
+
+#welcome {
+    color: blueviolet;
+    display: inline;
+}
+
+#slogan{
+    font-size: small;
+    
+}
+
+#SocialMideasImages img{
+    max-width: 30px;
+    max-width: 30px;
+    width: auto;
+    height: auto;
+    margin-left: 50px;
+}
+
+
+/*               FUNCIONÁRIOS *
+----------------------------------------------------------------------------------------------------------------------------*/
+
+#menuInicialAbaFuncionarios{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+#menuAddProdutoAbaFuncionarios{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+#menuCtrlEstoqueAbaFuncionarios{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+#logo img{
+    float: left;
+    border: transparent thin solid;
+    padding: 5px;
+    margin: 0px 10px 10px 0;
+    max-width: 90px;
+}
+
+
+
+
+/*               ABA ADICIONAR PRODUTO *
+----------------------------------------------------------------------------------------------------------------------------*/
+
+#menuInicialAbaAddProduto{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+#menuCtrlEstoqueAbaAddProduto{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+#menuFuncionariosAbaAddProduto{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+#logo img{
+    float: left;
+    border: transparent thin solid;
+    padding: 5px;
+    margin: 0px 10px 10px 0;
+    max-width: 90px;
+}
+
+
+/*               ABA CONTROLE DE ESTOQUE *
+----------------------------------------------------------------------------------------------------------------------------*/
+
+#menuAddProdutoAbaCtrlEstoque{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+#menuFuncionariosAbaCtrlEstoque{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+#menuInicialAbaCtrlEstoque{
+    float: right;
+    display:inline-table;
+    font: 16px Arial;
+    background-color: rgb(227, 233, 173);
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+#logo img{
+    float: left;
+    border: transparent thin solid;
+    padding: 5px;
+    margin: 0px 10px 10px 0;
+    max-width: 90px;
+}
+
+
+/*               RODAPÉ *
+----------------------------------------------------------------------------------------------------------------------------*/
+footer{
+    float:bottom;
+    font: 16px Arial;
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 1px;
+    
+}
