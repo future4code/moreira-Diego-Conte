@@ -1,20 +1,45 @@
-/*               INDEX *
+/*               GERAL
 ----------------------------------------------------------------------------------------------------------------------------*/
 
 body{
-    background-color: rgb(194, 196, 202);
+    background-color: rgb(216, 219, 226);
 }
 
-p{
+#textoCorpo{
     font-size: 20px;
+    text-align: justify;
 }
+
+
+footer{
+    position: relative;
+    bottom: 0;
+    padding-bottom: 30px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+    font-size: 17px;
+    
+}
+
+button{
+    background-color: rgb(194, 196, 202);
+    float: left;
+    font: 16px Arial;
+    margin-right: 1px;
+    border: 1px solid;
+}
+
+
+/*               INDEX
+----------------------------------------------------------------------------------------------------------------------------*/
 
 #menuCtrlEstoque{
     float: right;
-    display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
@@ -22,27 +47,23 @@ p{
 
 #menuAddProduto{
     float: right;
-    display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
+    text-decoration: none;
 }
 
 #menuFuncionarios{
     float: right;
-    display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
+    text-decoration: none;
 }
-
-
 
 
 #logo img{
@@ -54,7 +75,7 @@ p{
 }
 
 #welcome {
-    color: blueviolet;
+    color: rgb(138, 43, 226);
     display: inline;
 }
 
@@ -79,8 +100,7 @@ p{
     float: right;
     display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
@@ -90,8 +110,7 @@ p{
     float: right;
     display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
@@ -101,8 +120,7 @@ p{
     float: right;
     display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
@@ -126,8 +144,7 @@ p{
     float: right;
     display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
@@ -137,8 +154,7 @@ p{
     float: right;
     display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
@@ -148,8 +164,7 @@ p{
     float: right;
     display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
@@ -171,8 +186,7 @@ p{
     float: right;
     display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
@@ -182,8 +196,7 @@ p{
     float: right;
     display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
@@ -193,8 +206,7 @@ p{
     float: right;
     display:inline-table;
     font: 16px Arial;
-    background-color: rgb(227, 233, 173);
-    text-align: center;
+    background-color: rgb(194, 196, 202);
     padding: 1px 5px;
     margin-right: 1px;
     border: 1px solid;
