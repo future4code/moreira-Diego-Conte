@@ -113,3 +113,74 @@ for(let i = 0; i < array.length; i ++){
 }
 
 console.log(`O maior número é ${maiorNumero(originalArray)} e o menor é ${menorNumero(originalArray)}`)
+
+
+
+
+// -------------------------- DESAFIOS
+
+//  Exercício 1
+
+const NumberFirstPlayer = Number(prompt("Informe um número:"))
+let numberSecondPlayer
+let tries = 0
+
+alert("Vamos jogar")
+
+if(numberSecondPlayer !== NumberFirstPlayer){
+        while(numberSecondPlayer !== NumberFirstPlayer){
+        numberSecondPlayer = Number(prompt("Descubra o número:"))
+        tries++
+        if(numberSecondPlayer !== NumberFirstPlayer){
+            let maiorOuMenor
+            if(numberSecondPlayer > NumberFirstPlayer){
+                maiorOuMenor = "menor"
+            } else{
+                maiorOuMenor = "maior"
+            }
+            alert(`Você tentou o número ${numberSecondPlayer}. Errrrrrrou, o número escolhido é ${maiorOuMenor}. Tente de novo!`)
+        }
+}
+} alert(`Acertou!!!
+O número de tentativas foi ${tries}.`)
+
+alert("Pressione a tecla 'F5' para jogar novamente.")
+
+
+
+//-----------------------------------------------------------------------------------
+
+//  Exercício 2
+
+function getRandom(max) {
+    return Math.floor(Math.random() * max + 1)
+}
+
+const matchNumber = getRandom(100)
+let numberPlayer
+let triesWithRandom = 0
+
+alert("Vamos jogar")
+
+if(numberPlayer !== matchNumber){
+        while(numberPlayer !== matchNumber){
+            numberPlayer = Number(prompt("Descubra o número:"))
+        triesWithRandom++
+        if(numberPlayer !== matchNumber){
+            let maiorOuMenor
+            if(numberPlayer > matchNumber){
+                maiorOuMenor = "menor"
+            } else{
+                maiorOuMenor = "maior"
+            }
+            alert(`Você tentou o número ${numberPlayer}. Errrrrrrou, o número escolhido é ${maiorOuMenor}. Tente de novo!`)
+        }
+}
+} alert(`Acertou!!!
+O número de tentativas foi ${triesWithRandom}.`)
+
+alert("Pressione a tecla 'F5' para jogar novamente.")
+
+// A adaptação no exercício 2 do desafio não foi difícil, mas isso somente se considerada 
+// a possibilidade de se pesquisar funções. Caso tivesse de elaborar todas, não as teria
+// terminado ainda.
