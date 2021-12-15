@@ -3,7 +3,7 @@
 
 body{
     background-color: rgb(216, 219, 226);
-}
+    }
 
 #textoCorpo{
     font-size: 20px;
@@ -81,8 +81,8 @@ button{
 
 #slogan{
     font-size: small;
-    
 }
+
 
 #SocialMideasImages img{
     max-width: 30px;
