@@ -144,3 +144,8 @@ td button {
 #container-do-search table, th, td{
     text-align: center;
 }
+
+#container-do-search table, img{
+    width: 40px !important;
+    height: auto !important;
+}
