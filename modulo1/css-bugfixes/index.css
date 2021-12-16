@@ -73,10 +73,6 @@ div img {
     text-align: center;
 }
 
-/* #container-de-descricao p{
-
-} */
-
 #container-de-descricao>ol {
     padding: 15px 0px;
 }
@@ -120,6 +116,11 @@ td button {
     border-radius: 5px;
     color: black;
 }
+
+td button:hover {
+    background-color:#c44f00;
+}
+
 
 .container-do-search {
     margin-top: 20px;
