@@ -85,6 +85,12 @@ div img {
     font-size: 60px;
 }
 
+#container-para-comprar button{
+    position:absolute;
+    bottom: -10%;
+    left: 40%;
+}
+
 
 /**
   *
