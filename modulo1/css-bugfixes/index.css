@@ -69,8 +69,8 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    padding-top: 60px;
-    text-align: center;
+    padding: 0%;
+    font-family: 'Roboto', sans-serif;
 }
 
 #container-de-descricao>ol {
@@ -85,12 +85,14 @@ div img {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
+    font-family: 'Roboto', sans-serif;
 }
 
 #container-para-comprar button{
     position:absolute;
-    bottom: -15%;
+    bottom: -35%;
     left: 40%;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -115,6 +117,7 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+    font-family: 'Roboto', sans-serif;
 }
 
 td button:hover {
@@ -136,6 +139,7 @@ td button:hover {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    font-family: 'Roboto', sans-serif;
 }
 
 #back-button:hover {
@@ -144,6 +148,7 @@ td button:hover {
 
 #container-do-search table, th, td{
     text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 #container-do-search table, img{
