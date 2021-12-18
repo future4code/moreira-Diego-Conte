@@ -11,79 +11,96 @@
 }
 
 header{
-    margin: 10px;
-    padding: 40px;
-}
-
-.footer{
-    position: absolute;
-    bottom: 0;
+    position: sticky;
+    top: 0;
     width: 100%;
-    padding-bottom: 30px;
+    padding-top: 25px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
 }
 
 
-.logo, img{
-    width: 80px;
-    display:inline;
+.logo img{
+    width: 60px;
+    padding-left: 130px;
 }
 
 .galery{
     float: right;
     font: 19px Roboto;
-    text-decoration: rgb(51, 41, 192);
+    text-decoration: rgb(0, 121, 250);
     padding: 7px 15px;
-    margin-right: 10px;
+    margin-right: 20px;
     cursor: pointer;
     transition: background .3s;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
-    border-color:rgb(51, 41, 192);
+    border-color:rgb(94, 154, 218);
 }
 
-.contact{
+.experiencia{
     float: right;
     font: 19px Roboto;
-    text-decoration: rgb(51, 41, 192);
+    text-decoration: rgb(0, 121, 250);
     padding: 7px 15px;
-    margin-right: 10px;
+    margin-right: 130px;
     cursor: pointer;
     transition: background .3s;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
-    border-color:rgb(51, 41, 192);
+    border-color:rgb(94, 154, 218);
+}
+
+.experiencia-galery{
+    float: right;
+    font: 19px Roboto;
+    text-decoration: rgb(0, 121, 250);
+    padding: 7px 15px;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: background .3s;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color:rgb(94, 154, 218);
 }
 
 .home{
+    text-decoration: none;
     float: right;
     font: 19px Roboto;
-    text-decoration: rgb(51, 41, 192);
+    text-decoration: rgb(0, 121, 250);
     padding: 7px 15px;
-    margin-right: 10px;
+    margin-right: 130px;
     cursor: pointer;
     transition: background .3s;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
-    border-color:rgb(51, 41, 192);
+    border-color:rgb(94, 154, 218);
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
 }
 
 .text-footer{
-    font: 20px Roboto;
-    display: block;
+    border-radius: 2px;
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .medias-footer img{
-    margin-bottom: 30px;
-    margin-top: 50px;
-    width: 50px;
-    margin-left: 50px;
+    margin-top: 5px;
+    width: 40px;
+    margin-left: 40px;
     text-align: center;
 }
-
 
 
 /***
@@ -108,20 +125,184 @@ header{
     font-style: italic;
 }
 
+.titles-index{
+    text-align: center;
+    padding-top: 2%;
+    margin-bottom: -100px;
+}
+
 .titles-index img{
-    margin-top: 80px;
-    margin-inline: 510px;
-    border-radius: 200px;
     width: 270px;
+}
+
+.paragraph-index{
+    background-color: rgb(213, 233, 255);
+    border-radius: 8px;
 }
 
 .paragraph-index h2{
     margin-top: 80px;
     margin-bottom: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     font: 25px Roboto;
     text-align: center;
     margin-inline: 250px;
     line-height: 40px;
+}
+
+.soft-skills{
+    display: block;
+    padding-right: 30%;
+}
+
+.soft-skills h1{
+    padding-top: 80px;
+    text-align: center;
+    font: 30px Roboto;
+    font-style: italic;
+}
+
+.soft-skills p{
+    text-align: justify;
+    padding-top: 60px;
+    padding-left: 130px;
+    font: 25px Roboto;
+    line-height: 40px;
+    padding-right: 25px;
+}
+
+
+.hard-skills{
+    display: block;
+    padding-left: 30%;
+    padding-right: 8%;
+}
+
+.hard-skills h1{
+    padding-top: 80px;
+    text-align: center;
+    font: 30px Roboto;
+    font-style: italic;
+}
+
+.hard-skills p{
+    text-align: justify;
+    padding-top: 60px;
+    padding-left: 25px;
+    padding-right: 130px;
+    font: 25px Roboto;
+    line-height: 40px;
+    padding-right: 25px;
+}
+
+.say-hello{
+    display: block;
+    text-align: center;
+    background-color: rgb(213, 233, 255);
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 130px;
+    padding-right: 130px;
+    margin-top: 80px;
+    border-radius: 8px;
+}
+
+.say-hello p{
+    text-align: left;
+    font: 25px Roboto;
+    padding-bottom: 50px;
+}
+
+.say-hello form{
+    font: 20px Roboto;
+    text-align: left;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+fieldset{
+    border: none;
+}
+
+.form-contact-name-user{
+    display: block;
+    margin-bottom: 20px;
+    position:relative;
+    width:500px;
+    height:30px;
+    border-width: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 3px;
+    border-color: rgb(94, 154, 218);
+    background-color: rgb(213, 233, 255);
+    font: 18px Roboto;
+}
+
+.form-contact-email-user{
+    display: block;
+    margin-bottom: 20px;
+    position:relative;
+    width:500px;
+    height:30px;
+    border-width: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 3px;
+    border-color: rgb(94, 154, 218);
+    background-color: rgb(213, 233, 255);
+    font: 18px Roboto;
+}
+
+.form-contact-message-user{
+    display: block;
+    margin-bottom: 20px;
+    position:relative;
+    width:800px;
+    height:200px;
+    border-width: 2px;
+    border-radius: 3px;
+    border-color: rgb(94, 154, 218);
+    background-color: rgb(213, 233, 255);
+    font: 18px Roboto;
+}
+
+.form-contact-name-user:hover{
+    background-color: rgb(159, 188, 219);
+}
+
+.form-contact-email-user:hover{
+    background-color: rgb(159, 188, 219);
+}
+
+.form-contact-message-user:hover{
+    background-color: rgb(159, 188, 219);
+}
+
+.form-contact-button{
+    margin-top: 30px;
+}
+
+.btn-submit{
+    width:150px;
+    height:30px;
+    margin-left: 655px;
+    border-width: 2px;
+    border-radius: 9px;
+    border-color: rgb(94, 154, 218);
+    background-color: rgb(213, 233, 255);
+    font: 20px Roboto;
+}
+
+.btn-submit:active{
+    color: blue;
+}
+
+.btn-submit:hover{
+    background-color: rgb(159, 188, 219);
 }
 
 
