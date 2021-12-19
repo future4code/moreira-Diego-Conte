@@ -133,6 +133,7 @@ header{
 
 .titles-index img{
     width: 270px;
+    border-radius: 250px;
 }
 
 .paragraph-index{
@@ -287,14 +288,17 @@ fieldset{
 }
 
 .btn-submit{
-    width:150px;
-    height:30px;
-    margin-left: 655px;
+    float: right;
+    font: 19px Roboto;
+    padding: 7px 15px;
+    margin-right: 241px;
+    cursor: pointer;
+    transition: background .3s;
+    border-style: solid;
     border-width: 2px;
-    border-radius: 9px;
-    border-color: rgb(94, 154, 218);
-    background-color: rgb(213, 233, 255);
-    font: 20px Roboto;
+    border-radius: 10px;
+    border-color:rgb(94, 154, 218);
+    background:rgb(213, 233, 255);
 }
 
 .btn-submit:active{
@@ -312,35 +316,129 @@ fieldset{
     *
     ***/
 
-.title-and-sub h1, h2{
-    padding: 7px 15px;
-    margin-right: 10px;
+.formacao h1{
+    margin-top: 40px;
+    margin-bottom: 5px;
     text-align: center;
+    font: 35px Roboto;
 }
 
-.title-and-sub h1{
-    font: 50px Roboto;
-    font-weight: bolder;
+.formacao h2{
+    margin-top: 5px;
+    margin-bottom: 80px;
+    text-align: center;
+    font: 27px Roboto;
+    font-style: italic;
 }
 
-.title-and-sub h2{
+.experiencia-geral-back-azul{
+    display: block;
+    padding-right: 30%;
+    background-color: rgb(213, 233, 255);
+    border-radius: 7px;
+    text-align: right;
+}
+
+.experiencia-geral-back-azul h1{
+    padding-top: 40px;
+    padding-left: 130px;
+    text-align: left;
     font: 30px Roboto;
     font-style: italic;
 }
 
-.titles-index img{
-    margin-top: 80px;
-    margin-inline: 510px;
-    border-radius: 200px;
-    width: 270px;
+.experiencia-geral-back-azul h2{
+    padding-top: 10px;
+    padding-left: 130px;
+    text-align: left;
+    font: 19px Roboto;
 }
 
-.paragraph-index h2{
-    margin-top: 80px;
-    margin-bottom: 100px;
-    font: 25px Roboto;
-    text-align: center;
-    margin-inline: 250px;
-    line-height: 40px;
+.experiencia-geral-back-azul p{
+    text-align: justify;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-left: 130px;
+    padding-right: 25px;
+    font: 22px Roboto;
+    line-height: 30px;   
 }
 
+.img-ufsc img{
+    width: 14%;
+    position: absolute;
+    padding-left: 63px;
+    padding-bottom: 190px;
+}
+
+.experiencia-geral-back-branco{
+    display: block;
+    padding-left: 30%;
+    text-align: left;
+}
+
+.experiencia-geral-back-branco h1{
+    padding-top: 40px;
+    padding-right: 130px;
+    text-align: right;
+    font: 30px Roboto;
+    font-style: italic;
+}
+
+.experiencia-geral-back-branco h2{
+    padding-top: 10px;
+    padding-right: 130px;
+    text-align: right;
+    font: 19px Roboto;
+}
+
+.experiencia-geral-back-branco p{
+    text-align: justify;
+    padding-top: 20px;
+    padding-bottom: 100px;
+    padding-right: 130px;
+    padding-left: 25px;
+    font: 22px Roboto;
+    line-height: 30px;  
+}
+
+.img-labenu img{
+    width: 14%;
+    position: absolute;
+    margin-left: -253px;
+}
+
+.img-uniasselvi img{
+    width: 14%;
+    position: absolute;
+    padding-left: 63px;
+    padding-bottom: 190px;
+}
+
+.img-lumiere img{
+    width: 14%;
+    position: absolute;
+    margin-left: -253px;
+}
+
+
+.img-latam img{
+    width: 14%;
+    position: absolute;
+    padding-left: 63px;
+    padding-top: 85px;
+}
+
+.img-nantes img{
+    width: 14%;
+    position: absolute;
+    margin-left: -253px;
+    padding-top: 70px;
+}
+
+.img-min img{
+    width: 14%;
+    position: absolute;
+    margin-left: -253px;
+    padding-top: 10px;
+}
