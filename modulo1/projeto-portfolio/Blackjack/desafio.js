@@ -55,10 +55,10 @@ function myBlackjack() {
       cardPc.push(comprarCarta())
       i++
    }
-
-   if ((cardUser[0].texto && cardUser[1].texto === "A") || (cardPc[0].texto && cardPc[1].texto === "A")) {
-      alert(`Combinação de cartas não permitida. Reiniciando o jogo.`)
-      myBlackjack()
+  
+   if ((cardUser[0].texto === "A" && cardUser[1].texto === "A") || (cardPc[0].texto === "A" && cardPc[1].texto === "A")) {
+      alert(`A combinação atual de cartas não é permitida porque impossibilita a primeira rodada. Reinicie o jogo.`)
+      throw new Error("Needs to restart due to combination of cards");
    }
 
    scoreUser = cardUser.map(arrayOfPoints); scoreUser = totalScore(scoreUser) //Adds user's points
@@ -74,8 +74,7 @@ function myBlackjack() {
       "O computador revelou a carta " + cardPc[0].texto + "\n" +
       "\n" +
       "Deseja tirar outra carta?")
-   console.log(anotherCard)
-   console.log(scorePc)
+  
 
    while (anotherCard === true && scoreUser <= 21) {
       cardUser.push(comprarCarta())
@@ -100,7 +99,6 @@ function myBlackjack() {
    } else if (scorePc <= scoreUser && scoreUser <= 21) {
       while (scorePc <= scoreUser && scorePc <= 21) {
          cardPc.push(comprarCarta())
-         console.log(cardPc)
          scorePc = cardPc.map(arrayOfPoints); scorePc = totalScore(scorePc)
       }
       if (scorePc === 21 && scoreUser === 21) {
