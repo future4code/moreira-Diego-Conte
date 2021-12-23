@@ -26,57 +26,76 @@ header{
     padding-left: 130px;
 }
 
-.galery{
+.btn-projetos-in-index button{
     float: right;
     font: 19px Roboto;
     text-decoration: rgb(0, 121, 250);
+    background-color: rgb(213, 233, 255);
     padding: 7px 15px;
-    margin-right: 20px;
+    margin-top: -47px;
+    margin-right: 263px;
     cursor: pointer;
-    transition: background .3s;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     border-color:rgb(94, 154, 218);
 }
 
-.experiencia{
+.btn-trabalhos-in-index button{
     float: right;
     font: 19px Roboto;
     text-decoration: rgb(0, 121, 250);
+    background-color: rgb(213, 233, 255);
     padding: 7px 15px;
+    margin-top: -47px;
     margin-right: 130px;
     cursor: pointer;
-    transition: background .3s;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     border-color:rgb(94, 154, 218);
 }
 
-.experiencia-galery{
+.experiencia-galery button{
     float: right;
     font: 19px Roboto;
     text-decoration: rgb(0, 121, 250);
+    background-color: rgb(213, 233, 255);
     padding: 7px 15px;
-    margin-right: 20px;
+    margin-top: -47px;
+    margin-right: 235px;
     cursor: pointer;
-    transition: background .3s;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     border-color:rgb(94, 154, 218);
 }
 
-.home{
+.home button{
     text-decoration: none;
     float: right;
     font: 19px Roboto;
     text-decoration: rgb(0, 121, 250);
+    background-color: rgb(213, 233, 255);
     padding: 7px 15px;
+    margin-top: -47px;
     margin-right: 130px;
     cursor: pointer;
-    transition: background .3s;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color:rgb(94, 154, 218);
+}
+
+.btn-projetos-in-trabalhos button{
+    float: right;
+    font: 19px Roboto;
+    text-decoration: rgb(0, 121, 250);
+    background-color: rgb(213, 233, 255);
+    padding: 7px 15px;
+    margin-top: -47px;
+    margin-right: 235px;
+    cursor: pointer;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
@@ -505,6 +524,7 @@ fieldset{
 .btn-play{
     position: absolute;
     font: 25px Roboto;
+    font: blue;
     padding: 7px 75px;
     margin-left: 959px;
     margin-top: -180px;
