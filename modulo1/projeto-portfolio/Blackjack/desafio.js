@@ -86,7 +86,7 @@ function myBlackjack() {
          alert("Você: " + scoreUser + " pontos. Cartas: " + returnAllUserSuits() + "\n" +
             "Computador: " + scorePc + " pontos. Cartas: " + returnAllPCSuits() + "\n" +
             "\n" +
-            "O Computador ganhou!")
+            "O computador ganhou!")
       } else {
          anotherCard = confirm(" As suas cartas são " + returnAllUserSuits() + "\n" +
             "\n" +
@@ -98,7 +98,7 @@ function myBlackjack() {
       alert("Você: " + scoreUser + " pontos. Cartas: " + returnAllUserSuits() + "\n" +
          "Computador: " + scorePc + " pontos. Cartas: " + returnAllPCSuits() + "\n" +
          "\n" +
-         "O Computador ganhou!")
+         "O computador ganhou!")
    } else if (scorePc <= scoreUser && scoreUser <= 21) {
       while (scorePc <= scoreUser && scorePc <= 21) {
          cardPc.push(comprarCarta())
