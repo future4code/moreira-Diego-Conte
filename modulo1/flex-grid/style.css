@@ -1,17 +1,28 @@
+/***             GENERAL                ***/
+
+
 *{
     margin: 0;
     padding: 0;
 }
 
+body{
+    display: grid;
+}
+
+
+
+/***            HEADER                 ***/
+
 header{
     display: grid;
     background-color: mediumvioletred;
-    grid-template-columns: 35px 1fr 60px;
-    height: 50px;
+    grid-template-columns: 33px 1fr 88px;
+    height: 45px;
     align-items: center;
     padding: 0 25px;
-    border-radius: 2px;
     font-family: Roboto;
+    font-size: 13px;
 }
 
 header img{
@@ -19,15 +30,20 @@ header img{
 }
 
 button{
-    width: 70px;
-    border-radius: 10px;
+    width: 75px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 6px;
+    border-width: 1px;
     font-size: 16px;
     font-family: Roboto;
 }
 
-body{
-    display: grid;
-}
+
+
+
+
+/***                MAIN                   ***/
 
 main{
     display: grid;
@@ -35,29 +51,59 @@ main{
     height: 100vh;
 }
 
-#menu-left{
-    display: grid;
+
+
+/***               LATERAL MENU                 ***/
+
+#lateral-menu{
+    display: flex;
+    flex-direction: column;
     background-color: #f2d0e0;
-    padding: 15px;
+    padding: 23px;
     line-height: 35px;
+}
+
+#lateral-menu h4{
+    display: inline;
+    padding-left: 10px;
 }
 
 nav img{
     width: 18px;
 }
 
-.bolos{
+
+
+/***                PRODUCTS                 ***/
+
+.cakes{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto auto;
+    align-content:flex-start;
 }
 
 section img{
     width: 200px;
 }
 
-.bolo-1{
-    box-shadow: darkgray;
+.chocolate-cake{
+    max-width: 200px;
+    text-align: center;
+    box-shadow: 2px 2px 5px 1px darkgray;
+    margin: 15px;
 }
+
+.cakes h1{
+    font-size: 20px;
+    font-family: Roboto;
+}
+
+.cakes p{
+    font-size: 15px;
+    font-family: Roboto;
+}
+
+/***                FOOTER                 ***/
 
 footer{
     display: grid;
@@ -65,5 +111,5 @@ footer{
     height: 40px;
     align-items: center;
     text-align: center;
-    border-radius: 2px;
+    font-size: 9px;
 }
