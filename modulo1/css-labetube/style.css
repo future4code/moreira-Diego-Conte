@@ -1,0 +1,377 @@
+/*                                  GENERAL                         */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: ivory;
+}
+
+#individual-body-video{
+    background-color: ivory;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/*                                  HEADER                         */
+
+
+header{
+    background-color: orange;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-text{
+    margin-left: 12px;
+    font-family: Roboto;
+}
+
+.search{
+    display: flex;
+    width: 200px;
+    height: 30px;
+    text-align: left;
+    font-size: 18px;
+    font-family: Roboto;
+}
+
+
+.header-videos{
+    background-color: orange;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 8vh;
+}
+
+
+/*                                  MAIN                         */
+
+.index-videos{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    margin: 10px;
+    width: 300px;
+    height: 250px;
+}
+
+.container-individual-videos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-top: 5%;
+    width: 100vh;
+    height: 80vh;
+}
+
+.individual-video{
+    width: 100%;
+}
+
+.videos-titles{
+    font-family: Roboto;
+    font-size: 20px;
+    align-items: center;
+}
+
+.all-videos{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin: 20px;
+}
+
+
+/*                                  FOOTER                         */
+
+
+footer{
+    display: flex;
+    background-color: orange;
+    font-family: Roboto;
+    color: black;
+    padding: 15px;
+    justify-content: center;
+}
+
+.footer-text{
+    font-size: 19px;
+}
+
+.videos-footer{
+    display: flex;
+    background-color: orange;
+    width: 100vw;
+    height: 8vh;
+    font-family: Roboto;
+    color: black;
+    padding: 15px;
+    justify-content: center;
+}
+
+
+.footer-text-individual{
+    font-size: 19px;
+}
+
+@media screen and (max-device-height: 668px) and (min-device-width: 319px){
+/*              GENERAL                 */
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    body{
+        height: 100vh;
+        width: 100vw;
+        background-color: ivory;
+    }
+
+/*              HEADER                  */
+
+    header{
+        background-color: orange;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 6vh;
+        width: 100vw;
+    }
+    
+    .header-text{
+        margin-left: 2px;
+        font-family: Roboto;
+        font-size: 18px;
+    }
+    
+    .search{
+        display: flex;
+        width: 30vw;
+        height: 4vh;
+        text-align: left;
+        font-size: 18px;
+        font-family: Roboto;
+    }
+
+/*              MAIN                  */
+
+.all-videos{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: 2px;
+    justify-items: center;
+}
+
+.index-videos{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    width: 80vw;
+    height: 35vh;
+}
+
+.container-individual-videos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vh;
+}
+
+.individual-video{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.videos-titles{
+    font-family: Roboto;
+    font-size: 20px;
+    align-items: center;
+}
+
+/*              FOOTER                  */
+
+footer{
+    display: flex;
+    background-color: orange;
+    font-family: Roboto;
+    color: rgb(0, 0, 0);
+    justify-content: center;
+    height: 6vh;
+    width: 100vw;
+}
+
+.footer-text{
+    font-size: 13px;
+}
+
+/*                  INDIVIDUAL PAGES            */
+
+#individual-body-video{
+    background-color: ivory;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-individual-videos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    height: 80vh;
+}
+
+.description-title{
+    font-family: Roboto;
+    font-size: 25px;
+    margin: 20px 10px;
+}
+
+.description-text{
+    font-family: Roboto;
+    font-size: 15px;
+    margin: 10px;
+    text-align: justify;
+}
+}
+
+@media screen and (max-device-height: 641px) and (min-device-width: 359px){
+    /*              GENERAL                 */
+    
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body{
+            height: 100vh;
+            width: 100vw;
+            background-color: ivory;
+        }
+    
+    /*              HEADER                  */
+    
+        header{
+            background-color: orange;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 6vh;
+            width: 100vw;
+        }
+        
+        .header-text{
+            margin-left: 2px;
+            font-family: Roboto;
+            font-size: 18px;
+        }
+        
+        .search{
+            display: flex;
+            width: 30vw;
+            height: 4vh;
+            text-align: left;
+            font-size: 18px;
+            font-family: Roboto;
+        }
+    
+    /*              MAIN                  */
+    
+    .all-videos{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 2px;
+        justify-items: center;
+    }
+    
+    .index-videos{
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        width: 80vw;
+        height: 35vh;
+    }
+    
+    .container-individual-videos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vh;
+    }
+    
+    .individual-video{
+        width: 100%;
+        border-radius: 15px;
+    }
+    
+    .videos-titles{
+        font-family: Roboto;
+        font-size: 20px;
+        align-items: center;
+    }
+    
+    /*              FOOTER                  */
+    
+    footer{
+        display: flex;
+        background-color: orange;
+        font-family: Roboto;
+        color: rgb(0, 0, 0);
+        justify-content: center;
+        height: 6vh;
+        width: 100vw;
+    }
+    
+    .footer-text{
+        font-size: 13px;
+    }
+    
+    /*                  INDIVIDUAL PAGES            */
+    
+    #individual-body-video{
+        background-color: ivory;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .container-individual-videos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80vw;
+        height: 80vh;
+    }
+    
+    .description-title{
+        font-family: Roboto;
+        font-size: 25px;
+        margin: 20px 10px;
+    }
+    
+    .description-text{
+        font-family: Roboto;
+        font-size: 15px;
+        margin: 10px;
+        text-align: justify;
+    }
+    }

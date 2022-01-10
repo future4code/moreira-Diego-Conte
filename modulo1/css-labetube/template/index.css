@@ -1,0 +1,222 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+}
+
+.blue-yellow-green{
+    display: flex;
+    flex-direction: row;
+}
+
+.black-section{
+    display: flex;
+    flex-direction: row;
+}
+
+.white-section{
+    display: flex;
+    flex-direction: row;
+}
+
+#first-block {
+    background-color: red;
+    border: 1px solid black;
+    display: flex;
+    height: 10vh;
+    width: 100vw;
+}
+
+.blue-block {
+    background-color: blue;
+    border: 1px solid black;
+    display: flex;
+    height: 10vh;
+    width: 100vw;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.yellow-block {
+    background-color: yellow;
+    border: 1px solid black;
+    display: flex;
+    height: 10vh;
+    width: 100vw;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.green-block {
+    background-color: green;
+    border: 1px solid black;
+    display: flex;
+    height: 10vh;
+    width: 100vw;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.black-block {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    display: flex;
+    height: 40vh;
+    width: 100vw;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.white-block {
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    height: 10vh;
+    width: 100vw;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-device-height:737px) and (min-device-width: 413px){
+    
+    body {
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+    }
+    
+    
+    .blue-yellow-green{
+        display: grid;
+        grid-template-columns: 45% 45%;
+        column-gap: 20px;
+    }
+
+    .blue-block {
+        background-color: blue;
+        border: 1px solid black;
+        display: flex;
+        height: 10vh;
+        width: 45vw;
+        margin: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .yellow-block {
+        background-color: yellow;
+        border: 1px solid black;
+        display: flex;
+        height: 10vh;
+        width: 45vw;
+        margin: 10px;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .green-block {
+        background-color: green;
+        border: 1px solid black;
+        display: flex;
+        height: 10vh;
+        width: 95vw;
+        margin: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .white-section{
+        display: grid;
+        grid-template-columns: 45% 45%;
+        column-gap: 20px;
+    }
+    
+    .white-block {
+        height: 10vh;
+        width: 45vw;
+        margin: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+@media screen and (max-device-height:641px) and (min-device-width: 359px){
+
+    .blue-yellow-green{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .blue-block {
+        background-color: blue;
+        border: 1px solid black;
+        display: flex;
+        height: 10vh;
+        width: 95vw;
+        margin: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .yellow-block {
+        background-color: yellow;
+        border: 1px solid black;
+        display: flex;
+        height: 10vh;
+        width: 95vw;
+        margin: 10px;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .green-block {
+        background-color: green;
+        border: 1px solid black;
+        display: flex;
+        height: 10vh;
+        width: 95vw;
+        margin: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+        
+    .black-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .black-block{
+        height: 10vh;
+        width: 95vw;
+    }
+
+    .white-section{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .white-block {
+        height: 10vh;
+        width: 95vw;
+        margin: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+}
