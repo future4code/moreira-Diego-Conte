@@ -1,0 +1,188 @@
+/** 
+  *
+  *  ESTILOS GERAIS 
+  *
+  **/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    background-color: #fe7e02;
+    padding: 10px 5px 10px 5px;
+    color: white;
+    text-align: center;
+}
+
+input {
+    height: 20px;
+    width: 500px;
+}
+
+button:focus {
+    color: white;
+}
+
+img {
+    width: 100px;
+}
+
+div>p:first-child {
+    display: inline;
+}
+
+div img {
+    background: black;
+}
+
+.botao-amarelo {
+    background-color: #ffaf43;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+}
+
+.botao-amarelo:hover {
+    background-color: #c44f00;
+}
+
+.container-blue {
+    height: 180px;
+    text-align: center;
+}
+
+.container-orange {
+    height: 368px;
+    text-align: center;
+}
+
+.icone {
+    height: 15px;
+}
+
+
+/** 
+  *
+  *  ESTILOS HOME 
+  *
+  **/
+
+#container-de-descricao {
+    background-color: #2274a5;
+    color: white;
+    padding-right: 40%;
+    padding-left: 40%;
+    padding-top: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#container-de-descricao>ol {
+    padding: 15px 0px;
+}
+
+#container-para-comprar {
+    background-color: #e7eb90;
+    padding-top: 40px;
+    text-align: center
+}
+
+#container-para-comprar>p {
+    color: #c44f00;
+    padding: 100px 0;
+    font-size: 60px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#container-para-comprar button{
+    position:absolute;
+    bottom: 20%;
+    left: 40%;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/**
+  *
+  *  ESTILOS COMPRAR 
+  *
+  **/
+
+div:nth-child(2),
+div:last-child {
+    text-align: center;
+}
+
+table {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+td button {
+    background-color: #fadf63;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+td button:hover {
+    background-color:#c44f00;
+}
+
+
+.container-do-search {
+    margin-top: 20px;
+    height: 100px;
+}
+
+.container-do-search input {
+    border: none;
+    border-bottom-style:groove;
+}
+
+.container-do-search input:hover {
+    background-color: rgb(247, 244, 239);
+}
+
+.container-do-search img:hover{
+    opacity: 15%;
+}
+
+.container-do-search img:active{
+    opacity: 100%;
+}
+
+#back-button {
+    background-color: white;
+    width: 100px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 10px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+    margin-left: auto;
+    margin-right: 340px;
+    margin-top: 25px;
+}
+
+#back-button:hover {
+    background-color: #635a3d
+}
+
+#container-do-search table, th, td{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    }
+
+#container-do-search table, img{
+    width: 40px !important;
+    height: auto !important;
+}
