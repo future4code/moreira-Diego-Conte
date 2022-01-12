@@ -1,0 +1,262 @@
+
+/*                      GENERAL               */
+
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.tela-inteira {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/*                      HEADER               */
+
+
+header {
+  background-color: inherit;
+  border-bottom: 1px solid rgb(218, 211, 211);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 50px;
+  height: 9%;
+  width: 92%;
+  font-size: 12px;
+}
+
+
+/*                      MENU               */
+
+
+.logoETitulo{
+  display: flex;
+  margin-left: -50px;
+}
+
+.logoYouTube{
+  width: 3vw;
+  height: 6vh;
+  margin-top: 10px;
+}
+
+.inputLoupe{
+  display: flex;
+}
+
+header input{
+  margin-left: 10%;
+  height: 5vh;
+  width: 40vw;
+  font-size: 19px;
+  border-radius: 2px;
+  border: 1px solid rgb(218, 211, 211);
+}
+
+header input:hover{
+  background-color: rgb(235, 235, 235);
+  cursor: pointer;
+}
+
+.icones-header{
+  width: 2vw;
+  padding: 1%;
+}
+
+.lupa{
+  width: 70px;
+  border: none;
+  border-radius: 2px;
+  background-color: white;
+}
+
+.lupa:hover{
+  background-color: rgb(235, 235, 235);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lupa:active{
+  background-color: rgb(255, 255, 255);
+}
+
+.voice{
+  border-radius: 100%;
+  border: none;
+  padding: 3px 5px;
+  margin: 0px 2%;
+  background-color: rgb(250, 250, 250);
+  margin-left: -90px;
+}
+
+.voice:hover{
+  background-color: rgb(235, 235, 235);
+  cursor: pointer;
+}
+
+.voice:active{
+  background-color: rgb(255, 255, 255);
+}
+
+.containerIconesDireitaMic{
+  display: flex;
+  width: 15vw;
+  justify-content: space-between;
+  margin-right: -80px;
+}
+
+.conjuntoDireitaMic{
+ background-color: inherit;
+ border: none;
+ border-radius: 5px;
+}
+
+.conjuntoDireitaMic:hover{
+  background-color: rgb(235, 235, 235);
+  cursor: pointer;
+}
+
+.conjuntoDireitaMic:active{
+  background-color: rgb(255, 255, 255);
+}
+
+
+/*                      MAIN               */
+
+
+main {
+  min-height: 80%;
+  display: flex;
+}
+
+.menu-vertical {
+  display: flex;
+  flex-basis: 140px;
+  margin-left: -25px;
+}
+
+.menu-vertical ul > li{
+  margin: 15px 0px;
+  padding: 20px 0px;
+}
+
+.botoes-meunu-vertical {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  line-height: 22px;
+}
+
+.icones-lateral, ul> li:hover{
+  cursor: pointer;
+  background-color: rgb(235, 235, 235);
+  border-radius: 3px;
+}
+
+.icones-lateral, ul> li:active{
+  background-color: white;
+}
+
+.icones-lateral{
+  width: 30%;
+  border-radius: 4px;
+}
+
+.painel-de-videos {
+  padding-left: 20px;
+  padding-top: 20px;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 24.8% 0.2%);
+  grid-template-rows: repeat(4, 270px 20px);
+}
+
+.media1 {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.media2 {
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+
+.media3 {
+  grid-column-start: 5;
+  grid-row-start: 1;
+}
+
+.media4 {
+  grid-column-start: 7;
+  grid-row-start: 1;
+}
+
+.media5 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+.media6 {
+  grid-column-start: 3;
+  grid-row-start: 3;
+}
+
+.media7 {
+  grid-column-start: 5;
+  grid-row-start: 3;
+}
+
+.media8 {
+  grid-column-start: 7;
+  grid-row-start: 3;
+}
+
+
+.box-pagina-principal {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: stretch;
+  text-align: center;
+}
+
+.box-pagina-principal:hover{
+  cursor: pointer;
+}
+
+.box-pagina-principal > img {
+  width: 95%;
+  height: 150px;
+  border-radius: 3px;
+}
+
+.box-pagina-principal > h4 {
+  margin-top: 5px;
+}
+.box-pagina-principal > h6 {
+  margin-top: -10px;
+  text-align: center;
+}
+
+/*                      FOOTER               */
+
+/*
+footer {
+  height: 10%;
+  background-color: grey;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+h4 {
+  margin-left: 20px;
+}
+*/
