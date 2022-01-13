@@ -100,7 +100,7 @@ class Post extends React.Component {
       </PostHeader>
 
       <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'} />
-
+      
       <PostFooter>
         <IconeComContador
           icone={iconeCurtida}
