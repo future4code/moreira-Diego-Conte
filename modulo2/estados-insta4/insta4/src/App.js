@@ -7,6 +7,12 @@ const MainContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  
+  section{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    margin-bottom: 40px;
 
   p{
     margin-top:40px;
@@ -16,7 +22,7 @@ const MainContainer = styled.div`
 
   input{
     font-size: 15px;
-    width: 280px;
+    width: 285px;
     height: 20px;
     margin: 5px;
     border: 1px solid black;
@@ -34,6 +40,7 @@ const MainContainer = styled.div`
     :hover{cursor: pointer; background-color: #c1c1c7; font-weight:bold;};
     :active{cursor:pointer; background-color: inherit}
   }
+}
 `
 
 export class App extends React.Component {
@@ -109,27 +116,27 @@ export class App extends React.Component {
     return (
       <MainContainer>
         {listaPosts}
+        <section>
+          <p>Adicione um post</p>
+          <input
+            placeholder={'Nome'}
+            value={this.state.inputNome}
+            onChange={this.getInputNome}
+          />
 
-        <p>Adicone um post</p>
-        <input
-          placeholder={'Nome'}
-          value={this.state.inputNome}
-          onChange={this.getInputNome}
-        />
+          <input
+            placeholder={'Informe o link da foto de perfil'}
+            value={this.state.inputFotoPerfil}
+            onChange={this.getInputFotoPerfil}
+          />
 
-        <input
-          placeholder={'Informe o link da foto de perfil'}
-          value={this.state.inputFotoPerfil}
-          onChange={this.getInputFotoPerfil}
-        />
-
-        <input
-          placeholder={'Informe o link da foto do post'}
-          value={this.state.inputFoto}
-          onChange={this.getInputFoto}
-        />
-        <button onClick={this.novosPosts}>Adicionar post</button>
-
+          <input
+            placeholder={'Informe o link da foto do post'}
+            value={this.state.inputFoto}
+            onChange={this.getInputFoto}
+          />
+          <button onClick={this.novosPosts}>Adicionar post</button>
+        </section>
       </MainContainer>
     )
   }
