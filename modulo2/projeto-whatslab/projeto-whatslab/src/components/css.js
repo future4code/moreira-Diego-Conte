@@ -53,8 +53,8 @@ const ContainerMessages = styled.div` //Main screen
   section{ //Display box-fields: name, message and button
     border-top: 1px solid gray;
     display: flex;
-    height: 95%px;
-    width: 500px;
+    height: 95%;
+    width: 100%;
     justify-content: center;
     align-items: flex-end;
   }
