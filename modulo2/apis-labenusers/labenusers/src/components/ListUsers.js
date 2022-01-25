@@ -46,7 +46,7 @@ const SearchBox = styled.div`
 `
 
 //                  CONSTs
-const urlGetAllUsers = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
+const urlApiLabenu = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/";
 
 const headers = {
     headers: {
@@ -69,7 +69,7 @@ class ListUsers extends React.Component {
 
     getAllUsers = () => {
         axios
-            .get(urlGetAllUsers, headers)
+            .get(urlApiLabenu, headers)
             .then((response) => {
                 this.setState({ users: response.data })
             })
@@ -83,18 +83,19 @@ class ListUsers extends React.Component {
     }
 
     deleteUsers = (id) => {
-
-        const urlDeleteUser = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`;
-
+        if(window.confirm("Deseja realmente excluir este contato?")){
         axios
-            .delete(urlDeleteUser, headers)
+            .delete(urlApiLabenu+id, headers)
             .then((response) => {
                 this.getAllUsers()
-                alert(`Usuário foi apagado com sucesso.`);
+                alert(`Usuário apagado com sucesso.`);
             })
             .catch((error) => {
                 alert(error.response.data.message)
             })
+        } else {
+            alert("Nenhum usuário foi excluído")
+        }
     }
 
 
