@@ -5,17 +5,32 @@ import ListUsers from './components/ListUsers';
 
 
 const ContainerApp = styled.div`
-  margin: 20px 20px;
+display: flex;
+flex-direction: column;
+width: 98vw;
+min-height: 97vh;
+height: auto;
+background-color: aliceblue;
 `
-
+const Intro = styled.div`
+display: flex;
+flex-direction: column;
+margin: 30px auto;
+align-items: center;
+`
 const ButtonNav = styled.button`
-  margin-top: 50px;
-  margin-left: 432px;
-  height: 25px;
-  width: 100px;
-  font-size: 16px;
-  border: 1px solid gray;
-  border-radius: 5px;
+display: flex;
+position: fixed;
+justify-content: center;
+align-items: center;
+height: 25px;
+width: 178px;
+font-size: 16px;
+border: 1px solid gray;
+border-radius: 5px;
+font-family: Roboto;
+:hover{border: 1px solid black; cursor: pointer;};
+:active{border: 2px solid black;}
 `
 
 class App extends React.Component {
@@ -35,8 +50,11 @@ class App extends React.Component {
   render() {
     return (
       <ContainerApp>
+        <ButtonNav onClick={this.changePage}> Navegar entre as páginas </ButtonNav>
+        <Intro>
+          <h1>Labenusers</h1>
+        </Intro>
         {this.state.currentPage === "AddNewUsers" ? <AddNewUsers /> : <ListUsers />}
-        <ButtonNav onClick={this.changePage}> Navegar </ButtonNav>
       </ContainerApp>
     );
   }
