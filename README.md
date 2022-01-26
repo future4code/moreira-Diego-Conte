@@ -13,16 +13,19 @@ Esse repositório vai acompanhar vocês até o final do curso, para mantermos a 
 │   ├── Strings e Arrays
 │   ├── Funções
 │   ├── Projeto Lista de Introduçâo ao JavaScript
+|
 │   ├── Objetos
 │   ├── Condicionais
 │   ├── Laços
 │   ├── Callback e Funções de Array
 │   ├── Projeto de Fixação: Blackjack
+|
 │   ├── Revisão de Javascript
 │   ├── HTML: Elementos e Atributos
 │   ├── CSS (Parte 1)
 │   ├── CSS (Parte 2)
 │   ├── Projeto de Fixação: Portfólio
+|
 │   ├── Flexbox e Grid
 │   ├── Usando Flex e Grid na Prática
 │   ├── Responsividade
@@ -30,11 +33,17 @@ Esse repositório vai acompanhar vocês até o final do curso, para mantermos a 
 │   └── Projeto de Fixação: Landing Page
 |
 ├── modulo2
-│   ├── Labetube
-│   ├── LabedIn
+│   ├── Introdução ao React + JSX (LabeTube)
+│   ├── Componentes Funcionais, props e styled-components (LabedIn)
+│   ├── Componentes de Classe + Estados (Insta4)
+│   ├── Renderização de Listas (Insta4)
+│   ├── Projeto de Fixação: WhatsLab 
+|
+|   ├── Renderização Condicional (LabenuForms)
+│   ├── Ciclo de Vida em componentes de classe
 │   ├── nome-da-aula
 │   ├── nome-da-aula
-│   └── nome-do-projeto
+│   ├── nome-da-aula
 |
 ├── modulo3
 │   ├── nome-da-aula
