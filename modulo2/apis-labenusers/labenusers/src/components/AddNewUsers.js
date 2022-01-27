@@ -6,16 +6,20 @@ import axios from 'axios';
 //                  STYLE
 const AddNewUsersContainer = styled.div`
   display: flex;
-  margin: 20px auto;
+  flex-direction: column;
+  margin: 40px auto;
+  justify-content: center;
+  align-items: center;
 `
 
 const Inputs = styled.input`
   margin: 5px;
-  height: 25px;
-  width: 200px;
+  height: 28px;
+  width: 300px;
   font-size: 16px;
   border: 1px solid gray;
   border-radius: 5px;
+  :hover{border: 1px solid black; cursor: pointer;}
 `
 
 const ButtonAddUser = styled.button`
@@ -25,6 +29,9 @@ const ButtonAddUser = styled.button`
   font-size: 16px;
   border: 1px solid gray;
   border-radius: 5px;
+  font-family: Roboto;
+  :hover{border: 1px solid black;cursor: pointer;};
+  :active{border: 2px solid black; width: 101px; height: 26px}
 `
 
 
@@ -73,6 +80,7 @@ class AddNewUsers extends React.Component {
   render() {
     return (
       <AddNewUsersContainer>
+        <p>Informe-nos seus dados:</p>
         <Inputs
           type="text"
           placeholder='Nome'
@@ -87,7 +95,7 @@ class AddNewUsers extends React.Component {
           onChange={this.onChangeInputMail}
         />
 
-        <ButtonAddUser onClick={this.addUsers}>Adicionar</ButtonAddUser>
+        <ButtonAddUser onClick={this.addUsers}>Cadastrar-se</ButtonAddUser>
       </AddNewUsersContainer>
     );
   }
