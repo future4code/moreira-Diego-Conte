@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import styled from 'styled-components';
+import UserDetails from './UserDetails';
 
 
 //                  STYLE
@@ -9,6 +10,10 @@ const ListUsersContainer = styled.div`
   flex-direction: column;
   margin: 0px auto;
   align-items: center;
+`
+
+const ReturnRender = styled.div`
+  display: flex;
 `
 
 const ContainerUsers = styled.div`
@@ -23,14 +28,16 @@ const ContainerUsers = styled.div`
     border-radius: 3px;
     margin: 5px 0px;
     width: auto;
-    font-size: 16px;
+    font-size: 17px;
+    :hover{font-weight:bold;border: 1px solid gray; cursor: pointer;}
   }
 `
 
 const ButtonDelete = styled.button`
-  height: auto;
-  width: auto;
-  margin-right: 10px;
+  height: 21px;
+  width: 25px;
+  margin-top: 5px;
+  margin-right: -2px;
   font-size: 16px;
   background-color: inherit;
   border:none;
@@ -91,6 +98,8 @@ class ListUsers extends React.Component {
     state = {
         users: [],
         inputSearch: "",
+        page: "ListUsers",
+        userId: "",
     }
 
     componentDidMount() {
@@ -151,34 +160,46 @@ class ListUsers extends React.Component {
                     alert(error.response.data.message)
                 })
         }
-
     }
+
+    swipePage = (id) => {
+        if (this.state.page === "ListUsers") {
+            this.setState({ page: "UserDetails", userId: id })
+        } else {
+            this.setState({ page: "ListUsers", userId: "" })
+        }
+    };
 
 
     render() {
         const listUsers = this.state.users.map((user) => {
-            return <li key={user.id}>
+            return <ReturnRender>
                 <ButtonDelete onClick={() => this.deleteUsers(user.id)}> X </ButtonDelete>
-                {user.name}
-            </li>
+                <li key={user.id} onClick={() => this.swipePage(user.id)}>
+                    {user.name}
+                </li>
+            </ReturnRender>
         });
 
         return (
             <ListUsersContainer>
-                <SearchBox>
-                    <p>Procurar usuário</p>
-                    <Input
-                        type="text"
-                        placeholder='Nome ou e-mail completo para busca'
-                        value={this.state.inputSearch}
-                        onChange={this.searchingUsers}
-                    />
-                    <ButtonSearch onClick={this.searchUser}>Buscar</ButtonSearch>
-                </SearchBox>
-                <p>Usuários cadastrados</p>
-                <ContainerUsers>
-                    {listUsers}
-                </ContainerUsers>
+                {this.state.page === "ListUsers" ?
+                    <div>
+                        <SearchBox>
+                            <p>Procurar usuário</p>
+                            <Input
+                                type="text"
+                                placeholder='Nome ou e-mail completo para busca'
+                                value={this.state.inputSearch}
+                                onChange={this.searchingUsers}
+                            />
+                            <ButtonSearch onClick={this.searchUser}>Buscar</ButtonSearch>
+                        </SearchBox>
+                        <p>Usuários cadastrados</p>
+                        <ContainerUsers>
+                            {listUsers}
+                        </ContainerUsers>
+                    </div> : (<UserDetails userId={this.state.userId} />)}
             </ListUsersContainer>
         )
     }
