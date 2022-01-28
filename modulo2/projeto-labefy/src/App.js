@@ -5,32 +5,35 @@ import PlaylistsDetailsPage from './pages/PlaylistDetailsPage/PlaylistDetailsPag
 class App extends React.Component {
 
   state = {
-    currentPage: "PlaylistsPage"
+    currentPage: "PlaylistsPage",
+    idPlaylistClicked: "",
+    playlistName: "",
+  }
+
+  goToDetailsPlaylistPage = (id, name) => {
+    this.setState({currentPage: "PlaylistsDetailsPage", idPlaylistClicked: id, playlistName: name})
+  }
+
+  gotToPlaylistsPage = () => {
+    this.setState({currentPage: "PlaylistsPage", idPlaylistClicked: "", playlistName: ""})
   }
 
   changePages = () => {
     switch (this.state.currentPage) {
       case "PlaylistsPage":
-        return <PlaylistsPage/>
+        return <PlaylistsPage goToDetailsPlaylistPage={this.goToDetailsPlaylistPage} />
       case "PlaylistsDetailsPage":
-        return <PlaylistsDetailsPage/>
+        return <PlaylistsDetailsPage gotToPlaylistsPage={this.gotToPlaylistsPage} id={this.state.idPlaylistClicked} name={this.state.playlistName}/>
       default:
-        <PlaylistsPage/>
+        <PlaylistsPage goToDetailsPlaylistPage={this.goToDetailsPlaylistPage} />
     }
   }
-
-  // clickToSwipePages = () => {
-  //   if()
-  // }
 
   render() {
 
     return (
       <div>
         {this.changePages()}
-
-        <button>Navegar</button>
-
       </div>
 
     )
