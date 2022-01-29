@@ -6,16 +6,15 @@ list-style: none;
 color: white;
 margin-top: 80px;
 margin-left: -850px;
-z-index: 1;
 
 button{
-    /* margin-left: 5px;
-    width: 20px;
-    height: 20px;
-    border: 1px solid gray;
-    border-radius: 3px;
-    color: #810101;
-    :hover{border: 1px solid black; background-color: #d3d2d2} */
+    display: flex;
+    border: 2px solid #330707;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 50px 0px 0px 208px;
+    :hover{cursor: pointer; border: 2px solid #5e0c0c;}
+    :active{background-color: #8f0000}
 }
 `
 
@@ -26,15 +25,19 @@ color: red;
 
 export const ContainerTracksRender =Styled.div`
 display: flex;
+flex-direction: column;
 line-height: 2px;
 z-index: 1;
+margin: 14px 0px;
 
-li{
-    p{
-        display: flex;
-        flex-direction: column;
-    }
-    
+h1{
+    font-weight: normal;
+    font-size: 17px;
+}
+
+p{
+    :hover{cursor: pointer; color:red;};
+    :active{color:white};
 }
 
 audio{
@@ -52,11 +55,47 @@ margin-bottom: 20px;
 `
 
 export const InputsPlayslistDetailsPage = Styled.div`
-z-index:1;
+display: flex;
+z-index: 1;
+flex-direction: column;
 
-input{
-    width: auto;
-    z-index:2;
+details{
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    summary{
+        display: flex;
+        z-index: 1;
+        :hover{cursor: pointer; color: red};
+        :active{color:white};
+    }
+    input{
+        display: flex;
+        justify-content: center;
+        z-index: 1;
+        margin: 6px 0px;
+        height: 18px;
+        width: 300px;
+        border: 2px solid #330707;
+        border-radius: 5px;
+        font-size: 14px;
+        z-index:1;
+        :hover{cursor: pointer; border: 2px solid #5e0c0c}
+        }
+
+    button{
+        display:flex;
+        justify-content: center;
+        z-index: 1;
+        margin: 5px 0px;
+        margin-left: 278px;
+        width: 30px;
+        border: 2px solid #330707;
+        border-radius: 5px;
+        font-size: 14px;
+        z-index:1;
+        :hover{cursor: pointer; border: 2px solid #5e0c0c;}
+        :active{background-color: #8f0000}
+    }
 }
-
 `

@@ -35,23 +35,11 @@ export default class PlaylistsDetailsPage extends React.Component {
         this.getPlaylistTracks()
     }
 
-    // componentDidUpdate = (prevPros, prevState) => {
-    //     if (this.state.playlists !== prevState) {
-    //         this.getAllPlaylists()
-    //     }
-    // }
-
-    getPlaylistTracks = () => {
-        axios
-            .get(`${baseUrl}${this.props.id}/tracks`, headers)
-            .then((res) => {
-                this.setState({ playlistTracks: res.data.result.tracks })
-            })
-            .catch((err) => {
-                alert(err.response.data.message)
-            })
+    componentDidUpdate = (prevPros, prevState) => {
+        if (this.state.playlistTracks !== prevState) {
+            this.getPlaylistTracks()
+        }
     }
-
 
     addTrackToPlaylist = () => {
         const body = {
@@ -62,9 +50,19 @@ export default class PlaylistsDetailsPage extends React.Component {
 
         axios.post(`${baseUrl}${this.props.id}/tracks`, body, headers)
             .then((res) => {
-                this.setState({ playlistTracks: res })
                 alert(`${this.state.inputNameSong} adicionada à playlist.`)
                 this.setState({ inputNameSong: "", inputNameArtist: "", inputUrlSong: "" })
+            })
+            .catch((err) => {
+                alert(err.response.data.message)
+            })
+    }
+
+    getPlaylistTracks = () => {
+        axios
+            .get(`${baseUrl}${this.props.id}/tracks`, headers)
+            .then((res) => {
+                this.setState({ playlistTracks: res.data.result.tracks })
             })
             .catch((err) => {
                 alert(err.response.data.message)
@@ -88,20 +86,18 @@ export default class PlaylistsDetailsPage extends React.Component {
     }
 
     render() {
-        console.log(this.state)
         const tracks = this.state.playlistTracks.map((track) => {
             return <ContainerTracksRender key={track.id}>
                 <li>
-                    <div>
-                        <p>Música: {track.name} |
-                        Artista: {track.artist} </p>
-                        <p onClick={() => this.deleteTrack(track.name, track.id)}>☲</p>
-                    </div>
+                    <h1>
+                        <p onClick={() => this.deleteTrack(track.name, track.id)}> ... </p>
+                        Música: {track.name} |
+                        Artista: {track.artist}
+                    </h1>
                     <audio src={track.url} controls loop></audio>
                 </li>
             </ContainerTracksRender>
         })
-
 
         return (
             <ContainerPlaylistDetails>
@@ -110,33 +106,35 @@ export default class PlaylistsDetailsPage extends React.Component {
                     {tracks}
                 </ContainerIndividualTracks>
                 <InputsPlayslistDetailsPage>
-                    <input
-                        type="text"
-                        placeholder='Nome da música'
-                        value={this.state.inputNameSong}
-                        onChange={this.onChangeInputNameSong}
-                        onKeyDown={this.enterToSubmit}
-                    />
+                    <details>
+                        <summary>Adicionar músicas à playlist</summary>
+                        <input
+                            type="text"
+                            placeholder='Nome da música'
+                            value={this.state.inputNameSong}
+                            onChange={this.onChangeInputNameSong}
+                            onKeyDown={this.enterToSubmit}
+                        />
 
-                    <input
-                        type="text"
-                        placeholder='Artista'
-                        value={this.state.inputNameArtist}
-                        onChange={this.onChangeInputNameArtist}
-                        onKeyDown={this.enterToSubmit}
-                    />
+                        <input
+                            type="text"
+                            placeholder='Artista'
+                            value={this.state.inputNameArtist}
+                            onChange={this.onChangeInputNameArtist}
+                            onKeyDown={this.enterToSubmit}
+                        />
 
-                    <input
-                        type="text"
-                        placeholder='Link'
-                        value={this.state.inputUrlSong}
-                        onChange={this.onChangeInputUrlSong}
-                        onKeyDown={this.enterToSubmit}
-                    />
-                    <button onClick={this.addTrackToPlaylist}>Adiciona</button>
+                        <input
+                            type="text"
+                            placeholder='Link'
+                            value={this.state.inputUrlSong}
+                            onChange={this.onChangeInputUrlSong}
+                            onKeyDown={this.enterToSubmit}
+                        />
+                        <button onClick={this.addTrackToPlaylist}>▶</button>
+                    </details>
                 </InputsPlayslistDetailsPage>
-
-                <button onClick={this.props.gotToPlaylistsPage}>Voltar às playlists</button>
+                <button onClick={this.props.gotToPlaylistsPage}> ◀ Playlists</button>
             </ContainerPlaylistDetails >
         )
     }

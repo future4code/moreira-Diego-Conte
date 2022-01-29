@@ -1,7 +1,7 @@
 import React from 'react';
 import PlaylistsPage from './pages/PlaylistsPage/PlaylistsPage';
 import PlaylistsDetailsPage from './pages/PlaylistDetailsPage/PlaylistDetailsPage';
-import { ContainerApp, MainCardApp, MainImage, ContainerLogo } from './StyleApp';
+import { ContainerApp, MainCardApp, MainImage} from './StyleApp';
 import Music from './assets/Music.gif';
 
 class App extends React.Component {
