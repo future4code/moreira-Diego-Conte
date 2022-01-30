@@ -2,10 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import { baseUrl } from '../../constants/urls';
 import { headers } from '../../constants/inputsApi';
-import { ContainerPlaylistsRender, MainContainerPlaylistPage } from './StylePlaylistPage';
 import { PlaylistRaw } from './StylePlaylistPage';
 import Logo from '../../assets/Logo.png'
 import { ContainerInputAddNewPlaylists, ContainerLogo } from './StylePlaylistPage';
+import { ContainerPlaylistsRender, MainContainerPlaylistPage } from './StylePlaylistPage';
 
 export default class PlaylistsPage extends React.Component {
 
@@ -75,7 +75,9 @@ export default class PlaylistsPage extends React.Component {
     render() {
         const namePlaylist = this.state.playlists.map((playlist) => {
             return <ContainerPlaylistsRender key={playlist.id}>
-                <button onClick={() => this.deletePlaylist(playlist.name, playlist.id)}>✘</button>
+                <button onClick={() => this.deletePlaylist(playlist.name, playlist.id)}>
+                    ✘
+                </button>
                 <PlaylistRaw
                     onClick={() => this.props.goToDetailsPlaylistPage(playlist.id, playlist.name)}
                 >
@@ -100,7 +102,9 @@ export default class PlaylistsPage extends React.Component {
                         onChange={this.onChangeInputUser}
                         onKeyDown={this.enterToSubmit}
                     />
-                    <button onClick={this.createPlaylists}>Criar</button>
+                    <button onClick={this.createPlaylists}>
+                        Criar
+                    </button>
                 </ContainerInputAddNewPlaylists>
             </MainContainerPlaylistPage>
         )

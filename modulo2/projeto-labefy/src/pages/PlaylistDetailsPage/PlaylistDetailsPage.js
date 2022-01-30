@@ -3,7 +3,12 @@ import React from 'react';
 import { ContainerPlaylistDetails } from './StylePlaylistDetails';
 import { baseUrl } from '../../constants/urls';
 import { headers } from '../../constants/inputsApi';
-import { ContainerIndividualTracks, ContainerTracksRender, InputsPlayslistDetailsPage, PlaylistNameDetailPage } from './StylePlaylistDetails';
+import {
+    ContainerIndividualTracks,
+    ContainerTracksRender,
+    InputsPlayslistDetailsPage,
+    PlaylistNameDetailPage
+} from './StylePlaylistDetails';
 
 export default class PlaylistsDetailsPage extends React.Component {
     state = {
@@ -134,7 +139,9 @@ export default class PlaylistsDetailsPage extends React.Component {
                         <button onClick={this.addTrackToPlaylist}>▶</button>
                     </details>
                 </InputsPlayslistDetailsPage>
-                <button onClick={this.props.gotToPlaylistsPage}> ◀ Playlists</button>
+                <button onClick={this.props.gotToPlaylistsPage}>
+                    ◀ Playlists
+                </button>
             </ContainerPlaylistDetails >
         )
     }
