@@ -41,20 +41,24 @@ Esse repositório vai acompanhar vocês até o final do curso, para mantermos a 
 |
 |   ├── Renderização Condicional (LabenuForms)
 │   ├── Ciclo de Vida em componentes de classe
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
+│   ├── Debugando React
+│   ├── Busca, filtros e ordenação
+│   ├── LabECommerce
+
+│   ├── HTTPS e Postman
+│   ├── Integração de API
+│   ├── Async e Await
+│   ├── Revisão React I
+│   ├── Labefy
+
+│   ├── Concepção de produto e introdução a processos ágeis
+│   ├── Design Systems
+│   ├── Resolvendo conflitos de GIT
+│   └── LabeNinjas
 |
 ├── modulo3
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   └── nome-do-projeto
-|
+│  
+
 .
 ```
 
