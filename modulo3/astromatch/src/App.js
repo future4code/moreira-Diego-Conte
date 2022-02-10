@@ -46,7 +46,6 @@ function App() {
             👥
           </HeaderButtonToPageHome>}
 
-        {currentPage === 'Matches' &&
           <ButtonClear
             title='Reiniciar escolhas'
             onClick={() => {
@@ -54,7 +53,7 @@ function App() {
               setCurrentPage('Home')
             }}>
             ↺
-          </ButtonClear>}
+          </ButtonClear>
 
         <Section>
         </Section>

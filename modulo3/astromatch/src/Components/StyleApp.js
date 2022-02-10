@@ -70,7 +70,7 @@ text-shadow: 0 0 0 #762d93;
 
 export const Section = styled.div`
 height: 25px;
-width: 310px;
+width: 200px;
 `
 
 export const ButtonClear = styled.button`
