@@ -1,11 +1,10 @@
 import { BASE_URL } from '../Constants/BASE_URL'
-import { userPathVariables } from '../Constants/UserPathVariables'
+import {userPathVariables} from '../Constants/UserPathVariables'
 import useRequestData from '../Hooks/UseRequestData';
-import { useNavigate } from "react-router-dom";
+import ApplyToTrip from './ApplicationFormPage';
 
 function ListTrips() {
     const [listTrips, error] = useRequestData(`${BASE_URL}${userPathVariables}/trips`)
-    const navigate = useNavigate();
 
     const displayTrips =
         listTrips &&
@@ -22,29 +21,10 @@ function ListTrips() {
             )
         })
 
-    const goToHomePage = () => {
-        navigate('/')
-    }
-
-    const goToApplicationPage = () => {
-        navigate('/trips-application')
-    }
-
     return (
         <div>
-            <div>
-                <button
-                    onClick={goToHomePage}>
-                    Home
-                </button>
-
-                <button
-                    onClick={goToApplicationPage}>
-                    Inscrever-se
-                </button>
-            </div>
             {displayTrips}
-
+            <ApplyToTrip listTrips={listTrips}/>
         </div>
     );
 }

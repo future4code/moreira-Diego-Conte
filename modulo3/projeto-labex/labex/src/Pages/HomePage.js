@@ -7,25 +7,17 @@ const Home = () => {
   const navigate = useNavigate();
 
   const goToTripsPage = () => {
-    navigate('/trips-list')
-  }
-
-  const goToLoginPage = () => {
-    navigate('/login')
+    navigate('/trips')
   }
 
 
 
   return (
     <div>
+      <hr></hr>
       <button
         onClick={goToTripsPage}>
         Viagens
-      </button>
-
-      <button
-        onClick={goToLoginPage}>
-        Login
       </button>
     </div>
   );

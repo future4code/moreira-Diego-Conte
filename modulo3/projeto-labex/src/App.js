@@ -1,13 +1,8 @@
-import Home from "./Pages/HomePage";
-import ListTrips from "./Pages/ListTripsPage";
-
+import Router from './Route/Router'
 
 function App() {
   return (
-    <div>
-      <ListTrips></ListTrips>
-    </div>
-  );
+    <Router />
+  )
 }
-
 export default App;

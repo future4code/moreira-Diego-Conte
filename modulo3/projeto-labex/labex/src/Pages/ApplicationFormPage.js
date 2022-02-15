@@ -1,30 +1,10 @@
-import { countries } from '../Constants/Countries';
-import { useNavigate } from "react-router-dom";
+import { countries } from '../Constants/Countries'
 
 
 export default function ApplyToTrip(props) {
-    const navigate = useNavigate();
 
-    const goToHomePage = () => {
-        navigate('/')
-    }
-
-    const goBack = () => {
-        navigate(-1)
-    }
     return (
         <div>
-            <div>
-                <button
-                    onClick={goToHomePage}>
-                    Home
-                </button>
-
-                <button
-                    onClick={goBack}>
-                    Voltar
-                </button>
-            </div>
             <select
                 placeholder='Viagem'
                 name='Country'
@@ -32,9 +12,9 @@ export default function ApplyToTrip(props) {
                 // onChange={}
                 required
             >
-                <option
-                    key={'escolhaViagem'}
-                    value={''}
+                <option 
+                key={'escolhaViagem'}
+                value={''} 
                 // disabled
                 >
                     Escolha uma viagem
@@ -58,7 +38,7 @@ export default function ApplyToTrip(props) {
             <input
                 placeholder='Profissão'></input>
             <select
-                key={'escolhaPais'}
+            key={'escolhaPais'}
                 placeholder='País'
                 name='Country'
                 // value={}

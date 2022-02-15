@@ -2,20 +2,26 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 
-export function UserRequestData(url) {
+const useRequestData = (url) => {
 
     const [data, setData] = useState()
-    const [error, setError] = useState('')
+    const [error, setError] = useState("")
 
-    useEffect(() => {
+    const getData = () => {
         axios.get(url)
             .then((res) => {
-                setData(res.data)
+                setData(res.data.trips)
             })
             .catch((err) => {
                 setError(err)
             })
-    }, [url])
+    }
+
+    useEffect(() => {
+        getData();
+    }, [url]);
 
     return [data, error]
 }
+
+export default useRequestData
