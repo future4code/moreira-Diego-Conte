@@ -1,29 +1,16 @@
 import { countries } from '../Constants/Countries';
 import { useNavigate } from "react-router-dom";
+import { goToHomePage, goBack } from '../Route/NavFunctions';
 
 
 export default function ApplyToTrip(props) {
     const navigate = useNavigate();
 
-    const goToHomePage = () => {
-        navigate('/')
-    }
-
-    const goBack = () => {
-        navigate(-1)
-    }
     return (
         <div>
             <div>
-                <button
-                    onClick={goToHomePage}>
-                    Home
-                </button>
-
-                <button
-                    onClick={goBack}>
-                    Voltar
-                </button>
+                <button onClick={() => goToHomePage(navigate)}> Home </button>
+                <button onClick={() => goBack(navigate)}> Voltar </button>
             </div>
             <select
                 placeholder='Viagem'
@@ -49,14 +36,10 @@ export default function ApplyToTrip(props) {
                     )
                 })}
             </select>
-            <input
-                placeholder='Nome' ></input>
-            <input
-                placeholder='Idade'></input>
-            <input
-                placeholder='Texto de candidatura'></input>
-            <input
-                placeholder='Profissão'></input>
+            <input placeholder='Nome' />
+            <input placeholder='Idade' />
+            <input placeholder='Texto de candidatura' />
+            <input placeholder='Profissão' />
             <select
                 key={'escolhaPais'}
                 placeholder='País'
@@ -65,7 +48,10 @@ export default function ApplyToTrip(props) {
                 // onChange={}
                 required
             >
-                <option value={''}> Escolha um país</option>
+                <option
+                    value={''}>
+                    Escolha um país
+                </option>
                 {countries.map((country,) => {
                     return (
                         <option

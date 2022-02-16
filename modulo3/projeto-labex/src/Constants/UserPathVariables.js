@@ -1,1 +1,1 @@
-export const userPathVariables = 'diego-conte-moreira'
+export const userPathVariables = 'diego-conte-moreira/'
