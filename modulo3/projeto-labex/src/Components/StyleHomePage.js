@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import rocket from '../Assets/Spaceship.jpg'
+import rocket from '../Assets/Spaceship.jpg';
 
 export const MainContainer = styled.div`
 display: flex;
@@ -26,19 +26,20 @@ button{
     margin-top: 40px;
     font-size: 30px;
     border: 2px solid black;
-    width: 200px;
+    width: 250px;
     color: black;
-    :hover{transition: 0.6s; cursor: pointer; width: 220px; border: 2px solid black;}
+    :hover{transition: 0.6s; cursor: pointer; width: 260px; border: 2px solid black;}
 }
 `
 
 export const LoginButton = styled.div` 
 display: flex;
-flex-direction: column;
-align-items: center;
-width: 150px;
+align-items: flex-start;
+justify-content: center;
+width: 170px;
+
 button{
-    margin:20px;
+    margin: 20px;
     width: 120px;
     font-size: 18px;
     border: 2px solid white;

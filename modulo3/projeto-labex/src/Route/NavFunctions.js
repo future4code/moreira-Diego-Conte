@@ -28,4 +28,6 @@ export const goToAdminDetailsTripPage = (navigate, id) => {
 }
 
 
-{/* <Route path='/admin/trips/:id' element={< />} */}
+export const goToAdminHomePage = (navigate) => {
+    navigate('/admin/trips/list')
+}

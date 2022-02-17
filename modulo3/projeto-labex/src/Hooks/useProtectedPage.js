@@ -9,7 +9,7 @@ export const useProtectedPage = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('token')
-        if (token === null) {
+        if (!token) {
             alert("Você não está logado. Informe seu dados.")
             navigate('/login')
         }

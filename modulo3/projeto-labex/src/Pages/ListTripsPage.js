@@ -3,12 +3,13 @@ import { userPathVariables } from '../Constants/UserPathVariables'
 import useRequestData from '../Hooks/UseRequestData';
 import { goToHomePage, goToApplicationPage } from '../Route/NavFunctions';
 import { useNavigate } from "react-router-dom";
+import {Header} from '../Components/Header'
 
 function ListTrips() {
     const [listTrips, error] = useRequestData(`${BASE_URL}${userPathVariables}trips`)
     const navigate = useNavigate();
 
-    const displayTrips = listTrips && listTrips.map((trip) => {
+    const displayTrips = listTrips && listTrips.trips.map((trip) => {
         return (
             <div key={trip.id}>
                 <p><b>Nome</b>: {trip.name}</p>
@@ -23,6 +24,7 @@ function ListTrips() {
 
     return (
         <div>
+            <Header/>
             <div>
                 <button
                     onClick={() => goToHomePage(navigate)}>

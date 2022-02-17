@@ -2,15 +2,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 
-const useRequestData = (url) => {
+const useRequestData = (url, body) => {
 
     const [data, setData] = useState()
     const [error, setError] = useState("")
 
     const getData = () => {
-        axios.get(url)
+        axios.get(url, body)
             .then((res) => {
-                setData(res.data.trips)
+                setData(res.data)
             })
             .catch((err) => {
                 setError(err)
