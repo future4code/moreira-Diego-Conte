@@ -36,11 +36,12 @@ export const LoginButton = styled.div`
 display: flex;
 align-items: flex-start;
 justify-content: center;
-width: 170px;
+width: 12vw;
+height: 7vw;
 
 button{
     margin: 20px;
-    width: 120px;
+    width: 8vw;
     font-size: 18px;
     border: 2px solid white;
     color: white;

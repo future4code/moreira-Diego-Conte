@@ -1,44 +1,70 @@
-import { BASE_URL } from '../Constants/BASE_URL'
-import { userPathVariables } from '../Constants/UserPathVariables'
+import Button from '@mui/material/Button';
+import LogoWhite from '../Assets/LogoWhite.png'
+import loading from '../Assets/Loading.gif';
 import useRequestData from '../Hooks/UseRequestData';
+import { BASE_URL } from '../Constants/BASE_URL';
+import { userPathVariables } from '../Constants/UserPathVariables';
 import { goToHomePage, goToApplicationPage } from '../Route/NavFunctions';
 import { useNavigate } from "react-router-dom";
-import {Header} from '../Components/Header'
+import {
+    MainContainer,
+    TripsContainer,
+    MinorContainer,
+    ApplyContainer,
+    HomeButtonContainer,
+    CardTrip,
+    LoadingIcon
+} from '../Components/StyleLisTripsPage'
+
+
+//_______________________________________________________________________________________________________________________________
+
 
 function ListTrips() {
     const [listTrips, error] = useRequestData(`${BASE_URL}${userPathVariables}trips`)
     const navigate = useNavigate();
 
-    const displayTrips = listTrips && listTrips.trips.map((trip) => {
+    const displayTrips = listTrips ? listTrips.trips.map((trip) => {
         return (
-            <div key={trip.id}>
-                <p><b>Nome</b>: {trip.name}</p>
-                <p><b>Descrição</b>: {trip.description}</p>
-                <p><b>Planeta</b>: {trip.planet}</p>
-                <p><b>Duração</b>: {trip.durationinDays} dias</p>
-                <p><b>Data</b>: {trip.date}</p>
-                <hr></hr>
-            </div>
+            <CardTrip key={trip.id}>
+                <p><h3>Nome</h3>: {trip.name}</p>
+                <p><h3>Descrição</h3>: {trip.description}</p>
+                <p><h3>Planeta</h3>: {trip.planet}</p>
+                <p><h3>Duração</h3>: {trip.durationInDays} dias</p>
+                <p><h3>Data</h3>: {trip.date}</p>
+            </CardTrip>
         )
-    })
+    }) : <LoadingIcon src={loading} />
 
     return (
-        <div>
-            <Header/>
-            <div>
-                <button
+        <MainContainer>
+            <HomeButtonContainer>
+                <img
+                    onClick={() => goToHomePage(navigate)}
+                    src={LogoWhite}
+                    alt='Logo LabeX' />
+                <Button
+                    variant="outlined"
+                    color='secondary'
                     onClick={() => goToHomePage(navigate)}>
                     Home
-                </button>
-
-                <button
-                    onClick={() => goToApplicationPage(navigate)}>
-                    Inscrever-se
-                </button>
-            </div>
-            {displayTrips}
-
-        </div>
+                </Button>
+            </HomeButtonContainer>
+            <MinorContainer>
+                <ApplyContainer>
+                    <h1>Homens de Marte, mulheres de Vênus. Você escolhe seu mundo agora!</h1>
+                    <Button
+                        variant="outlined"
+                        color='secondary'
+                        onClick={() => goToApplicationPage(navigate)}>
+                        Inscrever-se
+                    </Button>
+                </ApplyContainer>
+                <TripsContainer>
+                    {displayTrips}
+                </TripsContainer>
+            </MinorContainer>
+        </MainContainer>
     );
 }
 

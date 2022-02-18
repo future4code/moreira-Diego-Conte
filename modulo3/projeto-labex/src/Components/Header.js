@@ -16,7 +16,7 @@ background-color: transparent;
 img{
     background-color: transparent;
     max-height: 80px;
-    :hover{cursor: pointer; width: 180px;}
+    :hover{cursor: pointer;}
 }
 `
 

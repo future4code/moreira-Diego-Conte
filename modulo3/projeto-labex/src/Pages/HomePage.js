@@ -1,9 +1,11 @@
 import React from "react";
+import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import { goToTripsPage, goToLoginPage } from "../Route/NavFunctions";
 import { MainContainer, TextContainer, LoginButton } from '../Components/StyleHomePage';
-import Button from '@mui/material/Button';
 import { Header } from "../Components/Header";
+
+//_________________________________________________________________________________________________________________________________
 
 const Home = () => {
   const navigate = useNavigate();
