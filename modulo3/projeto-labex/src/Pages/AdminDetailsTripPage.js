@@ -1,23 +1,37 @@
-import React, { useState } from 'react';
+import useRequestData from '../Hooks/UseRequestData';
+import axios from 'axios';
+import LogoWhite from '../Assets/LogoWhite.png';
+import React from 'react';
+import { Button } from '@mui/material';
 import { useNavigate, useParams } from "react-router-dom";
 import { useProtectedPage } from '../Hooks/useProtectedPage';
 import { goToHomePage, goBack } from '../Route/NavFunctions';
 import { BASE_URL } from '../Constants/BASE_URL';
 import { userPathVariables } from '../Constants/UserPathVariables';
-import { Header } from '../Components/Header';
-import useRequestData from '../Hooks/UseRequestData';
-import axios from 'axios';
+import {
+  MainContainer,
+  HomeButtonContainer,
+  CardTrip,
+  TripDetails,
+  CandidatesContainer,
+  CandidatesRequestContainer,
+  ApprovedCandidatesContainer,
+} from '../Components/StyleAdminTripsDetailsPage';
 
+
+//________________________________________________________________________________________________
 
 export default function AdminDetailsTripPage() {
   useProtectedPage()
   const { id } = useParams();
   const navigate = useNavigate();
-  const [decistion, setDecision] = useState(false);
   const token = localStorage.getItem('token');
   const [tripData, error] = useRequestData(`${BASE_URL}${userPathVariables}trip/${id}`, { headers: { auth: token } });
 
-
+  const logout = (navigate) => {
+    localStorage.removeItem("token")
+    goToHomePage(navigate)
+  }
 
   const decideCandidate = (idcandidate, name, decision) => {
     axios.put(`${BASE_URL}${userPathVariables}trips/${id}/candidates/${idcandidate}/decide`, { approve: decision }, { headers: { auth: token } })
@@ -34,7 +48,6 @@ export default function AdminDetailsTripPage() {
       })
   }
 
-
   const candidates = tripData && tripData.trip.candidates.length > 0 ?
     tripData.trip.candidates.map((inscription) => {
       return (
@@ -44,12 +57,18 @@ export default function AdminDetailsTripPage() {
           <li><b>Idade</b>: {inscription.age}</li>
           <li><b>País</b>: {inscription.country}</li>
           <li><b>Texto de candidatura</b>: {inscription.applicationText}</li>
-          <button
+          <Button
+            variant="outlined"
+            color='secondary'
             onClick={() => decideCandidate(inscription.id, inscription.name, true)}>
-            Aprovar</button>
-          <button
+            Aprovar
+          </Button>
+          <Button
+            variant="outlined"
+            color='secondary'
             onClick={() => decideCandidate(inscription.id, inscription.name, false)}>
-            Reprovar</button>
+            Reprovar
+          </Button>
           <hr></hr>
         </ul>
       )
@@ -57,7 +76,7 @@ export default function AdminDetailsTripPage() {
     :
     <p>sem candidatos</p>
 
-  const approvedCandidates = tripData && tripData.trip.approved.length > 0?
+  const approvedCandidates = tripData && tripData.trip.approved.length > 0 ?
     tripData.trip.approved.map((candidate) => {
       return (
         <ul key={candidate.id}>
@@ -68,30 +87,41 @@ export default function AdminDetailsTripPage() {
     :
     <p> Sem candidatos</p>
 
-
   return (
-    <div>
-      <Header />
-      <button onClick={() => goToHomePage(navigate)}> Home </button>
-      <button onClick={() => goBack(navigate)}> Voltar </button>
-
-      {tripData &&
-        <ul> Dados da Viagem
-          <li>{tripData.trip.name}</li>
-          <li>{tripData.trip.description}</li>
-          <li>{tripData.trip.planet}</li>
-          <li>{tripData.trip.durationInDays}</li>
-          <li>{tripData.trip.date}</li>
-        </ul>
-      }
-
-      <hr></hr>
-      <p> Candidatos pendentes</p>
-      {candidates}
-
-      <hr></hr>
-      <p>Cadidatos aprovados</p>
-      {approvedCandidates}
-    </div>
+    <MainContainer>
+      <HomeButtonContainer>
+        <img
+          onClick={() => goToHomePage(navigate)}
+          src={LogoWhite}
+          alt='Logo LabeX' />
+        <Button
+          variant="outlined"
+          color='secondary'
+          onClick={() => logout(navigate)}>
+          Sair
+        </Button>
+      </HomeButtonContainer>
+      <TripDetails>
+        {tripData &&
+          <CardTrip>
+            <p>Viagem <b>{tripData.trip.name}</b></p>
+            <li><b>Descrição</b>: {tripData.trip.description}</li>
+            <li><b>Planeta</b>: {tripData.trip.planet}</li>
+            <li><b>Duração em dias</b>: {tripData.trip.durationInDays}</li>
+            <li><b>Data</b>: {tripData.trip.date}</li>
+          </CardTrip>
+        }
+      </TripDetails>
+      <CandidatesContainer>
+        <CandidatesRequestContainer>
+          <p> Candidatos pendentes</p>
+          {candidates}
+        </CandidatesRequestContainer>
+        <ApprovedCandidatesContainer>
+          <p>Cadidatos aprovados</p>
+          {approvedCandidates}
+        </ApprovedCandidatesContainer>
+      </CandidatesContainer>
+    </MainContainer>
   )
 }

@@ -1,18 +1,25 @@
 import styled from 'styled-components';
 import astronaut from '../Assets/Astronaut.jpg'
 
-export const MainContainer = styled.div` 
+
+export const MainContainer = styled.div`
 width: 100vw;
 height: 100vh;
 background-image: url(${astronaut});
 background-position-y: top;
 background-size: cover;
+
+h1{
+    text-align: center;
+    margin-bottom: 15px;
+}
 `
 
-export const ButtonHeaderContainer = styled.section`
+export const HomeButtonContainer = styled.section`
 display: flex;
 justify-content: space-between;
-width: 99vw;
+width: 95vw;
+margin-bottom: 10px;;
 
 img{
     margin-top: 10px;
@@ -22,7 +29,7 @@ img{
 
 button{
     margin: 20px;
-    width: 120px;
+    width: auto;
     height: 45px;
     font-size: 18px;
     border: 2px solid white;
@@ -46,8 +53,9 @@ height: 83vh;
 width: 65vw;
 background-color: #ffffff;
 border-radius: 10px;
-padding: 20px;
+padding: 10px 20px;
 border: 1px solid white;
+color: black;
 
 .Form{
     display: flex;
@@ -73,7 +81,6 @@ button{
     :hover{transition: 1s; cursor: pointer; border: 2px solid white; background-color: black; color: white;};
 }
 `
-
 export const ButtonsSubmitAndBackSection = styled.section`
 display: flex;
 justify-content: space-evenly;
