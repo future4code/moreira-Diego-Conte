@@ -1,15 +1,15 @@
 import axios from 'axios';
-import useRequestData from '../Hooks/UseRequestData';
-import useForms from '../Hooks/UseForms';
+import useRequestData from '../../Hooks/UseRequestData';
+import useForms from '../../Hooks/UseForms';
 import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
-import LogoWhite from '../Assets/LogoWhite.png'
-import { countries } from '../Constants/Countries';
-import { BASE_URL } from '../Constants/BASE_URL';
-import { userPathVariables } from '../Constants/UserPathVariables';
+import LogoWhite from '../../Assets/LogoWhite.png';
+import { countries } from '../../Constants/Countries';
+import { BASE_URL } from '../../Constants/BASE_URL';
+import { userPathVariables } from '../../Constants/UserPathVariables';
 import { useNavigate } from "react-router-dom";
-import { goToHomePage, goBack } from '../Route/NavFunctions';
+import { goToHomePage, goBack } from '../../Route/NavFunctions';
 import { useState } from 'react';
 import { Box, FormControl, InputLabel, MenuItem } from '@mui/material';
 import {
@@ -18,7 +18,8 @@ import {
     ButtonHeaderContainer,
     AlignSection,
     ButtonsSubmitAndBackSection
-} from '../Components/StyleApplicationFormPage';
+} from './StyleApplicationFormPage';
+import {token} from '../../Constants/Token';
 
 
 //_______________________________________________________________________________________________________________________________
@@ -27,8 +28,7 @@ import {
 export default function ApplyToTrip(props) {
     const navigate = useNavigate();
     const [tripId, setTripId] = useState("");
-    const [listTrips, error] = useRequestData(`${BASE_URL}${userPathVariables}trips`)
-    const token = localStorage.getItem('token');
+    const [listTrips] = useRequestData(`${BASE_URL}${userPathVariables}trips`)
     const { form, onChange, clearFields } = useForms({ name: "", age: 18, applicationText: "", profession: "", country: "" });
 
     const onChangeTrip = (e) => {
@@ -42,7 +42,7 @@ export default function ApplyToTrip(props) {
                 window.location.reload()
             })
             .catch((err) => {
-                alert(err.message)
+                alert(`Ocorreu um problema com sua requisição: ${err.message}`)
             })
     }
 
@@ -169,7 +169,6 @@ export default function ApplyToTrip(props) {
                                 color='secondary'>
                                 Voltar
                             </Button>
-
                             <Button
                                 variant="outlined"
                                 color='secondary'

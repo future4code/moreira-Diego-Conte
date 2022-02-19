@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import astronaut from '../Assets/Astronaut.jpg'
+import astronaut from '../../Assets/Astronaut.jpg';
+
+
+//____________________________________________________________________________________________________________
 
 
 export const CardTrip = styled.div`

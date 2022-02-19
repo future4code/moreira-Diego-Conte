@@ -1,9 +1,9 @@
 import React from "react";
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
-import { goToTripsPage, goToLoginPage } from "../Route/NavFunctions";
-import { MainContainer, TextContainer, LoginButton } from '../Components/StyleHomePage';
-import { Header } from "../Components/Header";
+import { goToTripsPage, goToLoginPage } from "../../Route/NavFunctions";
+import { MainContainer, TextContainer, LoginButton } from './StyleHomePage';
+import { Header } from "../../Components/Header";
 
 //_________________________________________________________________________________________________________________________________
 

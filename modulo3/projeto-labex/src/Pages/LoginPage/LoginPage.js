@@ -1,15 +1,21 @@
 import axios from 'axios';
-import useForms from '../Hooks/UseForms';
+import useForms from '../../Hooks/UseForms';
 import TextField from '@mui/material/TextField';
-import LogoWhite from '../Assets/LogoWhite.png';
+import LogoWhite from '../../Assets/LogoWhite.png';
 import React, { useEffect, useState } from 'react';
 import { Button, Stack } from '@mui/material';
 import { useNavigate } from "react-router-dom";
-import { goToAdminHomePage, goToHomePage, goBack } from '../Route/NavFunctions';
-import { BASE_URL } from '../Constants/BASE_URL';
-import { userPathVariables } from '../Constants/UserPathVariables';
-import { FormContainer, MainContainer } from '../Components/StyleLoginPage';
-import { ButtonHeaderContainer, ButtonsSubmitAndBackSection, AlignSection } from '../Components/StyleLoginPage';
+import { goToAdminHomePage, goToHomePage, goBack } from '../../Route/NavFunctions';
+import { BASE_URL } from '../../Constants/BASE_URL';
+import { userPathVariables } from '../../Constants/UserPathVariables';
+import {
+  ButtonHeaderContainer,
+  ButtonsSubmitAndBackSection,
+  AlignSection,
+  FormContainer,
+  MainContainer
+} from './StyleLoginPage';
+import { Box } from '@mui/system';
 
 //_______________________________________________________________________________________________________________________________
 
@@ -36,14 +42,13 @@ export default function LoginPage() {
         navigate('/admin/trips/list')
       })
       .catch((err) => {
-        alert('Verifique os dados informados e tente novamente')
+        alert('Verifique os dados informados, atentando ao formato pedido, e tente novamente')
       })
   }
 
   const clickToLogIn = (event) => {
     event.preventDefault();
     submitToLogin()
-    clearFields();
   };
 
 
@@ -68,21 +73,22 @@ export default function LoginPage() {
             onSubmit={clickToLogIn}>
             <p>Informe seus dados para acessar o painel administrativo.</p>
             <TextField
-              className='TextField'
+              type={'email'}
               required
+              className='TextField'
               name='email'
               label='E-mail'
-              type='email'
+              value={form.email}
               variant="outlined"
               color='secondary'
               onChange={onChange} />
 
             <TextField
-              className='TextField'
               required
+              className='TextField'
               name='password'
               label='Senha'
-              type='password'
+              type="password"
               variant="outlined"
               color='secondary'
               onChange={onChange} />
@@ -93,7 +99,6 @@ export default function LoginPage() {
                 color='secondary'>
                 Voltar
               </Button>
-
               <Button
                 variant="outlined"
                 color='secondary'

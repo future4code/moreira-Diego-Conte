@@ -1,13 +1,13 @@
-import useRequestData from '../Hooks/UseRequestData';
+import useRequestData from '../../Hooks/UseRequestData';
 import axios from 'axios';
-import LogoWhite from '../Assets/LogoWhite.png';
+import LogoWhite from '../../Assets/LogoWhite.png';
 import React from 'react';
 import { Button } from '@mui/material';
 import { useNavigate, useParams } from "react-router-dom";
-import { useProtectedPage } from '../Hooks/useProtectedPage';
-import { goToHomePage, goBack } from '../Route/NavFunctions';
-import { BASE_URL } from '../Constants/BASE_URL';
-import { userPathVariables } from '../Constants/UserPathVariables';
+import { useProtectedPage } from '../../Hooks/useProtectedPage';
+import { goToHomePage, goBack } from '../../Route/NavFunctions';
+import { BASE_URL } from '../../Constants/BASE_URL';
+import { userPathVariables } from '../../Constants/UserPathVariables';
 import {
   MainContainer,
   HomeButtonContainer,
@@ -16,7 +16,9 @@ import {
   CandidatesContainer,
   CandidatesRequestContainer,
   ApprovedCandidatesContainer,
-} from '../Components/StyleAdminTripsDetailsPage';
+} from './StyleAdminTripsDetailsPage';
+import { logout } from '../../Services/Requests';
+import {token} from '../../Constants/Token';
 
 
 //________________________________________________________________________________________________
@@ -25,13 +27,7 @@ export default function AdminDetailsTripPage() {
   useProtectedPage()
   const { id } = useParams();
   const navigate = useNavigate();
-  const token = localStorage.getItem('token');
   const [tripData, error] = useRequestData(`${BASE_URL}${userPathVariables}trip/${id}`, { headers: { auth: token } });
-
-  const logout = (navigate) => {
-    localStorage.removeItem("token")
-    goToHomePage(navigate)
-  }
 
   const decideCandidate = (idcandidate, name, decision) => {
     axios.put(`${BASE_URL}${userPathVariables}trips/${id}/candidates/${idcandidate}/decide`, { approve: decision }, { headers: { auth: token } })
@@ -44,7 +40,7 @@ export default function AdminDetailsTripPage() {
         window.location.reload()
       })
       .catch((err) => {
-        alert(err)
+        alert(`Ocorreu um problema com sua requisição: ${err.message}`)
       })
   }
 
@@ -104,7 +100,13 @@ export default function AdminDetailsTripPage() {
       <TripDetails>
         {tripData &&
           <CardTrip>
-            <p>Viagem <b>{tripData.trip.name}</b></p>
+            <p>{tripData.trip.name}
+              <Button
+                variant="outlined"
+                color='secondary'
+                onClick={() => goBack(navigate)}>
+                Voltar
+              </Button></p>
             <li><b>Descrição</b>: {tripData.trip.description}</li>
             <li><b>Planeta</b>: {tripData.trip.planet}</li>
             <li><b>Duração em dias</b>: {tripData.trip.durationInDays}</li>
@@ -114,11 +116,11 @@ export default function AdminDetailsTripPage() {
       </TripDetails>
       <CandidatesContainer>
         <CandidatesRequestContainer>
-          <p> Candidatos pendentes</p>
+          <p> Candidatos pendentes : {tripData && tripData.trip.candidates.length}</p>
           {candidates}
         </CandidatesRequestContainer>
         <ApprovedCandidatesContainer>
-          <p>Cadidatos aprovados</p>
+          <p>Cadidatos aprovados : {tripData && tripData.trip.approved.length}</p>
           {approvedCandidates}
         </ApprovedCandidatesContainer>
       </CandidatesContainer>

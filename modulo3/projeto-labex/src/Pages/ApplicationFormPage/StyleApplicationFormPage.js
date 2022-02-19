@@ -1,10 +1,12 @@
 import styled from 'styled-components';
-import astronaut from '../Assets/Astronaut.jpg'
+import stars from '../../Assets/Stars.jpg';
+
+//_____________________________________________________________________________________________________________
 
 export const MainContainer = styled.div` 
 width: 100vw;
 height: 100vh;
-background-image: url(${astronaut});
+background-image: url(${stars});
 background-position-y: top;
 background-size: cover;
 `

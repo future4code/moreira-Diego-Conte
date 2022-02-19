@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import astronaut from '../Assets/Astronaut.jpg'
+import astronaut from '../../Assets/Astronaut.jpg';
+
+//______________________________________________________________________________________________________
 
 export const MainContainer = styled.div` 
 width: 100vw;
@@ -42,7 +44,7 @@ export const CardTrip = styled.ul`
 list-style: none;
 border: 1px solid gray;
 border-radius: 5px;
-width: 50vw;
+width: 70vw;
 margin: 20px 0px;
 padding: 10px;
 line-height: 30px;
@@ -50,9 +52,15 @@ font-size: 20px;
 color: #dadada;
 text-align: justify;
 box-shadow: 0 0 8px 4px #9794944c;
+background-color: #000000c0;
 
 p{
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-style: oblique;
+    color: white;
 }
 `
 

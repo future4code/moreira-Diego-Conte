@@ -1,10 +1,10 @@
 import Button from '@mui/material/Button';
-import LogoWhite from '../Assets/LogoWhite.png'
-import loading from '../Assets/Loading.gif';
-import useRequestData from '../Hooks/UseRequestData';
-import { BASE_URL } from '../Constants/BASE_URL';
-import { userPathVariables } from '../Constants/UserPathVariables';
-import { goToHomePage, goToApplicationPage } from '../Route/NavFunctions';
+import LogoWhite from '../../Assets/LogoWhite.png'
+import loading from '../../Assets/Loading.gif';
+import useRequestData from '../../Hooks/UseRequestData';
+import { BASE_URL } from '../../Constants/BASE_URL';
+import { userPathVariables } from '../../Constants/UserPathVariables';
+import { goToHomePage, goToApplicationPage } from '../../Route/NavFunctions';
 import { useNavigate } from "react-router-dom";
 import {
     MainContainer,
@@ -14,14 +14,14 @@ import {
     HomeButtonContainer,
     CardTrip,
     LoadingIcon
-} from '../Components/StyleLisTripsPage'
+} from './StyleLisTripsPage'
 
 
 //_______________________________________________________________________________________________________________________________
 
 
 function ListTrips() {
-    const [listTrips, error] = useRequestData(`${BASE_URL}${userPathVariables}trips`)
+    const [listTrips] = useRequestData(`${BASE_URL}${userPathVariables}trips`)
     const navigate = useNavigate();
 
     const displayTrips = listTrips ? listTrips.trips.map((trip) => {

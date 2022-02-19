@@ -27,7 +27,6 @@ export const goToAdminDetailsTripPage = (navigate, id) => {
     navigate(`/admin/trips/${id}`)
 }
 
-
 export const goToAdminHomePage = (navigate) => {
     navigate('/admin/trips/list')
 }

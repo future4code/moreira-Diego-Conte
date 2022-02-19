@@ -10,6 +10,9 @@ export const theme = createTheme({
     },
     error: {
       main: '#dd0000'
-    }
+    }, 
+    success: {
+      main: '#046900'
+    }, 
   },
 }); 

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import hearth from '../Assets/Hearth.jpg';
+import hearth from '../../Assets/Hearth.jpg';
+
+//________________________________________________________________________________________________________________
 
 export const CardTrip = styled.div`
 border: 1px solid gray;

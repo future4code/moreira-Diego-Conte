@@ -1,20 +1,21 @@
 import React from 'react';
-import useForms from '../Hooks/UseForms';
+import useForms from '../../Hooks/UseForms';
 import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-import LogoWhite from '../Assets/LogoWhite.png';
+import LogoWhite from '../../Assets/LogoWhite.png';
 import { useNavigate } from "react-router-dom";
-import { useProtectedPage } from '../Hooks/useProtectedPage';
-import { goToHomePage, goBack } from '../Route/NavFunctions';
-import { planets } from '../Constants/Planets';
-import { BASE_URL } from '../Constants/BASE_URL';
-import { userPathVariables } from '../Constants/UserPathVariables';
-import { MainContainer, HomeButtonContainer, AlignSection, FormContainer, ButtonsSubmitAndBackSection } from '../Components/StyleAdminCreateTripPage';
+import { useProtectedPage } from '../../Hooks/useProtectedPage';
+import { goToHomePage, goBack, goToAdminHomePage } from '../../Route/NavFunctions';
+import { planets } from '../../Constants/Planets';
+import { BASE_URL } from '../../Constants/BASE_URL';
+import { userPathVariables } from '../../Constants/UserPathVariables';
+import { MainContainer, HomeButtonContainer, AlignSection, FormContainer, ButtonsSubmitAndBackSection } from './StyleAdminCreateTripPage';
 import { Box } from '@mui/system';
 import { FormControl, InputLabel } from '@mui/material';
+import { logout, getTodayDate } from '../../Services/Requests';
 
 
 //__________________________________________________________________________________________________________________________________
@@ -24,28 +25,27 @@ export default function AdminCreateTripPage() {
   useProtectedPage();
   const token = localStorage.getItem('token');
   const navigate = useNavigate();
-  const { form, onChange, clearFields } = useForms({ name: "", planet: "", date: "", description: "", durationInDays: "" });
+  const { form, onChange } = useForms({ name: "", planet: "", date: "", description: "", durationInDays: "" });
 
   const createTrip = () => {
     axios.post(`${BASE_URL}${userPathVariables}trips`, form, { headers: { auth: token } })
       .then((res) => {
         alert("Viagem criada com sucesso")
+        goToAdminHomePage(navigate)
       })
       .catch((err) => {
-        console.log(err.response)
+        alert(`Ocorreu um erro com sua requisição: ${err.message}`)
       })
   }
 
   const submitToCreateTrip = (event) => {
     event.preventDefault();
     createTrip();
-    clearFields();
   };
 
-  const logout = (navigate) => {
-    localStorage.removeItem("token")
-    goToHomePage(navigate)
-  }
+
+  const today = getTodayDate()
+
 
   return (
     <MainContainer>
@@ -105,7 +105,8 @@ export default function AdminCreateTripPage() {
               variant="outlined"
               color='secondary'
               type='date'
-              inputProps={{ min: '17/02/2022' }}
+              inputProps={{ min: today }}
+              title={"Datas retroativas não são aceitas"}
               onChange={onChange} />
             <TextField
               required

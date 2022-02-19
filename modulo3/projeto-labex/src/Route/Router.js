@@ -1,12 +1,15 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import HomePage from '../Pages/HomePage'
-import ApplicationFormPage from '../Pages/ApplicationFormPage'
-import LoginPage from '../Pages/LoginPage'
-import AdminHomePage from '../Pages/AdminHomePage'
-import ListTripsPage from '../Pages/ListTripsPage'
-import AdminCreateTripPage from '../Pages/AdminCreateTripPage'
-import AdminDetailsTripPage from '../Pages/AdminDetailsTripPage'
+import React from 'react';
+import HomePage from '../Pages/HomePage/HomePage';
+import ApplicationFormPage from '../Pages/ApplicationFormPage/ApplicationFormPage';
+import LoginPage from '../Pages/LoginPage/LoginPage';
+import AdminHomePage from '../Pages/AdminHomePage/AdminHomePage';
+import ListTripsPage from '../Pages/ListTripsPage/ListTripsPage';
+import AdminCreateTripPage from '../Pages/AdminCreateTrip/AdminCreateTripPage';
+import AdminDetailsTripPage from '../Pages/AdminDetailsTrip/AdminDetailsTripPage';
+import PageNotFound from '../Pages/PageNotFound/PageNotFound'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+//___________________________________________________________________________________________
 
 export default function RouteComponent() {
     return (
@@ -19,6 +22,7 @@ export default function RouteComponent() {
                 <Route path='/admin/trips/list' element={<AdminHomePage />} />
                 <Route path='/admin/trips/create' element={<AdminCreateTripPage />} />
                 <Route path='/admin/trips/:id' element={<AdminDetailsTripPage />} />
+                <Route path='*' element={<PageNotFound />}></Route>
             </Routes>
         </BrowserRouter>
     )

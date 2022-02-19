@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import astronaut from '../Assets/Astronaut.jpg'
+import astronaut from '../../Assets/Astronaut.jpg'
 
+//______________________________________________________________________________________________
 
 export const MainContainer = styled.div`
 width: 100vw;

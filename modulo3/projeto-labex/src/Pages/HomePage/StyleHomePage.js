@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import rocket from '../Assets/Spaceship.jpg';
+import rocket from '../../Assets/Spaceship.jpg';
+
+//________________________________________________________________________________________________________
 
 export const MainContainer = styled.div`
 display: flex;
