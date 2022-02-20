@@ -2,6 +2,7 @@ import useRequestData from '../../Hooks/UseRequestData';
 import axios from 'axios';
 import LogoWhite from '../../Assets/LogoWhite.png';
 import React from 'react';
+import { LoadingIcon } from '../../Components/LoadingIcon';
 import { Button } from '@mui/material';
 import { useNavigate, useParams } from "react-router-dom";
 import { useProtectedPage } from '../../Hooks/useProtectedPage';
@@ -18,16 +19,18 @@ import {
   ApprovedCandidatesContainer,
 } from './StyleAdminTripsDetailsPage';
 import { logout } from '../../Services/Requests';
-import {token} from '../../Constants/Token';
+import { token } from '../../Constants/Token';
 
 
 //________________________________________________________________________________________________
+
+
 
 export default function AdminDetailsTripPage() {
   useProtectedPage()
   const { id } = useParams();
   const navigate = useNavigate();
-  const [tripData, error] = useRequestData(`${BASE_URL}${userPathVariables}trip/${id}`, { headers: { auth: token } });
+  const [tripData, error, loading] = useRequestData(`${BASE_URL}${userPathVariables}trip/${id}`, { headers: { auth: token } });
 
   const decideCandidate = (idcandidate, name, decision) => {
     axios.put(`${BASE_URL}${userPathVariables}trips/${id}/candidates/${idcandidate}/decide`, { approve: decision }, { headers: { auth: token } })
@@ -44,7 +47,31 @@ export default function AdminDetailsTripPage() {
       })
   }
 
-  const candidates = tripData && tripData.trip.candidates.length > 0 ?
+
+
+
+  // Lists and displays details trip
+  const detailsTrip = loading ? LoadingIcon() : tripData &&
+    <CardTrip>
+      <p>{tripData.trip.name}
+        <Button
+          variant="outlined"
+          color='secondary'
+          onClick={() => goBack(navigate)}>
+          Voltar
+        </Button></p>
+      <li><b>Descrição</b>: {tripData.trip.description}</li>
+      <li><b>Planeta</b>: {tripData.trip.planet}</li>
+      <li><b>Duração em dias</b>: {tripData.trip.durationInDays}</li>
+      <li><b>Data</b>: {tripData.trip.date}</li>
+    </CardTrip>
+
+
+
+
+
+  // Lists and displays candidates applications
+  const candidates = loading ? LoadingIcon() : tripData && tripData.trip.candidates.length > 0 ?
     tripData.trip.candidates.map((inscription) => {
       return (
         <ul key={inscription.id}>
@@ -70,22 +97,31 @@ export default function AdminDetailsTripPage() {
       )
     })
     :
-    <p>sem candidatos</p>
+    <p>Nenhum candidato inscrito</p>
 
-  const approvedCandidates = tripData && tripData.trip.approved.length > 0 ?
-    tripData.trip.approved.map((candidate) => {
-      return (
-        <ul key={candidate.id}>
-          <li> {candidate.name}</li>
-        </ul>
-      )
-    })
-    :
-    <p> Sem candidatos</p>
 
-  return (
+
+
+
+  // Lists and displays approved candidates
+  const approvedCandidates = loading ? LoadingIcon() :
+    tripData && tripData.trip.approved.length > 0 ?
+      tripData.trip.approved.map((candidate) => {
+        return (
+          <ul key={candidate.id}>
+            <li> {candidate.name}</li>
+          </ul>
+        )
+      })
+      :
+      <p> Nenhum candidato aprovado</p>
+
+
+
+
+  return ( //return main function
     <MainContainer>
-      <HomeButtonContainer>
+      < HomeButtonContainer >
         <img
           onClick={() => goToHomePage(navigate)}
           src={LogoWhite}
@@ -98,21 +134,7 @@ export default function AdminDetailsTripPage() {
         </Button>
       </HomeButtonContainer>
       <TripDetails>
-        {tripData &&
-          <CardTrip>
-            <p>{tripData.trip.name}
-              <Button
-                variant="outlined"
-                color='secondary'
-                onClick={() => goBack(navigate)}>
-                Voltar
-              </Button></p>
-            <li><b>Descrição</b>: {tripData.trip.description}</li>
-            <li><b>Planeta</b>: {tripData.trip.planet}</li>
-            <li><b>Duração em dias</b>: {tripData.trip.durationInDays}</li>
-            <li><b>Data</b>: {tripData.trip.date}</li>
-          </CardTrip>
-        }
+        {detailsTrip}
       </TripDetails>
       <CandidatesContainer>
         <CandidatesRequestContainer>
@@ -124,6 +146,6 @@ export default function AdminDetailsTripPage() {
           {approvedCandidates}
         </ApprovedCandidatesContainer>
       </CandidatesContainer>
-    </MainContainer>
+    </MainContainer >
   )
 }

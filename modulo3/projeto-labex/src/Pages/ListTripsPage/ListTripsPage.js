@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import LogoWhite from '../../Assets/LogoWhite.png'
-import loading from '../../Assets/Loading.gif';
 import useRequestData from '../../Hooks/UseRequestData';
+import {LoadingIcon} from '../../Components/LoadingIcon';
 import { BASE_URL } from '../../Constants/BASE_URL';
 import { userPathVariables } from '../../Constants/UserPathVariables';
 import { goToHomePage, goToApplicationPage } from '../../Route/NavFunctions';
@@ -13,7 +13,6 @@ import {
     ApplyContainer,
     HomeButtonContainer,
     CardTrip,
-    LoadingIcon
 } from './StyleLisTripsPage'
 
 
@@ -34,7 +33,7 @@ function ListTrips() {
                 <p><h3>Data</h3>: {trip.date}</p>
             </CardTrip>
         )
-    }) : <LoadingIcon src={loading} />
+    }) : LoadingIcon()
 
     return (
         <MainContainer>

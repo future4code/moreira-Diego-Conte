@@ -16,6 +16,7 @@ import { MainContainer, HomeButtonContainer, AlignSection, FormContainer, Button
 import { Box } from '@mui/system';
 import { FormControl, InputLabel } from '@mui/material';
 import { logout, getTodayDate } from '../../Services/Requests';
+import {token} from '../../Constants/Token';
 
 
 //__________________________________________________________________________________________________________________________________
@@ -23,7 +24,6 @@ import { logout, getTodayDate } from '../../Services/Requests';
 
 export default function AdminCreateTripPage() {
   useProtectedPage();
-  const token = localStorage.getItem('token');
   const navigate = useNavigate();
   const { form, onChange } = useForms({ name: "", planet: "", date: "", description: "", durationInDays: "" });
 

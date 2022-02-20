@@ -21,11 +21,6 @@ h3{
 }
 `
 
-export const LoadingIcon = styled.img`
-width: 10vw;
-margin-top: 100px;
-`
-
 export const MainContainer = styled.div`
 width: 100vw;
 height: 100vh;

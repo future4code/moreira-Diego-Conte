@@ -6,14 +6,18 @@ const useRequestData = (url, body) => {
 
     const [data, setData] = useState()
     const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
 
     const getData = () => {
+        setLoading(true)
         axios.get(url, body)
             .then((res) => {
                 setData(res.data)
+                setLoading(false)
             })
             .catch((err) => {
                 setError(err)
+                setLoading(false)
             })
     }
 
@@ -21,7 +25,7 @@ const useRequestData = (url, body) => {
         getData();
     }, [url]);
 
-    return [data, error]
+    return [data, error, loading]
 }
 
 export default useRequestData

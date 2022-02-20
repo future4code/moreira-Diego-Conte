@@ -30,3 +30,7 @@ export const goToAdminDetailsTripPage = (navigate, id) => {
 export const goToAdminHomePage = (navigate) => {
     navigate('/admin/trips/list')
 }
+
+export const goToAboutUs = (navigate) => {
+    navigate('/about')
+}

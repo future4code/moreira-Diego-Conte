@@ -30,23 +30,12 @@ button{
     border: 2px solid black;
     width: 250px;
     color: black;
-    :hover{transition: 0.6s; cursor: pointer; width: 260px; border: 2px solid black;}
-}
-`
-
-export const LoginButton = styled.div` 
-display: flex;
-align-items: flex-start;
-justify-content: center;
-width: 12vw;
-height: 7vw;
-
-button{
-    margin: 20px;
-    width: 8vw;
-    font-size: 18px;
-    border: 2px solid white;
-    color: white;
-    :hover{transition: 0.6s; cursor: pointer; width: 130px; border: 2px solid white;};
+    :hover{
+        transition: 0.6s; 
+        cursor: pointer; 
+        width: 260px; 
+        border: 2px solid white; 
+        background-color: black; 
+        color: white;}
 }
 `

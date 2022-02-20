@@ -29,7 +29,12 @@ button{
     font-size: 18px;
     border: 2px solid white;
     color: white;
-    :hover{transition: 1s; cursor: pointer; border: 2px solid white; background-color: white; color: black;};
+    :hover{
+        transition: 1s; 
+        cursor: pointer; 
+        border: 2px solid white; 
+        background-color: white; 
+        color: black;};
     }
 `
 

@@ -23,14 +23,6 @@ const Home = () => {
           VIAJAR JÁ
         </Button>
       </TextContainer>
-      <LoginButton>
-        <Button
-          variant="outlined"
-          color='secondary'
-          onClick={() => goToLoginPage(navigate)}>
-          Login
-        </Button>
-      </LoginButton>
     </MainContainer>
   );
 }

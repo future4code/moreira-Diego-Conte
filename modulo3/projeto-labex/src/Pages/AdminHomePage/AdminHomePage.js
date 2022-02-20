@@ -6,7 +6,7 @@ import { goToHomePage, goToCreateTripPage } from '../../Route/NavFunctions';
 import { useProtectedPage } from '../../Hooks/useProtectedPage';
 import { MainContainer, TripsContainer, HomeButtonContainer } from './StyleAdminHomePage';
 import { logout } from '../../Services/Requests';
-import useDeleteTrips from '../../Hooks/useDeleteTrips'
+import useDeleteTrips from '../../Hooks/useDeleteTrips';
 
 
 //___________________________________________________________________________________
