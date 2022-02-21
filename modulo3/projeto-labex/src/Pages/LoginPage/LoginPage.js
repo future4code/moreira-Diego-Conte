@@ -100,6 +100,7 @@ export default function LoginPage() {
                 Voltar
               </Button>
               <Button
+                type={'submit'}
                 variant="outlined"
                 color='secondary'
                 onClick={submitToLogin}>
