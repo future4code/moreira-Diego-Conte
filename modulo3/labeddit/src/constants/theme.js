@@ -4,7 +4,6 @@ import {
     secondaryColor,
     errorColor,
     succesColor,
-    textColor,
 } from './colors';
 
 
@@ -22,9 +21,6 @@ export const theme = createTheme({
         },
         success: {
             main: succesColor,
-        },
-        text: {
-            primary: textColor,
         },
     },
 });  

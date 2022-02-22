@@ -4,14 +4,15 @@ import { FormContainer } from './Styled';
 import { useNavigate } from 'react-router-dom';
 import {goToSignUpPage} from '../../routes/coordinator'
 import LoginForm from './LoginForm';
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
-const LoginPage = () => {
-
+const LoginPage = ({ setRightButtonText }) => {
+    useUnprotectedPage()
     const navigate = useNavigate()
 
     return (
         <FormContainer>
-            <LoginForm />
+            <LoginForm setRightButtonText={setRightButtonText}/>
             <div>
                 <Button
                     onClick={() => { goToSignUpPage(navigate) }}

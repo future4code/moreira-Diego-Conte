@@ -1,10 +1,14 @@
 import React from 'react';
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
+import SignUpForm from './SingUpForm';
+import { FormContainer } from './styled';
 
-const SignUpPage = () => {
+const SignUpPage = ({ setRightButtonText }) => {
+    useUnprotectedPage()
     return (
-        <div>
-            SignUpPage
-        </div>
+        <FormContainer>
+            <SignUpForm setRightButtonText={setRightButtonText} />
+        </FormContainer>
     )
 }
 
