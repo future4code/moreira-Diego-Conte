@@ -4,8 +4,8 @@ export const goToFeedPage = (navigate) => {
     navigate('/')
 };
 
-export const goToPostPage = (navigate) => {
-    navigate('/post')
+export const goToPostPage = (navigate, id) => {
+    navigate(`/post/${id}`)
 };
 
 export const goToLoginPage = (navigate) => {

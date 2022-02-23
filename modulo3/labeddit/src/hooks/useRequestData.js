@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {token} from '../services/token'
+import {headers} from '../services/headers';
 
 
-const useRequestData = (url, body) => {
+const useRequestData = (url) => {
 
     const [data, setData] = useState()
     const [loading, setLoading] = useState(false)
-    const headers = { headers: { Authorization: token } }
 
     const getData = () => {
         setLoading(true)

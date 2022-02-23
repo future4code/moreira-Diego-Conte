@@ -10,8 +10,8 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const MainContainer = styled.div`
-width: 100vw;
-height: 100vh;
+max-width: 100vw;
+min-height: 100vh;
 background-color: ${mainColor.background};
 color: white;
 `

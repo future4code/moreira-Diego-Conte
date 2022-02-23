@@ -1,1 +1,1 @@
-export const token = localStorage.getItem('tokenLabEddit')
+export const token = localStorage.getItem('tokenLabEddit');

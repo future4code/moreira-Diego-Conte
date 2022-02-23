@@ -15,7 +15,6 @@ const LoginForm = ({ setRightButtonText }) => {
         login(form, clearFields, navigate, setRightButtonText);
     }
 
-
     return (
             <form
                 className='Form'
