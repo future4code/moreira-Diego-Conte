@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {headers} from '../services/headers';
-
 
 const useRequestData = (url) => {
 
     const [data, setData] = useState()
     const [loading, setLoading] = useState(false)
+    const token = localStorage.getItem('tokenLabEddit')
+    const headers = {headers: {Authorization: token}};
 
     const getData = () => {
         setLoading(true)
@@ -16,7 +16,7 @@ const useRequestData = (url) => {
                 setLoading(false)
             })
             .catch((err) => {
-                alert(`Houve um erro com sua requisição: ${err.message}`)
+                alert(err.message)
                 setLoading(false)
             })
     }

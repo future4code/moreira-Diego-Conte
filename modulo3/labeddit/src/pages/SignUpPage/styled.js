@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const MainContainerSignUp = styled.div`
+display: flex;
+height: 90vh;
+justify-content: center;
+align-items: center;
+`
 
 export const FormContainer = styled.section`
 display: flex;
@@ -25,6 +31,7 @@ border: 1px solid white;
     margin: 15px 0px;
 }
 button{
+    margin-top: 3%;
     :hover{ transition: 1s; cursor: pointer; background-color: black; color: white; };
 }
 `

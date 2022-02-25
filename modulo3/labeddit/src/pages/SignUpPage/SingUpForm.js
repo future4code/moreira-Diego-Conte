@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import useForms from '../../hooks/useForm';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { signUp } from '../../services/user';
+import { signUp } from '../../services/requestsTypePost';
 
 
 
@@ -20,7 +20,7 @@ const SignUpForm = ({setRightButtonText}) => {
         <form
             className='Form'
             onSubmit={onSubmitForm}>
-            <p>Informe seus dados.</p>
+            <p>Para se cadastrar, informe seus dados</p>
 
             <TextField
                 required

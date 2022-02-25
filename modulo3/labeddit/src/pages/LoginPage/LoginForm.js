@@ -2,11 +2,11 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import useForms from '../../hooks/useForm';
 import { Button } from '@mui/material';
-import {login} from '../../services/user'
+import {login} from '../../services/requestsTypePost'
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = ({ setRightButtonText }) => {
-    
+        
     const { form, onChange, clearFields } = useForms({ email: "", password: "" });
     const navigate = useNavigate()
 
@@ -19,7 +19,7 @@ const LoginForm = ({ setRightButtonText }) => {
             <form
                 className='Form'
                 onSubmit={onSubmitForm}>
-                <p>Informe seus dados.</p>
+                <p>Informe seus dados de acesso</p>
                 <TextField
                     required
                     className='TextField'
@@ -44,6 +44,7 @@ const LoginForm = ({ setRightButtonText }) => {
 
                 <div>
                     <Button
+                        className='ButtonLogin'
                         type={'submit'}
                         variant="contained"
                         color='primary'>

@@ -1,24 +1,16 @@
 import styled from 'styled-components';
 
-export const ButtonHeaderContainer = styled.section`
-display: flex;
-justify-content: space-between;
-width: 99vw;
 
-button{
-    margin: 20px;
-    width: 120px;
-    height: 45px;
-    font-size: 18px;
-    border: 2px solid white;
-    color: white;
-    :hover{transition: 1s; cursor: pointer; border: 2px solid white; background-color: white; color: black;};
-    }
+export const MainContainerLogin = styled.div` 
+display: flex;
+height: 90vh;
+justify-content: center;
+align-items: center;
 `
 
 export const FormContainer = styled.section`
 display: flex;
-align-self: center;
+flex-direction: column;
 align-items: center;
 justify-content: center;
 height: 60vh;
@@ -31,16 +23,24 @@ border: 1px solid white;
 .Form{
     display: flex;
     flex-direction: column;
-    width: 60vw;
-    color: black;
+    justify-content: center;
     text-align: center;
+    width: 50vw;
+    color: black;
     font-size: 20px;
 }
 .TextField{
+    align-self: center;
+    width: 80%;
     margin: 15px 0px;
 }
-button{
+.ButtonLogin{
+    margin: 3% 0;
     :hover{transition: 1s; cursor: pointer; background-color: black; color: white;};
+}
+
+.ButtonSignUp{
+    :hover{cursor: pointer; text-decoration: underline;};
 }
 `
 

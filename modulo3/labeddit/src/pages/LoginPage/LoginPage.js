@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from '@mui/material';
-import { FormContainer } from './Styled';
+import { FormContainer, MainContainerLogin } from './Styled';
 import { useNavigate } from 'react-router-dom';
-import {goToSignUpPage} from '../../routes/coordinator'
+import { goToSignUpPage } from '../../routes/coordinator'
 import LoginForm from './LoginForm';
 import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
@@ -11,18 +11,21 @@ const LoginPage = ({ setRightButtonText }) => {
     const navigate = useNavigate()
 
     return (
-        <FormContainer>
-            <LoginForm setRightButtonText={setRightButtonText}/>
-            <div>
-                <Button
-                    onClick={() => { goToSignUpPage(navigate) }}
-                    type={'submit'}
-                    variant="text"
-                    color='secondary'>
-                    Não possui conta? Cadastre-se
-                </Button>
-            </div>
-        </FormContainer>
+        <MainContainerLogin>
+            <FormContainer>
+                <LoginForm setRightButtonText={setRightButtonText} />
+                <>
+                    <Button
+                        className='ButtonSignUp'
+                        onClick={() => { goToSignUpPage(navigate) }}
+                        type={'submit'}
+                        variant="text"
+                        color='secondary'>
+                        Não possui conta? Cadastre-se
+                    </Button>
+                </>
+            </FormContainer>
+        </MainContainerLogin>
     )
 }
 
