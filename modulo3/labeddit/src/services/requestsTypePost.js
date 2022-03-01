@@ -33,24 +33,22 @@ export const signUp = (body, clearFields, navigate, setRightButtonText) => {
 }
 
 export const newPost = (body, clearFields) => {
-
     axios.post(`${BASE_URL}posts`, body, headers)
         .then((res) => {
             alert(res.data)
             clearFields()
-            window.location.reload()
         })
         .catch((err) => {
             alert(err.message)
         })
 }
 
+
 export const newComment = (id, body, clearFields) => {
     axios.post(`${BASE_URL}posts/${id}/comments`, body, headers)
         .then((res) => {
             alert(res.data)
             clearFields()
-            window.location.reload()
         })
         .catch((err) => {
             alert(err.message)
@@ -60,6 +58,16 @@ export const newComment = (id, body, clearFields) => {
 
 export const firstVotePosts = (idPost, body) => {
     axios.post(`${BASE_URL}posts/${idPost}/votes`, body, headers)
+        .then((res) => {
+            alert(res.data)
+        })
+        .catch((err) => {
+            alert(err.message)
+        })
+}
+
+export const firstVoteComments = (idPost, body) => {
+    axios.post(`${BASE_URL}comments/${idPost}/votes`, body, headers)
         .then((res) => {
             alert(res.data)
         })

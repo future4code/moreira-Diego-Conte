@@ -7,11 +7,11 @@ import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import { Route, Routes } from "react-router-dom";
 
 
-const Router = ({ setRightButtonText }) => {
+const Router = ({ setRightButtonText, selectedPost, setSelectedPost }) => {
     return (
         <Routes>
-            <Route path='/' element={<FeedPage />} />
-            <Route path='/post/:id' element={<PostPage />} />
+            <Route path='/' element={<FeedPage setSelectedPost={setSelectedPost}/>} />
+            <Route path='/post/:id' element={<PostPage selectedPost={selectedPost}/>} />
             <Route path='/login' element={<LoginPage setRightButtonText={setRightButtonText} />} />
             <Route path='/cadastro' element={<SignUpPage setRightButtonText={setRightButtonText} />} />
             <Route path='*' element={<ErrorPage />} />

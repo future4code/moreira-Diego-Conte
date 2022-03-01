@@ -30,6 +30,7 @@ export const NewPosts = (navigate) => {
                         variant="outlined"
                         value={form.title}
                         color='secondary'
+                        multiline
                         onChange={onChange} />
                     <TextField
                         required

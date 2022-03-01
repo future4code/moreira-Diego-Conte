@@ -1,10 +1,11 @@
 import React from 'react';
+import LoginForm from './LoginForm';
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
+import login from '../../assets/Login.png';
 import { Button } from '@mui/material';
 import { FormContainer, MainContainerLogin } from './Styled';
 import { useNavigate } from 'react-router-dom';
 import { goToSignUpPage } from '../../routes/coordinator'
-import LoginForm from './LoginForm';
-import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
 const LoginPage = ({ setRightButtonText }) => {
     useUnprotectedPage()
@@ -12,6 +13,7 @@ const LoginPage = ({ setRightButtonText }) => {
 
     return (
         <MainContainerLogin>
+            <img src={login} alt='Imagem de cadeado simbolizando área segura'/>
             <FormContainer>
                 <LoginForm setRightButtonText={setRightButtonText} />
                 <>

@@ -1,10 +1,11 @@
-import { Button, TextField } from '@mui/material';
 import React from 'react';
 import useForms from '../../hooks/useForm';
+import { Button, TextField } from '@mui/material';
 import { newComment } from '../../services/requestsTypePost';
+import {ContainerFormComments, ContainerButton} from './styled';
 
 
-export const CommentsForm = ({id}) => {
+export const CommentsForm = ({ id }) => {
     const { form, onChange, clearFields } = useForms({ body: "" });
 
     const onSubmitForm = (event) => {
@@ -13,28 +14,30 @@ export const CommentsForm = ({id}) => {
     }
 
     return (
-        <form
-            className='Form'
-            onSubmit={onSubmitForm}>
-            <p>Novo comentário.</p>
-            <TextField
-                required
-                className='TextField'
-                name='body'
-                label='Escreva seu comentário aqui'
-                type={'text'}
-                variant="outlined"
-                value={form.body}
-                color='secondary'
-                onChange={onChange} />
-            <div>
-                <Button
-                    type={'submit'}
-                    variant="contained"
-                    color='primary'>
-                    Postar
-                </Button>
-            </div>
-        </form>
+        <ContainerFormComments>
+            <form
+                className='Form'
+                onSubmit={onSubmitForm}>
+                <TextField
+                    required
+                    className='TextField'
+                    name='body'
+                    label='Escreva seu comentário aqui'
+                    type={'text'}
+                    variant="outlined"
+                    value={form.body}
+                    color='secondary'
+                    multiline
+                    onChange={onChange} />
+                <ContainerButton>
+                    <Button
+                        type={'submit'}
+                        variant="contained"
+                        color='primary'>
+                        Postar
+                    </Button>
+                </ContainerButton>
+            </form>
+        </ContainerFormComments>
     )
 }

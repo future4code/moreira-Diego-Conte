@@ -6,8 +6,8 @@ import { goToLoginPage } from "../routes/coordinator";
 const useProtectedPage = () => {
     const navigate = useNavigate();
     useEffect(() => {
-        const tokenLabEddit = localStorage.getItem('tokenLabEddit')
-        if (!tokenLabEddit) {
+        const token = localStorage.getItem('tokenLabEddit')
+        if (token === null) {
             goToLoginPage(navigate)
         }
     }, [navigate])

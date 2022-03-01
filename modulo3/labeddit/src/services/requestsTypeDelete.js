@@ -13,3 +13,13 @@ export const deleteVotesPosts = (idPost) => {
             alert(`Houve um erro com sua requisição ${err.message}`)
         })
 }
+
+export const deleteVotesComments = (idPost) => {
+    axios.delete(`${BASE_URL}comments/${idPost}/votes`, headers)
+        .then((res) => {
+            alert('Voto deletado')
+        })
+        .catch((err) => {
+            alert(`Houve um erro com sua requisição ${err.message}`)
+        })
+}

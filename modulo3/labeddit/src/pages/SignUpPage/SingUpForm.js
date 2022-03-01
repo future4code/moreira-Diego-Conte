@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../services/requestsTypePost';
 
 
-
 const SignUpForm = ({setRightButtonText}) => {
     const { form, onChange, clearFields } = useForms({ username: "", email: "", password: "" });
     const navigate = useNavigate()
@@ -20,7 +19,7 @@ const SignUpForm = ({setRightButtonText}) => {
         <form
             className='Form'
             onSubmit={onSubmitForm}>
-            <p>Para se cadastrar, informe seus dados</p>
+            <h3 >Cadastre-se</h3>
 
             <TextField
                 required

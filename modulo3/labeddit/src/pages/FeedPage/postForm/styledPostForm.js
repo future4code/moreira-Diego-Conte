@@ -3,18 +3,16 @@ import styled from 'styled-components';
 export const FormContainer = styled.section`
 display: flex;
 align-items: center;
+align-self: flex-start;
 justify-content: center;
-background-color: #ffffff;
+width: 98vw;
 border-radius: 4px;
 padding: 20px;
-margin: 10px 0;
-border: 1px solid white;
-transition: 1s;
-:hover{transition: 1s; border: 1px solid black;}
+margin: 5px 5px;
+
 
 summary{
     list-style: none;
-    width: 60vw;
     display: flex;
     justify-content: center;
     :hover{cursor: pointer;}
@@ -25,23 +23,22 @@ summary{
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
-    width: 60vw;
     color: black;
     font-size: 20px;
 }
 .Title{
     align-self: center;
-    width: 100%;
+    width: 70vw;
     margin: 15px 0px;
 }
 
 .Body{
     align-self: center;
-    width: 100%;
+    width: 70vw;
     margin: 15px 0px;
 }
 
 .ButtonSubmit{
-    :hover{transition: 1s; cursor: pointer; background-color: black; color: white;};
+    :hover{transition: 1s; cursor: pointer; background-color: #0890d4; color: white;};
 }
 `

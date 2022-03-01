@@ -19,7 +19,7 @@ const LoginForm = ({ setRightButtonText }) => {
             <form
                 className='Form'
                 onSubmit={onSubmitForm}>
-                <p>Informe seus dados de acesso</p>
+                <h3>Acessar</h3>
                 <TextField
                     required
                     className='TextField'

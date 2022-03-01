@@ -9,8 +9,9 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 const App = () => {
-  const token = localStorage.getItem("tokenLabEddit")
-  const [rightButtonText, setRightButtonText] = useState(token ? "Logout" : "Login")
+  const token = localStorage.getItem("tokenLabEddit");
+  const [rightButtonText, setRightButtonText] = useState(token ? "Logout" : "Login");
+  const [selectedPost, setSelectedPost] = useState()
 
   return (
     <ThemeProvider theme={theme}>
@@ -18,7 +19,7 @@ const App = () => {
         <GlobalStyle />
         <BrowserRouter>
           <Header rightButtonText={rightButtonText} setRightButtonText={setRightButtonText}/>
-          <Router setRightButtonText={setRightButtonText}/>
+          <Router setRightButtonText={setRightButtonText} selectedPost={selectedPost} setSelectedPost={setSelectedPost}/>
         </BrowserRouter>
       </MainContainer>
     </ThemeProvider>

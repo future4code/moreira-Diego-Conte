@@ -24,7 +24,7 @@ export const Header = ({ rightButtonText, setRightButtonText }) => {
     }
 
     return (
-        <AppBar position="static">
+        <AppBar color='success' position="static">
             <StyledToolbar>
                 <Button onClick={() => goToFeedPage(navigate)} color="inherit"> LabEddit </Button>
                 <Button onClick={() => buttonRightAction()} color="inherit">{rightButtonText}</Button>
