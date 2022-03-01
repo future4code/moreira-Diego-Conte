@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledCardPost = styled.div` 
 display: flex;
 justify-content: center;
+margin: 5% 0;
 width: 98vw;
 `
 
@@ -50,6 +51,7 @@ padding-right: 1%;
     word-break: break-all;
     font-size: 18px;
     margin: 10px;
+    margin-bottom: 30px;
 };
 `
 

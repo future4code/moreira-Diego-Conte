@@ -67,3 +67,24 @@ button{
     :hover{transition: 1s; cursor: pointer; background-color: #0890d4; color: white;};
 }
 `
+
+export const ContainerComment = styled.section` 
+display: flex;
+justify-content: center;
+width: 70vw;
+
+.user{
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    margin: 10px 0;
+    word-break: break-all;
+};
+
+.message{
+    font-weight: normal;
+    word-break: break-all;
+    font-size: 18px;
+    margin: 10px;
+};
+`

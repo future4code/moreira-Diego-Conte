@@ -23,7 +23,7 @@ const FeedPage = ({setSelectedPost}) => {
             <CardPost page={page} setSelectedPost ={setSelectedPost} />
 
             <Box m={5} style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-                <Pagination count={86} variant="outlined" color="secondary" onChange={onChangePage} />
+                <Pagination count={1730} variant="outlined" color="secondary" onChange={onChangePage} />
             </Box>
         </MainContainerFeedPage>
     )

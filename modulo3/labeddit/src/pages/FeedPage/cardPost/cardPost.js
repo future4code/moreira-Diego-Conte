@@ -16,7 +16,9 @@ import { changeVotePosts } from "../../../services/requestsTypePut";
 
 export const CardPost = ({ page, setSelectedPost }) => {
     const navigate = useNavigate();
-    const [posts, loading] = useRequestData(`${BASE_URL}posts?page=${page}&size=20`);
+    const [reload, setReload] = useState(false);
+    const [posts, loading] = useRequestData(`${BASE_URL}posts?page=${page}&size=1`);
+    let post; posts && posts.map((p) => {post = p})       
 
     const onClickSetPostPage = (post, id) => {
         setSelectedPost(post)
@@ -27,10 +29,16 @@ export const CardPost = ({ page, setSelectedPost }) => {
         const body = { direction: -1 }
         if (userVote === null) {
             firstVotePosts(id, body)
+            post.userVote = -1
+            setReload(!reload)
         } else if (userVote === -1) {
             deleteVotesPosts(id)
+            post.userVote = null
+            setReload(!reload)
         } else {
             changeVotePosts(id, body)
+            post.userVote = -1
+            setReload(!reload)
         }
     }
 
@@ -38,30 +46,33 @@ export const CardPost = ({ page, setSelectedPost }) => {
         const body = { direction: 1 }
         if (userVote === null) {
             firstVotePosts(id, body)
+            post.userVote = 1
+            setReload(!reload)
         } else if (userVote === 1) {
             deleteVotesPosts(id)
+            post.userVote = null
+            setReload(!reload)
         } else {
             changeVotePosts(id, body)
+            post.userVote = 1
+            setReload(!reload)
         }
     }
 
 
     const Card = () => {
-        const mapedCard = loading ? <LoadingDots /> : posts && posts.map((post) => {
-            const colorDown = post.userVote < 0 && 'error' || 'secondary'
-            const colorUp = post.userVote > 0 && 'success' || 'secondary'
-
-            return (
+        const mapedCard = loading ? <LoadingDots /> : post && 
+            
                 <Zoom key={post.id} in style={{ transitionDelay: post ? '300ms' : '0ms' }}>
                     <StyledCardPost>
                         <StylePost>
                             <ContainerButtons>
                                 <ArrowDown
-                                    color={colorDown}
+                                    color={post.userVote === -1 && 'error' || 'secondary'}
                                     onClick={() => onClickArrowDown(post.id, post.userVote)} />
                                 {post.voteSum || 0}
                                 <ArrowUp
-                                    color={colorUp}
+                                    color={post.userVote === 1 && 'success' || 'secondary'}
                                     onClick={() => onClickArrowUp(post.id, post.userVote)} />
                             </ContainerButtons>
 
@@ -79,10 +90,15 @@ export const CardPost = ({ page, setSelectedPost }) => {
                         </StylePost>
                     </StyledCardPost>
                 </Zoom >
-            )
-        })
+            
+        
 
         return <>{mapedCard}</>
     }
+
+    useEffect(()=>{
+        Card()
+    },[Card, reload])
+    
     return <Card />
 }
