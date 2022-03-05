@@ -1,10 +1,9 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
 
-const token = localStorage.getItem('tokenLabEddit')
-const headers = { headers: { Authorization: token } };
-
 export const deleteVotesPosts = (idPost) => {
+    const headers = { headers: { Authorization: localStorage.getItem('tokenLabEddit') } };
+
     axios.delete(`${BASE_URL}posts/${idPost}/votes`, headers)
         .then((res) => {
         })
@@ -14,6 +13,8 @@ export const deleteVotesPosts = (idPost) => {
 }
 
 export const deleteVotesComments = (idPost) => {
+    const headers = { headers: { Authorization: localStorage.getItem('tokenLabEddit') } };
+    
     axios.delete(`${BASE_URL}comments/${idPost}/votes`, headers)
         .then((res) => {
         })

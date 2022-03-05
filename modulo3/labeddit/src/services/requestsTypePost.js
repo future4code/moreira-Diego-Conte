@@ -2,10 +2,9 @@ import axios from 'axios';
 import { BASE_URL } from '../constants/urls';
 import { goToFeedPage } from '../routes/coordinator';
 
-const token = localStorage.getItem('tokenLabEddit')
-const headers = { headers: { Authorization: token } };
 
 export const login = (body, clearFields, navigate, setRightButtonText) => {
+
     axios.post(`${BASE_URL}users/login`, body)
         .then((res) => {
             localStorage.setItem('tokenLabEddit', res.data.token)
@@ -19,6 +18,7 @@ export const login = (body, clearFields, navigate, setRightButtonText) => {
 }
 
 export const signUp = (body, clearFields, navigate, setRightButtonText) => {
+
     axios.post(`${BASE_URL}users/signup`, body)
         .then((res) => {
             localStorage.setItem('tokenLabEddit', res.data.token)
@@ -33,6 +33,8 @@ export const signUp = (body, clearFields, navigate, setRightButtonText) => {
 }
 
 export const newPost = (body, clearFields) => {
+    const headers = { headers: { Authorization: localStorage.getItem('tokenLabEddit') } };
+
     axios.post(`${BASE_URL}posts`, body, headers)
         .then((res) => {
             clearFields()
@@ -45,6 +47,8 @@ export const newPost = (body, clearFields) => {
 
 
 export const newComment = (id, body, clearFields) => {
+    const headers = { headers: { Authorization: localStorage.getItem('tokenLabEddit') } };
+
     axios.post(`${BASE_URL}posts/${id}/comments`, body, headers)
         .then((res) => {
             clearFields()
@@ -57,6 +61,9 @@ export const newComment = (id, body, clearFields) => {
 
 
 export const firstVotePosts = (idPost, body) => {
+
+    const headers = { headers: { Authorization: localStorage.getItem('tokenLabEddit') } };
+
     axios.post(`${BASE_URL}posts/${idPost}/votes`, body, headers)
         .then((res) => {
         })
@@ -66,6 +73,8 @@ export const firstVotePosts = (idPost, body) => {
 }
 
 export const firstVoteComments = (idPost, body) => {
+    const headers = { headers: { Authorization: localStorage.getItem('tokenLabEddit') } };
+
     axios.post(`${BASE_URL}comments/${idPost}/votes`, body, headers)
         .then((res) => {
         })

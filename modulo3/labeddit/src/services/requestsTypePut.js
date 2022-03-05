@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { BASE_URL } from '../constants/urls';
 
-const token = localStorage.getItem('tokenLabEddit')
-const headers = { headers: { Authorization: token } };
 
 export const changeVotePosts = (idPost, body) => {
+    const headers = { headers: { Authorization: localStorage.getItem('tokenLabEddit') } };
+
     axios.put(`${BASE_URL}posts/${idPost}/votes`, body, headers)
         .then((res) => {
         })
@@ -14,6 +14,8 @@ export const changeVotePosts = (idPost, body) => {
 }
 
 export const changeVoteComments = (idPost, body) => {
+    const headers = { headers: { Authorization: localStorage.getItem('tokenLabEddit') } };
+    
     axios.put(`${BASE_URL}comments/${idPost}/votes`, body, headers)
         .then((res) => {
         })
