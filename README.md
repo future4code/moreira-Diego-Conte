@@ -57,8 +57,24 @@ Esse repositório vai acompanhar vocês até o final do curso, para mantermos a 
 │   └── LabeNinjas
 |
 ├── modulo3
-│  
-
+|   ├── Introdução aos Hooks e  useState()
+│   ├── Hook useEffect()
+│   └── Astromatch
+|
+│   ├── Custom Hooks
+│   ├── Navegação com React Router 
+│   ├── Autenticação em aplicações React
+│   ├── React + Form
+|
+│   ├── Revisão React II
+│   ├── LabEddit
+|
+│   ├── O que é um Estado Global
+│   ├── React Context 
+│   ├── Estado Global usando Context 
+│   ├── Pokédex
+|
+|   └── LabeFoods
 .
 ```
 
