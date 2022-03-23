@@ -1,0 +1,15 @@
+{
+  "name": "intro-typescript",
+  "version": "1.0.0",
+  "description": "Exercícios de 23 de março de 2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node ./build/index.js"
+  },
+  "author": "Diego Conte",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.6.2"
+  }
+}
