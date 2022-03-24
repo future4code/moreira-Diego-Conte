@@ -6,7 +6,7 @@ type result = {
   media: number;
 };
 
-function obterEstatisticas(numeros: number[]) {
+function obterEstatisticas(numeros: number[]): result {
   const numerosOrdenados: number[] = numeros.sort((a, b) => a - b);
 
   let soma: number = 0;
