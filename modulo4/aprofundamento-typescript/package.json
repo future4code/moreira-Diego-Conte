@@ -1,0 +1,16 @@
+{
+  "name": "aprofundamento-typescript",
+  "version": "1.0.0",
+  "description": "Exercícios 24 de março de 2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start1": "tsc && node ./build/exercicio1.js",
+    "start2": "tsc && node ./build/exercicio2.js",
+    "start3": "tsc && node ./build/exercicio3.js",
+    "start4": "tsc && node ./build/exercicio4.js",
+    "start5": "tsc && node ./build/exercicio5.js"
+  },
+  "author": "Diego Conte",
+  "license": "ISC"
+}
