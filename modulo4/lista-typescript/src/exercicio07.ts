@@ -8,7 +8,7 @@ type templateProducts = {
 }[];
 
 const products: templateProducts = [
-  { nome: "MacMugffin", quantidade: 37, valorUnitario: 51.04 },
+  { nome: "MacMuffin", quantidade: 37, valorUnitario: 51.04 },
   { nome: "Vassoura voadora", quantidade: 56, valorUnitario: 210.0 },
   { nome: "Laço da verdade", quantidade: 32, valorUnitario: 571.5 },
   { nome: "O precioso", quantidade: 1, valorUnitario: 9181.923 },
