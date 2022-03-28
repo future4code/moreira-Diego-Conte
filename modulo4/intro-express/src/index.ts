@@ -234,20 +234,44 @@ app.get("/posts", (req, res) => {
 });
 
 //Exercício 8
-app.get("/posts/user/:id", (req, res) => {
-  const reqId = Number(req.params.id);
-
-  console.log(reqId)
+app.get("/posts/:userId", (req, res) => {
+  const reqId = Number(req.params.userId);
 
   const postsByUser = posts.filter((p) => {
-    return p.userId === reqId
-  })
-//     ){
-//         return p
-//     } else{
-//         return "O usuário informado ainda não criou nenhum post."
-//     }
-//   });
+    return p.userId === reqId;
+  });
 
-  res.status(200).send(postsByUser)
+  if (postsByUser.length === 0) {
+    return res.status(400).send("Nenhum post encontrado.");
+  } else {
+    return res.status(200).send(postsByUser);
+  }
 });
+
+//Desafio 9
+app.delete("/posts/:postId", (req, res) => {
+  const id = Number(req.params.postId);
+  const deletedPosts = posts.filter((p) => {
+      return p.id !== id
+  })
+
+  if(deletedPosts.length === posts.length){
+      return res.status(400).send('Nenhum post localizado.')
+  } else {
+      return res.status(200).send('Post deletado.')
+  }
+});
+
+//Desafio 10
+app.delete("/users/:userId", (req, res) => {
+    const id = Number(req.params.userId);
+    const deletedUser = users.filter((u) => {
+        return u.id !== id
+    })
+
+    if(users.length === deletedUser.length){
+        return res.status(400).send('Id não encontrado.')
+    }else{
+        return res.status(200).send('Usuário deletado.')
+    }
+})
