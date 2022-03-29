@@ -89,3 +89,7 @@ app.get("/alluserposts/:id", (req, res) => {
 
   res.status(200).send(selectedTasks);
 });
+
+//Exercício 9
+
+` https://documenter.getpostman.com/view/19296833/UVypxw83 `
