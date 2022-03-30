@@ -13,7 +13,7 @@ app.use(cors());
 //Starting exercices
 //Exercício 1
 app.get("/test", (req, res) => {
-    res.status(200).send("Endpoint corretamente configurado.");
+  res.status(200).send("Endpoint corretamente configurado.");
 });
 
 //Exercício 2
@@ -63,8 +63,50 @@ app.delete("/product/:id", (req, res) => {
 });
 
 //Exercício 7
+app.post('/products', (req, res) => {
+  try {
+    const { name, price } = req.body;
 
+    if (price <= 0) {
+      throw new Error('"Price" deve ser maior que 0.');
+    }
+    if (!name || !price) {
+      throw new Error("Um ou mais campos ausentes");
+    }
+    if (typeof name !== "string") {
+      throw new Error('"nameProduct" deve ser uma string.');
+    }
+    if (typeof price !== typeof 5) {
+      throw new Error('"price" informado deve ser um número.');
+    }
 
+    Products.push({
+      id: (Products.length + 1).toString(),
+      name: name,
+      price: price,
+    });
+
+    res.status(201).send(Products);
+  } catch (error: any) {
+    switch (error.message) {
+      case '"Price" deve ser maior que 0.':
+        res.status(422);
+        break;
+      case '"price" informado deve ser um número.':
+        res.status(422);
+        break;
+      case '"nameProduct" deve ser uma string.':
+        res.status(422);
+        break;
+      case "Um ou mais campos ausentes":
+        res.status(422);
+        break;
+      default:
+        res.status(500);
+    }
+    res.send(error.message);
+  }
+});
 
 
 

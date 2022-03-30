@@ -26,3 +26,10 @@ DELETE http://localhost:3003/product/1
 Content-Type: application/json
 
 ###
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "Feijão",
+    "price": 8.35
+}
