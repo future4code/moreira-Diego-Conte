@@ -18,7 +18,7 @@ PUT http://localhost:3003/editprice/1
 Content-Type: application/json
 
 {
-    "price": "4.75"
+    "price": 4.75
 }
 
 ###
@@ -31,5 +31,17 @@ Content-Type: application/json
 
 {
     "name": "Feijão",
-    "price": 8.35
+    "price": 9.45
 }
+
+###
+PUT http://localhost:3003/price/3
+Content-Type: application/json
+
+{
+    "price": 5.55
+}
+
+###
+DELETE http://localhost:3003/deleteproduct/20
+Content-Type: application/json
