@@ -43,10 +43,6 @@ app.post("/addtask", (req, res) => {
   res.status(200).send(tasks);
 });
 
-app.listen(3003, () => {
-  console.log(`Server is running in http://localhost:3003`);
-});
-
 //Exercício 6
 app.put("/taskupdate/:id", (req, res) => {
   const idTask = Number(req.params.id);
@@ -93,3 +89,7 @@ app.get("/alluserposts/:id", (req, res) => {
 //Exercício 9
 
 ` https://documenter.getpostman.com/view/19296833/UVypxw83 `
+
+app.listen(3003, () => {
+  console.log(`Server is running in http://localhost:3003`);
+});
