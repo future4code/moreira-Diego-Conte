@@ -80,7 +80,7 @@ app.get("/alluserposts/:id", (req, res) => {
   const selectedTasks = tasks.filter((p) => {
     if(p.userId === userId){
       return p
-    } else{}
+    }
   });
 
   res.status(200).send(selectedTasks);
