@@ -7,7 +7,7 @@ flex-direction: column;
 align-items: center;
 top: 50%;
 left: 50%;
-width: 415px;
+width: 400px;
 height: 600px;
 transform: translate(-50%, -50%);
 border: 2px solid black;
@@ -15,6 +15,9 @@ border-radius: 5px;
 background-color: white;
 box-shadow: 0 0 10px black;
 overflow-y: scroll;
+::-webkit-scrollbar {
+    width: 0px;
+}
 `
 
 export const Header = styled.section`
