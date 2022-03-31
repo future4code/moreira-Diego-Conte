@@ -134,6 +134,102 @@ app.post('/users', (req, res) => {
     }
 })
 
+//Exercício 5
+app.put('/users/:id', (req, res) => {
+    try {
+        const id = Number(req.params.id);
+        const {name, email, type, age} = req.body;
+        let isUser: boolean = false;
+        
+        if(id < 0){throw new Error('Please verify inputs: ID must to be a number.')}
+        if(!name || !email || !type || !age){
+            throw new Error('Please verify inputs. Missing values.')};
+        if(name.length < 2 || email.length < 5 || type.length < 4 || age < 1){
+            throw new Error('Please verify inputs. One or more parameters are missing.')};
+        if(typeof name !== typeof "alpha" || typeof email !== typeof "alpha"){
+            throw new Error('Please, verify inputs: "name", "email" and "type" must to be string.')};
+        if(type.toUpperCase() !== types.ADMIN && type.toUpperCase() !== types.NORMAL){
+            throw new Error('Please, verify "type" input: values must to be "Admin" or "Normal".')};
+        if(typeof age !== typeof 1){throw new Error('Verify input "age": must to be number.')};
+        
+        users.filter((u) => {
+            if(u.id === id){
+                u.name = name,
+                u.email = email,
+                u.type = type,
+                u.age = age
+                isUser = true
+            }
+        })
+
+       if(isUser === false){throw new Error('User not found.')}
+        
+        res.send(users)
+
+    } catch (error: any) {
+        switch(error.message){
+            case 'Please verify inputs: ID must to be a number.':
+                res.status(422)
+                break
+            case 'Please verify inputs. Missing values.':
+                res.status(422)
+                break
+            case 'Please verify inputs. One or more parameters are missing.':
+                res.status(422)
+                break
+            case 'Please, verify type of "name": must to be string.':
+                res.status(422)
+                break
+            case 'Please, verify "type" input: values must to be "Admin" or "Normal".':
+                res.status(422)
+                break
+            case 'Verify input "age": must to be number.':
+                res.status(422)
+                break
+            case 'User not found.':
+                res.status(404)
+                break
+            default:
+                res.status(500)
+        }
+        res.send(error.message)
+    }
+})
+
+//Exercício 7
+app.delete('/users/:id', (req, res) => {
+    try {
+        const id: number = Number(req.params.id);
+        let isUser: boolean = false;
+
+        if(id < 0){throw new Error('Please verify input: "id" must to be a number.')}
+
+        const newList: usersTemplate[] = users.filter((u) => {
+            if(u.id === id){
+                isUser = true
+            }
+            return u.id !== id
+        })
+        
+        res.send(newList)
+
+    } catch (error:any) {
+        switch(error.message){
+            case 'Please verify input: "id" must to be a number.':
+                res.status(422)
+                break
+            case 'User not found.':
+                res.status(404)
+                break
+            default:
+                res.status(500)
+        }
+        res.send(error.message)
+    }
+
+})
+
+
 
 //Starting listener >>>>>>
 const server = app.listen(process.env.PORT || 3003, () => {

@@ -14,8 +14,23 @@ POST http://localhost:3003/users
 Content-Type: application/json
 
 {
-    "name": "d",
-    "email": "anna@moreira.com",
+    "name": "Diego",
+    "email": "diego@moreira.com",
     "type": "admin",
     "age": 31
 }
+
+###
+PUT http://localhost:3003/users/1
+Content-Type: application/json
+
+{
+    "name": "Alice",
+    "email": "alice@moreira.com",
+    "type": "normal",
+    "age": 21
+}
+
+###
+DELETE http://localhost:3003/users/2
+Content-Type: application/json
