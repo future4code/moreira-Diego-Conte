@@ -143,7 +143,7 @@ app.put("/price/:id", (req, res) => {
     }
   });
 
-  //Exercício 9
+//Exercício 9
   app.delete("/deleteproduct/:id", (req, res) => {
 
     try {
@@ -172,6 +172,85 @@ app.put("/price/:id", (req, res) => {
     }
   });
 
+//Desafio 10
+app.get("/selectedproducts", (req, res) => {
+  try {
+    const query = req.query.name?.toString().toLocaleLowerCase();
+    if(query === undefined){throw new Error('Verifique os dados informados. Query deve ser diferente de undefined')};
+
+    const filteredList = Products.filter((p)=> {
+      if(p.name.toLocaleLowerCase().includes(query)){
+        return p
+      }
+    })
+     
+    res.status(200).send(filteredList);
+
+  } catch (error: any){
+    switch(error.message){
+      case 'Verifique os dados informados. Query deve ser diferente de undefined':
+        res.status(422)
+        break
+      default:
+        res.status(500);
+    }
+    res.send(error.message)
+  }
+});
+
+//Desafio 11
+app.put("/priceandproduct/:id", (req, res) => {
+    
+  try {
+  const id = req.params.id;
+  const name = req.body.name;
+  const price = req.body.price;
+  if(price <= 0){throw new Error(('"Price" deve ser maior que 0.'))};
+  if(!name && !price){throw new Error('Requisição vazia. Informe o nome ou o preço do produto.')};
+  if(typeof name !== typeof 'abcd'){throw new Error('"Name" deve ser uma string.')}
+  if(typeof price !== typeof 1){throw new Error('"Price" deve ser um número.')};
+  let isproduct: boolean = false
+
+  Products.filter((p) => {
+      if (p.id === id) {
+        p.name? p.name = name: p.name;
+        p.price? p.price = price: p.price;
+        isproduct = true
+      }
+    });
+  
+  if(!isproduct){throw new Error('Produto não encontrado.')}
+    
+    res.status(200).send(Products)
+  } catch (error:any) {
+      switch(error.message){
+          case '"Price" deve ser maior que 0.':
+              res.status(422)
+              break
+          case 'Requisição vazia. Informe o nome ou o preço do produto.':
+              res.status(422)
+              break
+          case '"Name" deve ser uma string.':
+            res.status(422)
+            break
+          case '"Price" deve ser um número.':
+              res.status(422)
+              break
+          case 'Produto não encontrado.':
+              res.status(404)
+              break
+          default:
+              res.status(500)
+      }
+
+      res.send(error.message)
+  }
+});
+
+
+
+
+//Starting listener >>>>>
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
     const address = server.address() as AddressInfo;
@@ -180,3 +259,4 @@ const server = app.listen(process.env.PORT || 3003, () => {
     console.error(`Failure upon starting server.`);
   }
 });
+//Ending listener <<<<<

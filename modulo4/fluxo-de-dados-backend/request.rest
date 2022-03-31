@@ -45,3 +45,16 @@ Content-Type: application/json
 ###
 DELETE http://localhost:3003/deleteproduct/20
 Content-Type: application/json
+
+###
+PUT http://localhost:3003/priceandproduct/45
+Content-Type: application/json
+
+{
+    "name": "Maçã Argentina",
+    "price": 5.79
+}
+
+###
+GET http://localhost:3003/selectedproducts/?name=Mand
+Content-Type: application/json
