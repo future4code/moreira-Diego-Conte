@@ -1,0 +1,22 @@
+{
+  "name": "lista-typescript",
+  "version": "1.0.0",
+  "description": "Exercícios de 25 de março de 2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start1": "tsc && node ./build/exercicio01.js",
+    "start2": "tsc && node ./build/exercicio02.js",
+    "start3": "tsc && node ./build/exercicio03.js",
+    "start4": "tsc && node ./build/exercicio04.js",
+    "start5": "tsc && node ./build/exercicio05.js",
+    "start6": "tsc && node ./build/exercicio06.js",
+    "start7": "tsc && node ./build/exercicio07.js",
+    "start8": "tsc && node ./build/exercicio08.js",
+    "start9": "tsc && node ./build/exercicio09.js",
+    "start10": "tsc && node ./build/exercicio10.js",
+    "start11": "tsc && node ./build/exercicio11.js"
+  },
+  "author": "Diego Conte",
+  "license": "ISC"
+}
