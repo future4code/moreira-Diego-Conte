@@ -210,6 +210,7 @@ app.delete('/users/:id', (req, res) => {
             }
             return u.id !== id
         })
+        if(isUser === false){throw new Error('User not found.')}
         
         res.send(newList)
 
