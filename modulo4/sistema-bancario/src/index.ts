@@ -1,9 +1,10 @@
 import express from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
-import { CpfChecker } from "./CPFchecker";
+import { CpfChecker, findingCpf } from "./CPFchecker";
 import { users } from "./Data";
 import { ageChecker } from "./AgeChecker";
+import { accountTemplate } from "./Types";
 
 //Starting config >>>>>>
 const app = express();
@@ -11,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 //Ending config <<<<<<
 
-//Firts endpoint
+//First endpoint
 app.post("/users", (req, res) => {
   const { name, CPF, birthDate } = req.body;
   const age: number | string = ageChecker(birthDate);
@@ -28,7 +29,7 @@ app.post("/users", (req, res) => {
     if (name.length < 2) {
       throw new Error(
         'Please check "name" input. At least two characters are required.')};
-    if (typeof name !== typeof "alpha") {
+    if (typeof name !== typeof "matrix") {
       throw new Error('Please verify inputs: "name" must to be string.')};
     if (typeof cpfChecked !== typeof true) {
       throw new Error(`${cpfChecked}`)};
@@ -92,6 +93,33 @@ app.get('/users', (req, res) => {
         }
         res.send(error.message)
     }  
+})
+
+//Third endpoint
+app.get('/statement', (req, res) => {
+    const checkedCpf: boolean | string = findingCpf(req.query.cpf as string);
+    const cpf: string = req.query.cpf as string;
+
+    try {
+        if(typeof checkedCpf === typeof "matrix"){
+            throw new Error (`${checkedCpf}`)};
+        
+        const statementUser: accountTemplate[] = users.filter((u) =>{
+            return u.CPF === cpf
+        })
+
+        res.status(201).send(statementUser)
+        
+    } catch (error: any) {
+        switch(error.message){
+            case `${cpf}`:
+                res.status(422)
+                break
+            default:
+            res.status(500)
+        }
+        res.send(error.message)
+    } 
 })
 
 //Starting listener >>>>>>
