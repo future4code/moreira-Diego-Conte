@@ -1,0 +1,14 @@
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "Diego Conte",
+    "CPF": "859.894.340-14",
+    "birthDate": "05/04/2005"
+}
+
+###
+GET http://localhost:3003/users
+Content-Type: application/json
+
+###
