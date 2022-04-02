@@ -1,7 +1,7 @@
 export type statementTemplate = {
     value: number,
-    date: string,
-    desscription: string
+    date: string | number,
+    description: string
 }
 
 

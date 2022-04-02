@@ -4,7 +4,7 @@ Content-Type: application/json
 {
     "name": "Diego Conte",
     "CPF": "859.894.340-14",
-    "birthDate": "05/04/2005"
+    "birthDate": "05/04/2004"
 }
 
 ###
@@ -12,5 +12,27 @@ GET http://localhost:3003/users
 Content-Type: application/json
 
 ###
-GET http://localhost:3003/statement?cpf=063.040.499-27
+GET http://localhost:3003/statement?cpf=859.894.340-14
 Content-Type: application/json
+
+
+###
+PUT http://localhost:3003/deposit
+Content-Type: application/json
+
+{
+    "name": "Ana Paula Arósio",
+    "CPF": "636.157.687-60",
+    "amount": -40
+}
+
+###
+POST http://localhost:3003/pay
+Content-Type: application/json
+
+{
+    "CPF": "636.157.687-60",
+    "amount": 51000,
+    "date": "02/04/2022",
+    "description": "Buying new car."
+}

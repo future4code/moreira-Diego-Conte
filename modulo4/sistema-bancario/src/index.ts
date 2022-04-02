@@ -1,10 +1,11 @@
 import express from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
-import { CpfChecker, findingCpf } from "./CPFchecker";
+import { CpfChecker, findingCpf } from "./CpfChecker";
 import { users } from "./Data";
 import { ageChecker } from "./AgeChecker";
 import { accountTemplate } from "./Types";
+import { dateChecker } from "./DateChecker";
 
 //Starting config >>>>>>
 const app = express();
@@ -97,18 +98,14 @@ app.get('/users', (req, res) => {
 
 //Third endpoint
 app.get('/statement', (req, res) => {
-    const checkedCpf: boolean | string = findingCpf(req.query.cpf as string);
+    const checkedCpf: accountTemplate[] | string = findingCpf(req.query.cpf as string);
     const cpf: string = req.query.cpf as string;
 
     try {
         if(typeof checkedCpf === typeof "matrix"){
             throw new Error (`${checkedCpf}`)};
-        
-        const statementUser: accountTemplate[] = users.filter((u) =>{
-            return u.CPF === cpf
-        })
 
-        res.status(201).send(statementUser)
+        res.status(201).send(checkedCpf)
         
     } catch (error: any) {
         switch(error.message){
@@ -120,6 +117,140 @@ app.get('/statement', (req, res) => {
         }
         res.send(error.message)
     } 
+})
+
+//Fourth endpoint
+app.put('/deposit', (req, res) => {
+  const {name, CPF, amount} = req.body;
+  const checkedCpf: accountTemplate[] | string = findingCpf(CPF);
+
+  try {
+    if (!name || !CPF || !amount) {
+      throw new Error('Please check inputs. Missing values.')};
+    if (name.length < 2) {
+      throw new Error('Please check "name" input. At least two characters are required.')};
+    if (typeof name !== typeof "matrix") {
+      throw new Error('Please check inputs: "name" must to be string.')};
+    if(typeof checkedCpf === typeof "matrix"){
+      throw new Error (`${checkedCpf}`)};
+    if(typeof amount !== typeof 1){
+      throw new Error('Please check inputs: "amount" must to be a number.')};
+    if(amount <= 0){
+      throw new Error('Please check input: "amount" must to be greater than 0.')
+    }
+    
+    users.filter((u) => {
+      if(u.name === name && u.CPF === CPF){
+        u.balance += Number(amount)
+        u.statement.push({
+          value: Number(amount),
+          date: new Date().getTime(),
+          description: "Money deposit."
+        })
+        return res.send(u)
+    } else {
+        throw new Error('Please check inputs: no user found.');
+    }})
+
+  } catch (error: any) {
+    switch(error.message){
+      case 'Please check inputs. Missing values.':
+        res.status(422)
+        break;
+      case 'Please check "name" input. At least two characters are required.':
+        res.status(422)
+        break;
+      case 'Please check inputs: "name" must to be string.':
+        res.status(422)
+        break;
+      case `${checkedCpf}`:
+        res.status(422)
+        break
+      case 'Please check inputs: "amount" must to be a number.':
+        res.status(422)
+        break
+      case 'Please check inputs: no user found.':
+        res.status(404)
+        break
+      case 'Please check input: "amount" must to be greater than 0.':
+        res.status(422)
+        break
+      default:
+        res.status(500)      
+    }
+    res.send(error.message)
+  }
+})
+
+//Fifth endpoint
+app.post('/pay', (req, res) => {
+  const {CPF, amount, date, description} = req.body;
+
+  if (!CPF || !amount || !description) {
+    res.status(422).send('Please check inputs. Missing values.')};
+
+  const checkedCpf: accountTemplate[] | string = findingCpf(CPF);
+  const checkedDate: string | boolean  = dateChecker(date);
+  let fillingDate: string | number = date;
+  
+  try {
+    if(typeof checkedCpf === typeof "matrix"){
+      throw new Error (`${checkedCpf}`)};
+    if (typeof amount !== typeof 1 || amount <= 0) {
+      throw new Error('Please check "amount" input.It must to be a number greater then 0.')};
+    if (typeof description !== typeof "matrix") {
+      throw new Error('Please check inputs: "description" must to be string.')};
+    if(typeof checkedDate === typeof "matrix"){
+      throw new Error (`${checkedDate}`)};
+    if(checkedDate === false){
+      throw new Error('Check bill`s date. Retroactive dates are not allowed.')};
+
+      users.filter((u) => {
+        if(u.CPF === CPF){
+          if(u.balance < amount){
+            throw new Error('There is not enough balance in your account.')}
+          if(!date){fillingDate = new Date().getTime()}
+            u.statement.push({
+              value: Number(amount),
+              date: fillingDate,
+              description: description
+            })
+            return res.send(u)
+      } else {
+          throw new Error('Please check inputs: no user found.');
+      }})
+
+  } catch (error:any) {
+    switch(error.message){
+      case 'Please check inputs. Missing values.':
+        res.status(422)
+        break
+      case 'Please check "amount" input.It must to be a number greater then 0.':
+        res.status(422)
+        break
+      case 'Please check inputs: "description" must to be string.':
+        res.status(422)
+        break
+      case `${checkedCpf}`:
+        res.status(422)
+        break
+      case `${checkedDate}`:
+        res.status(422)
+        break
+      case 'Check bill`s date. Retroactive dates are not allowed.':
+        res.status(422)
+        break
+      case 'There is not enough balance in your account.':
+        res.status(422)
+        break
+      case 'Please check inputs: no user found.':
+        res.status(404)
+        break
+      default:
+        res.status(500)  
+    }
+    res.send(error.message)
+  }
 })
 
 //Starting listener >>>>>>
