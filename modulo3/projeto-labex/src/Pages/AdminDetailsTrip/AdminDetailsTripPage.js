@@ -1,7 +1,7 @@
 import useRequestData from '../../Hooks/UseRequestData';
 import axios from 'axios';
 import LogoWhite from '../../Assets/LogoWhite.png';
-import React from 'react';
+import React, { useState } from 'react';
 import { LoadingIcon } from '../../Components/LoadingIcon';
 import { Button } from '@mui/material';
 import { useNavigate, useParams } from "react-router-dom";
@@ -20,6 +20,7 @@ import {
 } from './StyleAdminTripsDetailsPage';
 import { logout } from '../../Services/Requests';
 import { token } from '../../Constants/Token';
+import MessageBox from '../../Components/MessageBox';
 
 
 //________________________________________________________________________________________________
@@ -30,20 +31,22 @@ export default function AdminDetailsTripPage() {
   useProtectedPage()
   const { id } = useParams();
   const navigate = useNavigate();
+  const [erro, setErro] = useState("");
+  const [response, setResponse] = useState("");
   const [tripData, error, loading] = useRequestData(`${BASE_URL}${userPathVariables}trip/${id}`, { headers: { auth: token } });
 
   const decideCandidate = (idcandidate, name, decision) => {
     axios.put(`${BASE_URL}${userPathVariables}trips/${id}/candidates/${idcandidate}/decide`, { approve: decision }, { headers: { auth: token } })
       .then((res) => {
         if (decision === true) {
-          alert(`${name} constará na lista de viajantes`)
+          setResponse(`${name} constará na lista de viajantes`)
         } else {
-          alert(`${name} não constará na lista de viajantes`)
+          setResponse(`${name} não constará na lista de viajantes`)
         }
         window.location.reload()
       })
       .catch((err) => {
-        alert(`Ocorreu um problema com sua requisição: ${err.message}`)
+        setErro(err.response.data.message)
       })
   }
 
@@ -146,6 +149,19 @@ export default function AdminDetailsTripPage() {
           {approvedCandidates}
         </ApprovedCandidatesContainer>
       </CandidatesContainer>
+      {response && (
+        <MessageBox
+          severity={"success"}
+          title={"Oba!"}
+          message={response}
+        />
+      )}
+      {error && (
+        <MessageBox
+          severity={"error"}
+          title={"Algo deu errado"}
+          message={error}
+        />)}
     </MainContainer >
   )
 }

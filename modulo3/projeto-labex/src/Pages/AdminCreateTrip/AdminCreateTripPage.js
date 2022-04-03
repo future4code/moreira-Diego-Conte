@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useForms from '../../Hooks/UseForms';
 import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
@@ -16,7 +16,8 @@ import { MainContainer, HomeButtonContainer, AlignSection, FormContainer, Button
 import { Box } from '@mui/system';
 import { FormControl, InputLabel } from '@mui/material';
 import { logout, getTodayDate } from '../../Services/Requests';
-import {token} from '../../Constants/Token';
+import { token } from '../../Constants/Token';
+import MessageBox from '../../Components/MessageBox';
 
 
 //__________________________________________________________________________________________________________________________________
@@ -25,16 +26,18 @@ import {token} from '../../Constants/Token';
 export default function AdminCreateTripPage() {
   useProtectedPage();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const [response, setResponse] = useState("");
   const { form, onChange } = useForms({ name: "", planet: "", date: "", description: "", durationInDays: "" });
 
   const createTrip = () => {
     axios.post(`${BASE_URL}${userPathVariables}trips`, form, { headers: { auth: token } })
       .then((res) => {
-        alert("Viagem criada com sucesso")
+        setResponse("Viagem criada com sucesso!")
         goToAdminHomePage(navigate)
       })
       .catch((err) => {
-        alert(`Ocorreu um erro com sua requisição: ${err.message}`)
+        setError(err.response.data.message)
       })
   }
 
@@ -144,6 +147,20 @@ export default function AdminCreateTripPage() {
             </ButtonsSubmitAndBackSection>
           </form>
         </FormContainer>
+        {response && (
+          <MessageBox
+            severity={"success"}
+            title={"Oba!"}
+            message={response}
+          />
+        )}
+        {error && (
+          <MessageBox
+            severity={"error"}
+            title={"Algo deu errado"}
+            message={error}
+          />
+        )}
       </AlignSection>
     </MainContainer>
   )
