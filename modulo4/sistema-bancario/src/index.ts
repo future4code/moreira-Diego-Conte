@@ -18,7 +18,7 @@ app.get("/users", (req, res) => {
   try {
     if (users.length <= 0) {throw new Error(`There are no registered users.`)};
 
-    res.status(201).send(users);
+    res.status(200).send(users);
   } catch (error: any) {
     switch (error.message) {
       case `There are no registered users.`:
@@ -42,7 +42,7 @@ app.get("/statement", (req, res) => {
     if (typeof checkedCpf === typeof "matrix") {
       throw new Error(`${checkedCpf}`)};
 
-    res.status(201).send(checkedCpf);
+    res.status(200).send(checkedCpf);
   } catch (error: any) {
     switch (error.message) {
       case `${cpf}`:
@@ -85,7 +85,7 @@ app.post("/users", (req, res) => {
       statement: [],
     });
 
-    res.status(201).send(users);
+    res.status(201).send('Your account has been successfully created.');
   } catch (error: any) {
     switch (error.message) {
       case "Please check inputs. Missing values.":
@@ -149,7 +149,7 @@ app.post("/pay", (req, res) => {
           date: fillingDate,
           description: description,
         });
-        return res.send(u);
+        return res.status(201).send(u);
       } else {
         throw new Error("Please check inputs: no user found.");
       }
@@ -229,7 +229,7 @@ app.post("/transfer", (req, res) => {
       }
     });
 
-    res.send(users);
+    res.status(200).send('Transfer successfully completed.');
   } catch (error: any) {
     switch (error.message) {
       case "Please check inputs. Missing values.":
@@ -285,7 +285,7 @@ app.put("/deposit", (req, res) => {
           date: new Date().getTime(),
           description: "Money deposit.",
         });
-        return res.send(u);
+        return res.status(200).send(u);
       } else {
         throw new Error("Please check inputs: no user found.");
       }
@@ -347,7 +347,7 @@ app.put("/balance", (req, res) => {
       return u.CPF === cpf
     })
 
-    res.send(usersBalance);
+    res.status(200).send(usersBalance);
 
   } catch (error: any) {
     switch (error.message) {
