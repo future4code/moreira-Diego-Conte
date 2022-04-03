@@ -15,7 +15,7 @@ export function ageChecker( birthDate: string): number | string {
         return `Please check birth date: only numbers and slash are accepted.`
     }
     const timeStampDateNow: number = new Date().getTime();
-    const userAge: number = (timeStampDateNow - timeStampBirthDate) / 1000 / 60 / 60 / 24 / 365;
+    const userAge: number = ((timeStampDateNow - 380000000) - timeStampBirthDate) / 1000 / 60 / 60 / 24 / 365;
 
     return userAge
 }

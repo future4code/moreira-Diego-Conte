@@ -18,7 +18,7 @@ export function dateChecker(billDate: string): boolean | string {
 
   const timeStampDateNow: number = new Date().getTime();
 
-  if (timeStampBillDate < timeStampDateNow) {return false};
+  if (timeStampBillDate < timeStampDateNow - 45761210) {return false};
 
   return true;
 }
