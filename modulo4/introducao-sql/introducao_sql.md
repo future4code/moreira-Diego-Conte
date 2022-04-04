@@ -6,11 +6,11 @@
 USE `***************************`;
 
 CREATE TABLE Actor (
-        id VARCHAR(255) PRIMARY KEY,
-        name VARCHAR (255) NOT NULL,
-        salary FLOAT NOT NULL,
-        birth_date DATE NOT NULL,
-        gender VARCHAR(6) NOT NULL
+    id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR (255) NOT NULL,
+    salary FLOAT NOT NULL,
+    birth_date DATE NOT NULL,
+    gender VARCHAR(6) NOT NULL
 );
 ```
 
@@ -250,11 +250,11 @@ VALUES (
 INSERT INTO Movies (id, title, synopsys, release_date, rating)
 VALUES(
     "003",
-        "Dona Flor e Seus Dois Maridos",
-        "Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates.  
-        A vida de abusos acaba por acarretar sua morte precoce.",
-        "2017-11-02",
-        8
+    "Dona Flor e Seus Dois Maridos",
+    "Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates.  
+    A vida de abusos acaba por acarretar sua morte precoce.",
+    "2017-11-02",
+    8
 );
 ```
 
