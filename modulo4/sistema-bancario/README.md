@@ -20,7 +20,7 @@ Esta POC tem, pois, o objetivo de ganhar esta competição. O que ela é capaz d
 Para estas operações, validações garantem que somente CPFs verdadeiros sejam informados.
 
 ## Desenvolvedor
-[Diego Conte](https://github.com/diegocomte)\
+[Diego Conte](https://github.com/diegocomte)
 
 
 ## Instalação
@@ -40,4 +40,4 @@ $ npm start-dev
 
 
 ## Sites e Recursos
-[Postman](https://www.postman.com/)\
+[Postman](https://www.postman.com/)
