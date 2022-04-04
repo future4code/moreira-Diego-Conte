@@ -22,17 +22,22 @@ CREATE TABLE Actor (
                     -- NOT NULL: campos obrigatórios.
                     -- DATE: tipo data
 
-     - Exercício b)
-                    ```SHOW DATABASES;```
-                    -- Mostra as databases.
-                    ```SHOW TABLES;```
-                    -- Mostra as tabelas.
+     - Exercício b) Mostra as databases:
+                    ```
+                    SHOW DATABASES;
+                    ```
+                    Mostra as tabelas:
+                    ```
+                    SHOW TABLES;
+                    ```
 
-     - Exercício c)
-                    ```DESCRIBE Actor;```
-                    -- O comando mostra-nos a tabela e suas propriedades (Tipos, valores...)
+     - Exercício c) O comando mostra-nos a tabela e suas propriedades (Tipos, valores...):
+                    ```
+                    DESCRIBE Actor;
+                    ```
 
 - Exercício 2
+- 
 ```
 INSERT INTO Actor (id, name, salary, birth_date, gender)
 VALUES(
