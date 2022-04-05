@@ -1,4 +1,4 @@
-# INTRODUÇÃO AO SQL
+# INTRODUÇÃO À SQL
 
 ## Exercício 1
 
