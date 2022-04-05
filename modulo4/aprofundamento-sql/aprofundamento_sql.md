@@ -11,19 +11,19 @@ SET SQL_SAFE_UPDATES = 0;
 ## EXERCÍCIO 1
 
 ### Exercício 1.a
-### Este comando vai apagar a coluna de nome "salary".
+Este comando vai apagar a coluna de nome "salary".
 ```
 ALTER TABLE Actor DROP COLUMN salary;
 ```
 
 ### Exercício 1.b
-### Este comando irá renomear a coluna de "gender" para "sex" e limitar os caracteres a seis.
+Este comando irá renomear a coluna de "gender" para "sex" e limitar os caracteres a seis.
 ```
 ALTER TABLE Actor CHANGE gender sex VARCHAR(6);
 ```
 
 ### Exercício 1.c
-### Este comando irá limitar os caracteres a 255.
+Este comando irá limitar os caracteres a 255.
 ```
 ALTER TABLE Actor CHANGE gender gender VARCHAR(255);
 ```
@@ -36,14 +36,14 @@ ALTER TABLE Actor CHANGE gender gender VARCHAR(100);
 
 ## EXERCÍCIO 2
 
-### Exercício 1.a
+### Exercício 2.a
 ```
 UPDATE Actor
-SET name = "Moacyr Franco",	birth_date = "1936-10-05", gender = "male"
+SET name = "Moacyr Franco", birth_date = "1936-10-05", gender = "male"
 WHERE id = "003";
 ```
 
-### Exercício 1.b
+### Exercício 2.b
 ```
 UPDATE Actor
 SET name = "JULIANA PAES"
@@ -56,21 +56,21 @@ SET name = "Juliana Paes"
 WHERE id = "005";
 ```
 
-### Exercício 1.c
+### Exercício 2.c
 ```
 UPDATE Actor
 SET name = "Miguel Falabella", salary = 700000, birth_date = "1956-10-10", gender = "male"
 WHERE id = "005";
 ```
 
-### Exercício 1.d
+### Exercício 2.d
 ```
 UPDATE Actor
 SET name = "Diego Conte"
 WHERE id = "009";
 ```
 
-### O comando acima roda e até retorna resposta positiva, porém nenhum linha é afetada porque os valores não existem.
+O comando acima roda e até retorna resposta positiva, porém nenhum linha é afetada porque os valores não existem.
 
 
 ## EXERCÍCIO 3
@@ -116,7 +116,7 @@ SELECT SUM(salary) FROM Actor;
 SELECT COUNT(*), gender FROM Actor GROUP BY gender;
 ```
 
-### A query acima retorna a quantidade de registros por grupo e os organiza por gênero.
+A query acima retorna a quantidade de registros por grupo e os organiza por gênero.
 
 ### Exercício 5.b
 ```
@@ -167,7 +167,7 @@ DELETE FROM Movies WHERE id = "004";
 ```
 UPDATE Movies SET synopsys = "Atualizando a sinopse" WHERE id = "004";
 ```
-### O comando acima roda e até retorna resposta positiva, porém nenhum linha é afetada porque os valores não existem.
+O comando acima roda e até retorna resposta positiva, porém nenhum linha é afetada porque os valores não existem.
 
 
 ## EXERCÍCIO 7
