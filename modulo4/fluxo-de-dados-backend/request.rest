@@ -1,0 +1,60 @@
+GET http://localhost:3003/test
+Content-Type: application/json
+
+###
+POST http://localhost:3003/addingproduct
+Content-Type: application/json
+{
+    "name": "Feijão",
+    "price": "8.35"
+}
+
+###
+GET http://localhost:3003/products
+Content-Type: application/json
+
+###
+PUT http://localhost:3003/editprice/1
+Content-Type: application/json
+
+{
+    "price": 4.75
+}
+
+###
+DELETE http://localhost:3003/product/1
+Content-Type: application/json
+
+###
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "Feijão",
+    "price": 9.45
+}
+
+###
+PUT http://localhost:3003/price/3
+Content-Type: application/json
+
+{
+    "price": 5.55
+}
+
+###
+DELETE http://localhost:3003/deleteproduct/20
+Content-Type: application/json
+
+###
+PUT http://localhost:3003/priceandproduct/45
+Content-Type: application/json
+
+{
+    "name": "Maçã Argentina",
+    "price": 5.79
+}
+
+###
+GET http://localhost:3003/selectedproducts/?name=Mand
+Content-Type: application/json
