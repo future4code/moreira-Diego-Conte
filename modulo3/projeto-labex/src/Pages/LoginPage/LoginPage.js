@@ -15,12 +15,13 @@ import {
   FormContainer,
   MainContainer
 } from './StyleLoginPage';
-import { Box } from '@mui/system';
+import MessageBox from '../../Components/MessageBox';
 
 //_______________________________________________________________________________________________________________________________
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const [error, setError] = useState("");
   const token = localStorage.getItem("token")
   const { form, onChange, clearFields } = useForms({ email: "", password: "" });
 
@@ -42,7 +43,7 @@ export default function LoginPage() {
         navigate('/admin/trips/list')
       })
       .catch((err) => {
-        alert('Verifique os dados informados, atentando ao formato pedido, e tente novamente')
+        setError(err.response.data.message)
       })
   }
 
@@ -109,6 +110,13 @@ export default function LoginPage() {
             </ButtonsSubmitAndBackSection>
           </form>
         </FormContainer>
+        {error && (
+        <MessageBox
+          severity={"error"}
+          title={"Algo deu errado"}
+          message={error}
+        />
+      )}
       </AlignSection>
     </MainContainer>
   )

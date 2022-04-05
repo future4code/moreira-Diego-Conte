@@ -19,7 +19,8 @@ import {
     AlignSection,
     ButtonsSubmitAndBackSection
 } from './StyleApplicationFormPage';
-import {token} from '../../Constants/Token';
+import { token } from '../../Constants/Token';
+import MessageBox from '../../Components/MessageBox';
 
 
 //_______________________________________________________________________________________________________________________________
@@ -28,6 +29,8 @@ import {token} from '../../Constants/Token';
 export default function ApplyToTrip(props) {
     const navigate = useNavigate();
     const [tripId, setTripId] = useState("");
+    const [error, setError] = useState("");
+    const [response, setResponse] = useState("");
     const [listTrips] = useRequestData(`${BASE_URL}${userPathVariables}trips`)
     const { form, onChange, clearFields } = useForms({ name: "", age: 18, applicationText: "", profession: "", country: "" });
 
@@ -38,11 +41,11 @@ export default function ApplyToTrip(props) {
     const applicationCandidate = () => {
         axios.post(`${BASE_URL}${userPathVariables}trips/${tripId}/apply`, form, { headers: { auth: token } })
             .then((res) => {
-                alert("Candidatura submetida com sucesso!")
+                setResponse("Candidatura submetida com sucesso!")
                 window.location.reload()
             })
             .catch((err) => {
-                alert(`Ocorreu um problema com sua requisição: ${err.message}`)
+                setError(err.response.data.message)
             })
     }
 
@@ -178,6 +181,20 @@ export default function ApplyToTrip(props) {
                         </ButtonsSubmitAndBackSection>
                     </form>
                 </FormContainer>
+                {response && (
+                    <MessageBox
+                        severity={"success"}
+                        title={"Oba!"}
+                        message={response}
+                    />
+                )}
+                {error && (
+                    <MessageBox
+                        severity={"error"}
+                        title={"Algo deu errado"}
+                        message={error}
+                    />
+                )}
             </AlignSection>
         </MainContainer>
     )
