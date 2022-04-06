@@ -1,0 +1,51 @@
+GET http://localhost:3003/actor/008
+Content-Type: application/json
+
+###
+GET http://localhost:3003/actor?gender=female
+Content-Type: application/json
+
+###
+GET http://localhost:3003/movie/search?query=desdobramentos
+Content-Type: application/json
+
+###
+GET http://localhost:3003/movies
+Content-Type: application/json
+
+###
+POST http://localhost:3003/actor
+Content-Type: application/json
+
+{
+    "id": "008",
+    "name": "Juliana Paes",
+    "salary": 1500000,
+    "dateOfBirth": "1979-03-26",
+    "gender": "female"
+}
+
+###
+POST http://localhost:3003/movie
+Content-Type: application/json
+
+{
+    "id": "004",
+    "title": "Melancolia",
+    "synopsis": "Justine está indo com seu noivo para a festa de casamento montada pela irmã, Claire. É quando ela avista o planeta Melancolia se aproximando da Terra. A partir daí, novos desdobramentos são mostrados e a forma como as irmãs encaram esse evento é diferente." ,
+    "releaseDate": "2022-07-10",
+    "playingLimitDate": "2022-09-05"
+}
+
+###
+PUT http://localhost:3003/actor
+Content-Type: application/json
+
+{
+    "id": "001",
+    "salary": 400004
+}
+
+###
+DELETE http://localhost:3003/actor/005
+Content-Type: application/json
