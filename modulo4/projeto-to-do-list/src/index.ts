@@ -13,10 +13,10 @@ app.get("/user", async (req: Request, res: Response) => {
       throw new Error("Please check ID. It must to be a number.");
     }
 
-    let result = await getUser(id);
+    const result = await getUser(id);
 
     if (result.length <= 0) {
-      result = "No user found.";
+      throw new Error("No user found.");
     }
 
     res.status(200).send(result);
@@ -28,6 +28,9 @@ app.get("/user", async (req: Request, res: Response) => {
       case `"Please check ID. It must to be a number."`:
         res.status(400);
         break;
+      case "No user found.":
+        res.status(404)
+        break
       default:
         res.status(500);
     }
@@ -48,16 +51,15 @@ app.get("/task", async (req: Request, res: Response) => {
       throw new Error("Please check ID. It must to be a number.");
     }
 
-    let data = await getTask(id);
-    let result;
-
-    if (data.length <= 0) {
-      result = "No task found.";
+    const data = await getTask(id);
+    
+    if (data.length === 0) {
+      throw new Error("No task found.");
     }
       
     const date = data[0].limitDate;
     const newDate = `${('0' + date.getDate()).slice(-2)}/${('0' + (date.getMonth() + 1)).slice(-2)}/${date.getFullYear()}`
-    result = { ...data[0], limitDate: newDate }
+    const result = { ...data[0], limitDate: newDate }
 
     res.status(200).send(result);
   } catch (error: any) {
@@ -68,6 +70,9 @@ app.get("/task", async (req: Request, res: Response) => {
       case `"Please check ID. It must to be a number."`:
         res.status(400);
         break;
+      case "No task found.":
+        res.status(404)
+        break
       default:
         res.status(500);
     }
