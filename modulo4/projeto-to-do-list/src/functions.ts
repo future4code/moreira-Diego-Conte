@@ -1,5 +1,3 @@
-import { Request, Response } from "express";
-import app from "./app";
 import connection from "./connection";
 
 export const createUser = async (
@@ -52,8 +50,16 @@ export const createTask = async (
 };
 
 export const getTask = async (id: number): Promise<any> => {
-  const result = await connection.raw(`
-    SELECT * FROM TodoListTasks WHERE id = '${id}'
-    `);
+  const result = await connection("TodoListTasks")
+  .join('TodoListUsers', "TodoListTasks.creatorUserId", 'TodoListUsers.id')
+  .select(
+    "TodoListTasks.id as taskId",
+    "title",
+    "description",
+    "TodoListTasks.limitDate",
+    "status",
+    "creatorUserId",
+    "TodoListUsers.nickname as creatorUserNickname")
+  .where('TodoListTasks.id', id)
   return result;
 };

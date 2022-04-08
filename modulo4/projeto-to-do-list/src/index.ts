@@ -54,12 +54,10 @@ app.get("/task", async (req: Request, res: Response) => {
     if (data.length <= 0) {
       result = "No task found.";
     }
-    console.log(data[0].limitDate)
-    
+      
     const date = data[0].limitDate;
-    const merda = date.split("-");
-    const formatingDate = `${merda[2]}-${merda[1]}-${merda[0]}`;
-    result = { ...data[0], limitDate: formatingDate }
+    const newDate = `${('0' + date.getDate()).slice(-2)}/${('0' + (date.getMonth() + 1)).slice(-2)}/${date.getFullYear()}`
+    result = { ...data[0], limitDate: newDate }
 
     res.status(200).send(result);
   } catch (error: any) {
