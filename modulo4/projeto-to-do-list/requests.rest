@@ -1,0 +1,38 @@
+GET http://localhost:3003/user?id=3
+Content-Type: application/json
+
+###
+GET http://localhost:3003/task?id=001
+Content-Type: application/json
+
+###
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "Diego Conte",
+    "nickname": "Di",
+    "email": "diego@moreira.com"
+}
+
+###
+POST http://localhost:3003/task
+Content-Type: application/json
+
+{
+    "title": "Palestra UNICAMP",
+	"description": "Discorrer sobre a Filosofia.",
+	"limitDate": "08/04/2022",
+	"creatorUserId": "002"
+}
+
+###
+PUT http://localhost:3003/user/edit?id=2
+Content-Type: application/json
+
+{
+    "name": "Leandro Karnal",
+    "nickname": "Leo"
+}
+
+###
