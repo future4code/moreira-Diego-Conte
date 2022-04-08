@@ -67,7 +67,7 @@ Por meio do comando acima se pode relacionar atores a filmes.
 INSERT INTO MovieCast(movie_id, actor_id)
 VALUES(
 	"001",
-    "001"
+	"001"
 );
 ```
 
@@ -75,7 +75,7 @@ VALUES(
 INSERT INTO MovieCast(movie_id, actor_id)
 VALUES(
 	"004",
-    "006"
+	"006"
 );
 ```
 
@@ -83,7 +83,7 @@ VALUES(
 INSERT INTO MovieCast(movie_id, actor_id)
 VALUES(
 	"004",
-    "007"
+	"007"
 );
 ```
 
@@ -91,7 +91,7 @@ VALUES(
 INSERT INTO MovieCast(movie_id, actor_id)
 VALUES(
 	"002",
-    "003"
+	"003"
 );
 ```
 
@@ -99,7 +99,7 @@ VALUES(
 INSERT INTO MovieCast(movie_id, actor_id)
 VALUES(
 	"003",
-    "004"
+	"004"
 );
 ```
 
@@ -107,7 +107,7 @@ VALUES(
 INSERT INTO MovieCast(movie_id, actor_id)
 VALUES(
 	"003",
-    "003"
+	"003"
 );
 ```
 
@@ -116,7 +116,7 @@ VALUES(
 INSERT INTO MovieCast(movie_id, actor_id)
 VALUES(
 	"001",
-    "0011"
+	"0011"
 );
 ```
 Erro 1452: erro na chave estrangeira pois os ids do filme e ator não constam no banco. Assim, a relação não é possível.
@@ -198,11 +198,11 @@ A query acima resulta, inicialmente, no erro erro 1054: Coluna 'm' desconhecida.
 ```
 SELECT 
 	m.id as ID, 
-    title AS Title, 
-    a.id as ID, 
-    a.name AS Name, 
-    r.rating AS Rate,
-    r.comment AS Comment
+	title AS Title, 
+	a.id as ID, 
+	a.name AS Name, 
+	r.rating AS Rate,
+	r.comment AS Comment
 FROM Movies m
 LEFT JOIN Rating r ON r.movies_id = m.id
 LEFT JOIN MovieCast mc ON m.id = mc.movie_id
