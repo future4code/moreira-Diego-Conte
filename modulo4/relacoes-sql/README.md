@@ -142,3 +142,73 @@ ON é uma condição para que possamos obter os valores desejados enquanto retor
 SELECT title, m.id as movie_id, r.rating as rating FROM Movies m
 INNER JOIN Rating r ON m.id = r.movies_id;
 ```
+
+
+## EXERCÍCIO 4
+
+### Exercício 4.a
+```
+SELECT m.id as ID, title as Title, r.rating as Rate, r.comment as Comments
+FROM Movies m
+LEFT JOIN Rating r ON m.id = r.movies_id;
+```
+
+### Exercício 4.b
+```
+SELECT m.id as ID_Movie, title as Title, mc.actor_id as ID_Actor
+FROM Movies m
+RIGHT JOIN MovieCast mc ON mc.movie_id - m.id;
+```
+
+### Exercício 4.c
+```
+SELECT m.title, AVG(r.rating) as Rate FROM Movies m
+LEFT JOIN Rating r ON m.id = r.movies_id
+GROUP BY (m.id);
+```
+
+
+## EXERCÍCIO 5
+```
+SELECT * FROM Movie m
+LEFT JOIN MovieCast mc ON m.id = mc.movie_id
+JOIN Actor a ON a.id = mc.actor_id;
+```
+
+### Exercício 5.a
+A query acima retorna todas as informações das tabelas selecionadas. Sem o JOIN, a tabela de atores não seria retornada.
+
+### Exercício 5.b
+```
+SELECT m.id AS ID_Movie, title AS Title, a.id as ID_Actor, name AS Name FROM Movies m
+LEFT JOIN MovieCast mc ON m.id = mc.movie_id
+JOIN Actor a ON a.id = mc.actor_id;
+```
+
+### Exercício 5.c
+```
+SELECT m.id as movie_id, m,title, a.id as actor_id, a.name FROM Movie m
+LEFT JOIN MovieCast mc ON m.id = mc.movie_id
+JOIN Actor a ON a.id = mc.actor_id;
+```
+A query acima resulta, inicialmente, no erro erro 1054: Coluna 'm' desconhecida. Isso ocorre porque há uma vírgula ao invés de ponto em m,title. Se trocarmos por ponto, funciona. Sem o 'm', somente 'title', funciona igualmente.
+
+
+### Exercício 5.d
+```
+SELECT 
+	m.id as ID, 
+    title AS Title, 
+    a.id as ID, 
+    a.name AS Name, 
+    r.rating AS Rate,
+    r.comment AS Comment
+FROM Movies m
+LEFT JOIN Rating r ON r.movies_id = m.id
+LEFT JOIN MovieCast mc ON m.id = mc.movie_id
+JOIN Actor a ON a.id = mc.actor_id;
+```
+
+
+
+
