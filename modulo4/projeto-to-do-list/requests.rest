@@ -1,38 +1,103 @@
-GET http://localhost:3003/user?id=2
-Content-Type: application/json
-
-###
-GET http://localhost:3003/task?id=1
-Content-Type: application/json
-
-###
+### EXERCÍCIO 1   
 POST http://localhost:3003/user
 Content-Type: application/json
 
 {
-    "name": "Diego Conte",
-    "nickname": "Di",
-    "email": "diego@moreira.com"
+    "name": "Dev Tester",
+    "nickname": "Dev",
+    "email": "dev@tester.com"
 }
 
-###
-POST http://localhost:3003/task
+
+### EXERCÍCIO 2 
+GET http://localhost:3003/user/1
 Content-Type: application/json
 
-{
-    "title": "Palestra UNICAMP",
-	"description": "Discorrer sobre a Filosofia.",
-	"limitDate": "08/04/2022",
-	"creatorUserId": "002"
-}
 
-###
-PUT http://localhost:3003/user/edit?id=2
+### EXERCÍCIO 3 
+PUT http://localhost:3003/user/edit/2
 Content-Type: application/json
 
 {
     "name": "Leandro Karnal",
-    "nickname": "Leo"
+    "nickname": "Leandro"
 }
 
-###
+
+### EXERCÍCIO 4  
+POST http://localhost:3003/task
+Content-Type: application/json
+
+{
+    "title": "Revisar TS",
+	"description": "Revisar para fixar.",
+	"limitDate": "20/04/2022",
+	"creatorUserId": "01"
+}
+
+
+### EXERCÍCIOS 5 E 11
+GET http://localhost:3003/task/1
+Content-Type: application/json
+
+
+### EXERCÍCIO 6
+GET http://localhost:3003/user/all
+Content-Type: application/json
+
+
+### EXERCÍCIO 7
+GET http://localhost:3003/task?creatorUserId=2
+Content-Type: application/json
+
+
+### EXERCÍCIO 8
+GET http://localhost:3003/user?query=di
+Content-Type: application/json
+
+
+### EXERCÍCIOS 9 E 16
+POST http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{
+    "taskId": "8",
+    "responsibleUserId": ["2", "1"]
+}
+
+
+### EXERCÍCIO 10 
+GET http://localhost:3003/task/4/responsible
+Content-Type: application/json
+
+
+### EXERCÍCIO 12 
+PUT http://localhost:3003/task/status/5
+Content-Type: application/json
+
+{
+    "status": "to_do"
+}
+
+
+### EXERCÍCIO 13 
+GET http://localhost:3003/task/all?status=to_do
+Content-Type: application/json
+// Gets all tasks by status
+
+
+### EXERCÍCIO 14
+GET http://localhost:3003/task/delayed
+Content-Type: application/json
+// Gets all overdues tasks
+
+
+### EXERCÍCIO 15
+DELETE http://localhost:3003/task/2/responsible/1
+Content-Type: application/json
+// Deletes assigned users from tasks
+
+
+### EXERCÍCIO 17
+GET http://localhost:3003/task/name?query=es
+Content-Type: application/json
