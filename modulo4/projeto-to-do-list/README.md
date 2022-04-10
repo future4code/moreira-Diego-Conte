@@ -1,9 +1,5 @@
 # To Do List
 
-Postman\
-[LabeBank](https://documenter.getpostman.com/view/19296833/UVysxG9M/)
-
-
 ## Descrição do Projeto
 To Do List é uma API de gerenciamento de tarefas. O cadastro de usuários é simples: nome, apelido (nickname) e email.
 
@@ -91,7 +87,7 @@ $ npm start-dev
     "title": "Criar banco dos alunos",
     "description": "Devemos criar o banco dos alunos para o módulo do backend",
     "limitDate": "04/05/2020",
-    "creatorUserId": 001
+    "creatorUserId": "001"
 }
 ```
 
@@ -127,7 +123,7 @@ $ npm start-dev
 ```json
 {
     "users": [{
-		"id": "001",
+		"id": 001,
 		"nickname": "astrodev"
 	}]
 }
@@ -185,7 +181,7 @@ $ npm start-dev
 ```json
 {
     "taskId": 000,
-    "responsibleUserId": 001 /* ou */ [001, 002]
+    "responsibleUserId": 001 ou [001, 002]
 }
 ```
 
