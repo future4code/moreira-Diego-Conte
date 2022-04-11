@@ -202,5 +202,46 @@ export const searchTaskByTerms = async (query: string): Promise<any> => {
   return result[0];
 };
 
+export const deleteTask = async (id: number): Promise<any> => {
+  await connection.raw(`
+  DELETE FROM TodoListResponsibleUserTaskRelation 
+  WHERE taskId = '${id}'
+  `);
+
+  await connection.raw(`
+  DELETE FROM TodoListTasks WHERE id = ${id}
+  `);
+};
+
+export const deleteUser = async (id: number): Promise<any> => {
+  const tasks = await connection.raw(`
+  SELECT TodoListTasks.id  
+  FROM TodoListTasks
+  WHERE TodoListTasks.creatorUserId = '${id}'
+  `);
+
+  const tasksIds = tasks[0].map((t: any) => {
+    return [t.id];
+  });
+
+  console.log(tasksIds);
+
+  await connection("TodoListResponsibleUserTaskRelation")
+    .delete()
+    .where({ responsibleUserId: id, taskId: tasksIds });
+
+  await connection("TodoListResponsibleUserTaskRelation")
+    .delete()
+    .where({ taskId: tasksIds });
+
+  await connection.raw(`
+  DELETE FROM TodoListTasks WHERE creatorUserId = '${id}'
+  `);
+
+  await connection.raw(`
+  DELETE FROM TodoListUsers WHERE id = '${id}'
+  `);
+};
+
 //How to create an ID >>> id: Date.now() + Math.random()
 //However, I prefered to use SQL auto_increment

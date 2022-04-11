@@ -32,7 +32,7 @@ Content-Type: application/json
     "title": "Revisar TS",
 	"description": "Revisar para fixar.",
 	"limitDate": "20/04/2022",
-	"creatorUserId": "01"
+	"creatorUserId": "10"
 }
 
 
@@ -47,7 +47,7 @@ Content-Type: application/json
 
 
 ### EXERCÍCIO 7
-GET http://localhost:3003/task?creatorUserId=2
+GET http://localhost:3003/task?creatorUserId=1
 Content-Type: application/json
 
 
@@ -61,8 +61,8 @@ POST http://localhost:3003/task/responsible
 Content-Type: application/json
 
 {
-    "taskId": "8",
-    "responsibleUserId": ["2", "1"]
+    "taskId": "10",
+    "responsibleUserId": ["10", "1"]
 }
 
 
@@ -83,21 +83,28 @@ Content-Type: application/json
 ### EXERCÍCIO 13 
 GET http://localhost:3003/task/all?status=to_do
 Content-Type: application/json
-// Gets all tasks by status
 
 
 ### EXERCÍCIO 14
 GET http://localhost:3003/task/delayed
 Content-Type: application/json
-// Gets all overdues tasks
 
 
 ### EXERCÍCIO 15
 DELETE http://localhost:3003/task/2/responsible/1
 Content-Type: application/json
-// Deletes assigned users from tasks
 
 
 ### EXERCÍCIO 17
 GET http://localhost:3003/task/name?query=es
+Content-Type: application/json
+
+
+### EXERCÍCIO 19
+DELETE http://localhost:3003/task/5
+Content-Type: application/json
+
+
+### EXERCÍCIO 20
+DELETE http://localhost:3003/user/10
 Content-Type: application/json

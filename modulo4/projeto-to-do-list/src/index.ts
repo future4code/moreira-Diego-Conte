@@ -1,9 +1,12 @@
 import { Request, Response } from "express";
 import app from "./app";
+import { formatingDate } from "./helpers";
 import {
   createTask,
   createUser,
   deleteAssignedUserFromTask,
+  deleteTask,
+  deleteUser,
   editUser,
   getAllTasksByStatus,
   getAllUsers,
@@ -17,7 +20,15 @@ import {
   updateStatusTask,
   userResponsibleForTask,
 } from "./functions";
-import { formatingDate } from "./helpers";
+
+
+
+/**
+ * 
+ * ***************************** ENDPOINTS TYPE USER ************************************
+ * 
+ **/
+
 
 /**********************
  *   EXERCÍCIO 6      *
@@ -31,6 +42,7 @@ app.get("/user/all", async (req: Request, res: Response) => {
     }
 
     res.status(200).send({ users: result });
+
   } catch (error: any) {
     switch (error.message) {
       default:
@@ -39,6 +51,7 @@ app.get("/user/all", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
+
 
 
 /**********************
@@ -62,6 +75,7 @@ app.get("/user/:id", async (req: Request, res: Response) => {
     }
 
     res.status(200).send(result);
+
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing id.":
@@ -81,6 +95,196 @@ app.get("/user/:id", async (req: Request, res: Response) => {
 });
 
 
+
+/**********************
+ *   EXERCÍCIO 8      *
+ * ********************/
+ app.get("/user", async (req: Request, res: Response) => {
+  const query = req.query.query as string;
+
+  try {
+    if (!query) {
+      throw new Error("Please check request: missing query.");
+    }
+
+    let result = await searchUserByName(query);
+
+    if (result.length === 0) {
+      result = [];
+    }
+
+    res.status(200).send({ users: result });
+
+  } catch (error: any) {
+    switch (error.message) {
+      case "Please check request: missing query.":
+        res.status(422);
+        break;
+      default:
+        res.status(500);
+    }
+    res.send({ message: error.sqlMessage || error.message });
+  }
+});
+
+
+
+/**********************
+ *   EXERCÍCIO 1      *
+ * ********************/
+ app.post("/user", async (req: Request, res: Response) => {
+  const { name, nickname, email } = req.body;
+
+  try {
+    if (!name || !nickname || !email) {
+      throw new Error("Please check inputs. Missing values.");
+    }
+    if (
+      typeof name !== typeof "matrix" ||
+      typeof nickname !== typeof "matrix" ||
+      typeof email !== typeof "matrix"
+    ) {
+      throw new Error(`Please check inputs: it must to be string.`);
+    }
+    if (name.length < 2 || nickname.length < 2 || email.length < 6) {
+      throw new Error(
+        "Please check inputs. At least two characters are required in 'name' and 'nickname' and six in 'email'."
+      );
+    }
+
+    await createUser(name, nickname, email);
+
+    res.status(201).send(`User ${name} created successfully.`);
+
+  } catch (error: any) {
+    switch (error.message) {
+      case "Please check inputs. Missing values.":
+        res.status(422);
+        break;
+      case "Please check inputs: it must to be string.":
+        res.status(422);
+        break;
+      case "Please check inputs. At least two characters are required in 'name' and 'nickname' and six in 'email'.":
+        res.status(422);
+        break;
+      default:
+        res.status(500);
+    }
+    res.send({ message: error.sqlMessage || error.message });
+  }
+});
+
+
+
+/**********************
+ *   EXERCÍCIO 3      *
+ * ********************/
+ app.put("/user/edit/:id", async (req: Request, res: Response) => {
+  const id: number = Number(req.params.id);
+  const { name, nickname } = req.body;
+
+  try {
+    if (!id) {
+      throw new Error("Please check request: missing ID.");
+    }
+    if (typeof id !== typeof 0) {
+      throw new Error("Please check ID. It must to be a number.");
+    }
+    if (!name || !nickname) {
+      throw new Error(
+        "Please check inputs. Missing values at 'name' and 'nickname'."
+      );
+    }
+    if (
+      typeof name !== typeof "matrix" ||
+      typeof nickname !== typeof "matrix"
+    ) {
+      throw new Error("Please check inputs: it must to be string.");
+    }
+    if (name.length < 2 || nickname.length < 2) {
+      throw new Error(
+        "Please check inputs. At least two characters are required in 'name' and 'nickname'"
+      );
+    }
+
+    await editUser(id, name, nickname);
+
+    res.status(200).send(`User ${name} updated successfully.`);
+
+  } catch (error: any) {
+    switch (error.message) {
+      case "Please check request: missing ID.":
+        res.status(400);
+        break;
+      case `"Please check ID. It must to be a number."`:
+        res.status(400);
+        break;
+      case "Please check inputs. Missing values at 'name' and 'nickname'.":
+        res.status(400);
+        break;
+      case "Please check inputs: it must to be string.":
+        res.status(400);
+        break;
+      case "Please check inputs. At least two characters are required in 'name' and 'nickname'":
+        res.status(400);
+        break;
+      default:
+        res.status(500);
+    }
+    res.send({ message: error.sqlMessage || error.message });
+  }
+});
+
+
+
+/**********************
+ *   EXERCÍCIO 20     *
+ * ********************/
+ app.delete("/user/:id", async (req: Request, res: Response) => {
+  const id: number = Number(req.params.id);
+
+  try {
+    if (!id || isNaN(id)) {
+      throw new Error(
+        "Please check request: missing ID (it must to be a number)."
+      );
+    }
+
+    const isId = await getUser(id);
+    if (isId.length === 0) {
+      throw new Error("No user found. Please check inputs.");
+    }
+
+    await deleteUser(id);
+
+    res.status(200).send(`User ${id} successfully deleted.`);
+
+  } catch (error: any) {
+    switch (error.message) {
+      case "Please check request: missing ID (it must to be a number).":
+        res.status(422);
+        break;
+      case "No user found. Please check inputs.":
+        res.status(404);
+        break;
+      default:
+        res.status(500);
+    }
+    res.send({ message: error.sqlMessage || error.message });
+  }
+});
+
+
+
+
+/**
+ * 
+ * ***************************** ENDPOINTS TYPE TASK ************************************
+ * 
+ **/
+
+
+
 /**********************
  *   EXERCÍCIO 13     *
  * ********************/
@@ -98,6 +302,7 @@ app.get("/task/all", async (req: Request, res: Response) => {
     });
 
     res.status(200).send({ tasks: result });
+
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing status.":
@@ -109,6 +314,7 @@ app.get("/task/all", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
+
 
 
 /**********************
@@ -127,6 +333,7 @@ app.get("/task/delayed", async (req: Request, res: Response) => {
     });
 
     res.status(200).send({ tasks: result });
+
   } catch (error: any) {
     switch (error.message) {
       case "No task found.":
@@ -140,39 +347,42 @@ app.get("/task/delayed", async (req: Request, res: Response) => {
 });
 
 
+
 /**********************
  *   EXERCÍCIO 17     *
  * ********************/
-app.get('/task/name', async(req: Request, res: Response) => {
+app.get("/task/name", async (req: Request, res: Response) => {
   const query = req.query.query as string;
   try {
-      if (!query) {
-        throw new Error("Please check request: missing query.");
-      }
-  
-      let result = await searchTaskByTerms(query);
-  
-      if (result.length === 0) {
-        result = `No task found.`;
-      }
-
-      result.forEach((t: any) => {
-        t.limitDate = formatingDate(t.limitDate);
-      });
-  
-    res.status(200).send({tasks: result})
-    
-  } catch (error:any) {
-    switch(error.message){
-      case "Please check request: missing query.":
-        res.status(422)
-        break
-      default:
-        res.status(500)
+    if (!query) {
+      throw new Error("Please check request: missing query.");
     }
-    res.send({message: error.sqlMessage || error.message})
+
+    let result = await searchTaskByTerms(query);
+
+    if (result.length === 0) {
+      result = `No task found.`;
+    }
+
+    result.forEach((t: any) => {
+      t.limitDate = formatingDate(t.limitDate);
+    });
+
+    res.status(200).send({ tasks: result });
+
+  } catch (error: any) {
+    switch (error.message) {
+      case "Please check request: missing query.":
+        res.status(422);
+        break;
+      default:
+        res.status(500);
+    }
+    res.send({ message: error.sqlMessage || error.message });
   }
-})
+});
+
+
 
 /************************
  *  EXERCÍCIOS 5 E 11   *
@@ -208,6 +418,7 @@ app.get("/task/:id", async (req: Request, res: Response) => {
     };
 
     res.status(200).send(result);
+
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing id (it must to be a number).":
@@ -222,6 +433,7 @@ app.get("/task/:id", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
+
 
 
 /**********************
@@ -248,6 +460,7 @@ app.get("/task", async (req: Request, res: Response) => {
     });
 
     res.status(200).send({ tasks: result });
+
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing id (it must to a number).":
@@ -260,36 +473,6 @@ app.get("/task", async (req: Request, res: Response) => {
   }
 });
 
-
-/**********************
- *   EXERCÍCIO 8      *
- * ********************/
-app.get("/user", async (req: Request, res: Response) => {
-  const query = req.query.query as string;
-
-  try {
-    if (!query) {
-      throw new Error("Please check request: missing query.");
-    }
-
-    let result = await searchUserByName(query);
-
-    if (result.length === 0) {
-      result = [];
-    }
-
-    res.status(200).send({ users: result });
-  } catch (error: any) {
-    switch (error.message) {
-      case "Please check request: missing query.":
-        res.status(422);
-        break;
-      default:
-        res.status(500);
-    }
-    res.send({ message: error.sqlMessage || error.message });
-  }
-});
 
 
 /**********************
@@ -308,6 +491,7 @@ app.get("/task/:id/responsible", async (req: Request, res: Response) => {
     }
 
     res.status(200).send({ users: result });
+
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing ID.":
@@ -323,50 +507,6 @@ app.get("/task/:id/responsible", async (req: Request, res: Response) => {
   }
 });
 
-
-/**********************
- *   EXERCÍCIO 1      *
- * ********************/
-app.post("/user", async (req: Request, res: Response) => {
-  const { name, nickname, email } = req.body;
-
-  try {
-    if (!name || !nickname || !email) {
-      throw new Error("Please check inputs. Missing values.");
-    }
-    if (
-      typeof name !== typeof "matrix" ||
-      typeof nickname !== typeof "matrix" ||
-      typeof email !== typeof "matrix"
-    ) {
-      throw new Error(`Please check inputs: it must to be string.`);
-    }
-    if (name.length < 2 || nickname.length < 2 || email.length < 6) {
-      throw new Error(
-        "Please check inputs. At least two characters are required in 'name' and 'nickname' and six in 'email'."
-      );
-    }
-
-    await createUser(name, nickname, email);
-
-    res.status(201).send(`User ${name} created successfully.`);
-  } catch (error: any) {
-    switch (error.message) {
-      case "Please check inputs. Missing values.":
-        res.status(422);
-        break;
-      case "Please check inputs: it must to be string.":
-        res.status(422);
-        break;
-      case "Please check inputs. At least two characters are required in 'name' and 'nickname' and six in 'email'.":
-        res.status(422);
-        break;
-      default:
-        res.status(500);
-    }
-    res.send({ message: error.sqlMessage || error.message });
-  }
-});
 
 
 /**********************
@@ -393,6 +533,7 @@ app.post("/task", async (req: Request, res: Response) => {
     await createTask(title, description, formatingDate, creatorUserId);
 
     res.status(201).send(`Task '${title}' successfully created.`);
+
   } catch (error: any) {
     switch (error.message) {
       case "Please check inputs. Missing values.":
@@ -409,13 +550,13 @@ app.post("/task", async (req: Request, res: Response) => {
 });
 
 
+
 /************************
  *  EXERCÍCIOS 9 E 16   *
  * **********************/
 app.post("/task/responsible", async (req: Request, res: Response) => {
-  const {taskId, responsibleUserId} = req.body;
-  // const responsibleUserId = req.body.responsibleUserId;
-
+  const { taskId, responsibleUserId } = req.body;
+ 
   try {
     if (!taskId || !responsibleUserId || responsibleUserId.length === 0) {
       throw new Error("Please check inputs. Missing values.");
@@ -435,8 +576,8 @@ app.post("/task/responsible", async (req: Request, res: Response) => {
       result = await taskResponsible(taskId, responsibleUserId);
     }
 
-
     res.status(200).send(`Task ${taskId} successfully assigned.`);
+
   } catch (error: any) {
     switch (error.message) {
       case "Please check inputs. Missing values.":
@@ -452,64 +593,6 @@ app.post("/task/responsible", async (req: Request, res: Response) => {
   }
 });
 
-
-/**********************
- *   EXERCÍCIO 3      *
- * ********************/
-app.put("/user/edit/:id", async (req: Request, res: Response) => {
-  const id: number = Number(req.params.id);
-  const { name, nickname } = req.body;
-
-  try {
-    if (!id) {
-      throw new Error("Please check request: missing ID.");
-    }
-    if (typeof id !== typeof 0) {
-      throw new Error("Please check ID. It must to be a number.");
-    }
-    if (!name || !nickname) {
-      throw new Error(
-        "Please check inputs. Missing values at 'name' and 'nickname'."
-      );
-    }
-    if (
-      typeof name !== typeof "matrix" ||
-      typeof nickname !== typeof "matrix"
-    ) {
-      throw new Error("Please check inputs: it must to be string.");
-    }
-    if (name.length < 2 || nickname.length < 2) {
-      throw new Error(
-        "Please check inputs. At least two characters are required in 'name' and 'nickname'"
-      );
-    }
-
-    await editUser(id, name, nickname);
-
-    res.status(200).send(`User ${name} updated successfully.`);
-  } catch (error: any) {
-    switch (error.message) {
-      case "Please check request: missing ID.":
-        res.status(400);
-        break;
-      case `"Please check ID. It must to be a number."`:
-        res.status(400);
-        break;
-      case "Please check inputs. Missing values at 'name' and 'nickname'.":
-        res.status(400);
-        break;
-      case "Please check inputs: it must to be string.":
-        res.status(400);
-        break;
-      case "Please check inputs. At least two characters are required in 'name' and 'nickname'":
-        res.status(400);
-        break;
-      default:
-        res.status(500);
-    }
-    res.send({ message: error.sqlMessage || error.message });
-  }
-});
 
 
 /**********************
@@ -537,6 +620,7 @@ app.put("/task/status/:id/", async (req: Request, res: Response) => {
     await updateStatusTask(id, status);
 
     res.status(200).send(`Task ${id} successfully updated.`);
+
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing ID (it must to be a number).":
@@ -554,6 +638,7 @@ app.put("/task/status/:id/", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
+
 
 
 /**********************
@@ -593,9 +678,8 @@ app.delete(
         );
       }
 
-      res
-        .status(200)
-        .send(`User ${userId} is no longer responsible for task ${taskId}.`);
+      res.status(200).send(`User ${userId} is no longer responsible for task ${taskId}.`);
+
     } catch (error: any) {
       switch (error.message) {
         case "Please check request: missing taskId (it must to be a number).":
@@ -620,3 +704,42 @@ app.delete(
     }
   }
 );
+
+
+
+/**********************
+ *   EXERCÍCIO 19     *
+ * ********************/
+app.delete("/task/:id", async (req: Request, res: Response) => {
+  const id: number = Number(req.params.id);
+
+  try {
+    if (!id || isNaN(id)) {
+      throw new Error(
+        "Please check request: missing ID (it must to be a number)."
+      );
+    }
+
+    const isId = await getTask(id);
+    if (isId.length === 0) {
+      throw new Error("No task found. Please check inputs.");
+    }
+
+    await deleteTask(id);
+
+    res.status(200).send(`Task ${id} successfully deleted.`);
+    
+  } catch (error: any) {
+    switch (error.message) {
+      case "Please check request: missing ID (it must to be a number).":
+        res.status(422);
+        break;
+      case "No task found. Please check inputs.":
+        res.status(404);
+        break;
+      default:
+        res.status(500);
+    }
+    res.send({ message: error.sqlMessage || error.message });
+  }
+});
