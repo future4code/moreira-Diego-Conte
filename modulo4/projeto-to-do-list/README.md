@@ -295,3 +295,20 @@ $ npm start-dev
 }
 ```
 
+---
+
+### **Endpoint**: Deletar tarefa
+
+-   **Método:** DELETE
+-   **Path:** `/task/:id`
+-   **Path Param**: o parâmetro indica o id da task (taskId).
+
+
+---
+
+### **Endpoint**: Deletar usuário
+
+-   **Método:** DELETE
+-   **Path:** `/user/:id`
+-   **Path Param**: o parâmetro indica o id do usuário (id).
+
