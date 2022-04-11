@@ -21,14 +21,11 @@ import {
   userResponsibleForTask,
 } from "./functions";
 
-
-
 /**
- * 
+ *
  * ***************************** ENDPOINTS TYPE USER ************************************
- * 
+ *
  **/
-
 
 /**********************
  *   EXERCÍCIO 6      *
@@ -42,7 +39,6 @@ app.get("/user/all", async (req: Request, res: Response) => {
     }
 
     res.status(200).send({ users: result });
-
   } catch (error: any) {
     switch (error.message) {
       default:
@@ -51,8 +47,6 @@ app.get("/user/all", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
-
-
 
 /**********************
  *   EXERCÍCIO 2      *
@@ -75,7 +69,6 @@ app.get("/user/:id", async (req: Request, res: Response) => {
     }
 
     res.status(200).send(result);
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing id.":
@@ -94,12 +87,10 @@ app.get("/user/:id", async (req: Request, res: Response) => {
   }
 });
 
-
-
 /**********************
  *   EXERCÍCIO 8      *
  * ********************/
- app.get("/user", async (req: Request, res: Response) => {
+app.get("/user", async (req: Request, res: Response) => {
   const query = req.query.query as string;
 
   try {
@@ -114,7 +105,6 @@ app.get("/user/:id", async (req: Request, res: Response) => {
     }
 
     res.status(200).send({ users: result });
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing query.":
@@ -127,12 +117,10 @@ app.get("/user/:id", async (req: Request, res: Response) => {
   }
 });
 
-
-
 /**********************
  *   EXERCÍCIO 1      *
  * ********************/
- app.post("/user", async (req: Request, res: Response) => {
+app.post("/user", async (req: Request, res: Response) => {
   const { name, nickname, email } = req.body;
 
   try {
@@ -155,7 +143,6 @@ app.get("/user/:id", async (req: Request, res: Response) => {
     await createUser(name, nickname, email);
 
     res.status(201).send(`User ${name} created successfully.`);
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check inputs. Missing values.":
@@ -174,12 +161,10 @@ app.get("/user/:id", async (req: Request, res: Response) => {
   }
 });
 
-
-
 /**********************
  *   EXERCÍCIO 3      *
  * ********************/
- app.put("/user/edit/:id", async (req: Request, res: Response) => {
+app.put("/user/edit/:id", async (req: Request, res: Response) => {
   const id: number = Number(req.params.id);
   const { name, nickname } = req.body;
 
@@ -210,7 +195,6 @@ app.get("/user/:id", async (req: Request, res: Response) => {
     await editUser(id, name, nickname);
 
     res.status(200).send(`User ${name} updated successfully.`);
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing ID.":
@@ -235,12 +219,10 @@ app.get("/user/:id", async (req: Request, res: Response) => {
   }
 });
 
-
-
 /**********************
  *   EXERCÍCIO 20     *
  * ********************/
- app.delete("/user/:id", async (req: Request, res: Response) => {
+app.delete("/user/:id", async (req: Request, res: Response) => {
   const id: number = Number(req.params.id);
 
   try {
@@ -258,7 +240,6 @@ app.get("/user/:id", async (req: Request, res: Response) => {
     await deleteUser(id);
 
     res.status(200).send(`User ${id} successfully deleted.`);
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing ID (it must to be a number).":
@@ -274,16 +255,11 @@ app.get("/user/:id", async (req: Request, res: Response) => {
   }
 });
 
-
-
-
 /**
- * 
+ *
  * ***************************** ENDPOINTS TYPE TASK ************************************
- * 
+ *
  **/
-
-
 
 /**********************
  *   EXERCÍCIO 13     *
@@ -302,7 +278,6 @@ app.get("/task/all", async (req: Request, res: Response) => {
     });
 
     res.status(200).send({ tasks: result });
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing status.":
@@ -314,8 +289,6 @@ app.get("/task/all", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
-
-
 
 /**********************
  *   EXERCÍCIO 14     *
@@ -333,7 +306,6 @@ app.get("/task/delayed", async (req: Request, res: Response) => {
     });
 
     res.status(200).send({ tasks: result });
-
   } catch (error: any) {
     switch (error.message) {
       case "No task found.":
@@ -345,8 +317,6 @@ app.get("/task/delayed", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
-
-
 
 /**********************
  *   EXERCÍCIO 17     *
@@ -369,7 +339,6 @@ app.get("/task/name", async (req: Request, res: Response) => {
     });
 
     res.status(200).send({ tasks: result });
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing query.":
@@ -381,8 +350,6 @@ app.get("/task/name", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
-
-
 
 /************************
  *  EXERCÍCIOS 5 E 11   *
@@ -418,7 +385,6 @@ app.get("/task/:id", async (req: Request, res: Response) => {
     };
 
     res.status(200).send(result);
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing id (it must to be a number).":
@@ -433,8 +399,6 @@ app.get("/task/:id", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
-
-
 
 /**********************
  *   EXERCÍCIO 7      *
@@ -460,7 +424,6 @@ app.get("/task", async (req: Request, res: Response) => {
     });
 
     res.status(200).send({ tasks: result });
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing id (it must to a number).":
@@ -472,8 +435,6 @@ app.get("/task", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
-
-
 
 /**********************
  *   EXERCÍCIO 10     *
@@ -491,7 +452,6 @@ app.get("/task/:id/responsible", async (req: Request, res: Response) => {
     }
 
     res.status(200).send({ users: result });
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing ID.":
@@ -506,8 +466,6 @@ app.get("/task/:id/responsible", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
-
-
 
 /**********************
  *   EXERCÍCIO 4      *
@@ -533,7 +491,6 @@ app.post("/task", async (req: Request, res: Response) => {
     await createTask(title, description, formatingDate, creatorUserId);
 
     res.status(201).send(`Task '${title}' successfully created.`);
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check inputs. Missing values.":
@@ -549,14 +506,12 @@ app.post("/task", async (req: Request, res: Response) => {
   }
 });
 
-
-
 /************************
  *  EXERCÍCIOS 9 E 16   *
  * **********************/
 app.post("/task/responsible", async (req: Request, res: Response) => {
   const { taskId, responsibleUserId } = req.body;
- 
+
   try {
     if (!taskId || !responsibleUserId || responsibleUserId.length === 0) {
       throw new Error("Please check inputs. Missing values.");
@@ -577,7 +532,6 @@ app.post("/task/responsible", async (req: Request, res: Response) => {
     }
 
     res.status(200).send(`Task ${taskId} successfully assigned.`);
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check inputs. Missing values.":
@@ -592,8 +546,6 @@ app.post("/task/responsible", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
-
-
 
 /**********************
  *   EXERCÍCIO 12     *
@@ -620,7 +572,6 @@ app.put("/task/status/:id/", async (req: Request, res: Response) => {
     await updateStatusTask(id, status);
 
     res.status(200).send(`Task ${id} successfully updated.`);
-
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing ID (it must to be a number).":
@@ -638,8 +589,6 @@ app.put("/task/status/:id/", async (req: Request, res: Response) => {
     res.send({ message: error.sqlMessage || error.message });
   }
 });
-
-
 
 /**********************
  *   EXERCÍCIO 15     *
@@ -678,8 +627,9 @@ app.delete(
         );
       }
 
-      res.status(200).send(`User ${userId} is no longer responsible for task ${taskId}.`);
-
+      res
+        .status(200)
+        .send(`User ${userId} is no longer responsible for task ${taskId}.`);
     } catch (error: any) {
       switch (error.message) {
         case "Please check request: missing taskId (it must to be a number).":
@@ -705,8 +655,6 @@ app.delete(
   }
 );
 
-
-
 /**********************
  *   EXERCÍCIO 19     *
  * ********************/
@@ -728,7 +676,6 @@ app.delete("/task/:id", async (req: Request, res: Response) => {
     await deleteTask(id);
 
     res.status(200).send(`Task ${id} successfully deleted.`);
-    
   } catch (error: any) {
     switch (error.message) {
       case "Please check request: missing ID (it must to be a number).":
