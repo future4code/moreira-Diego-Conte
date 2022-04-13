@@ -1,0 +1,17 @@
+GET  http://localhost:3003/users?name=a
+Content-Type: : application/json
+
+
+###
+GET http://localhost:3003/users/cx
+Content-Type: application/json
+
+
+###
+GET http://localhost:3003/users/order?sort=type&order=asc
+Content-Type: application/json
+
+
+###
+GET http://localhost:3003/users/page?page=2 
+Content-Type: application/json
