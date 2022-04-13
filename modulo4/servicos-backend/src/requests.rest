@@ -1,0 +1,9 @@
+GET http://localhost:3003/address
+Content-Type: application/json
+
+{
+    "zipcode": "01153-000",
+    "number": 100,
+    "address2": "No lugar mais confortável possível!",
+    "email": "diekont@gmail.com"
+}
