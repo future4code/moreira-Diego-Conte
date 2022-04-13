@@ -40,12 +40,12 @@ export const selectPages = async (
   return result;
 };
 
-export const selectAllUsersOrderedAndPaginated = async (
+export default async function selectAllUsersOrderedAndPaginated(
   sort: string,
   order: string,
   size: number,
   offset: number
-): Promise<user[]> => {
+): Promise<user[]> {
   const result = await connection("filtrosOrdenacaoPaginacao")
     .orderBy(sort, order)
     .limit(size)

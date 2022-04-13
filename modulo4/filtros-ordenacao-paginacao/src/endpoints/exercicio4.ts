@@ -1,18 +1,17 @@
 import { Request, Response } from "express";
-import {
-  selectAllUsersOrderedAndPaginated,
-  selectPages,
-} from "../data/functions";
+import selectAllUsersOrderedAndPaginated from "../data/functions";
+
 
 export const getAllUsersOrderedAndPaginated = async (
   req: Request,
   res: Response
-): Promise<void> => {
+): Promise<any> => {
+  
   try {
     let sort = req.query.sort ? req.query.sort : "name";
     let order = req.query.order ? req.query.order : "DESC".toUpperCase;
     let page = Number(req.query.page);
-
+    
     if (page < 1 || page > 7 || isNaN(page)) {
       page = 1;
     }

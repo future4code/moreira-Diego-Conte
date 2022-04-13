@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import app from "../app";
 import { searchUserByName, searchUserbyType } from "../data/functions";
 
 /*
@@ -7,6 +6,7 @@ import { searchUserByName, searchUserbyType } from "../data/functions";
  *     EXERCÍCIO A     *
  * *********************
  */
+
 export const getUsersByName = async (
   req: Request,
   res: Response

@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node ./build/index.js",
-    "dev": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
+    "dev": "ts-node-dev ./src/index.ts",
     "build": "tsc",
+    "functions": "tsnd ./src/data/functions.ts",
     "migrations": "tsnd ./src/data/migrations.ts"
   },
   "keywords": [],

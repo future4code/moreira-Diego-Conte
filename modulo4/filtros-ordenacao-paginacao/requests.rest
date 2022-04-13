@@ -13,5 +13,10 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:3003/users/page?page=2 
+GET http://localhost:3003/users/page?page=2
+Content-Type: application/json
+
+
+###
+GET http://localhost:3003/user?sort=type&order=ASC&page=1
 Content-Type: application/json
