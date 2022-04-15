@@ -2,24 +2,41 @@ GET http://localhost:3003/users
 
 
 ###
+GET http://localhost:3003/products
 
+
+###
+GET http://localhost:3003/users/145122784681143900/purchases
+
+
+###
 POST http://localhost:3003/users
 Content-Type: application/json
 
 {
-    "name": "Turma Moreira",
-    "email": "moreira@labenu.com",
-    "password": "Labenu321"
+    "name": "Labenu",
+    "email": "labenu@labenu.com",
+    "password": "Labenu121"
 }
 
 
 ###
-
 POST http://localhost:3003/products
 Content-Type: application/json
 
 {
-    "name": "Casaco marrom",
-    "price": 450.55,
-    "image_url": "https://www.megashopsul.com.br/741-large_default/jaqueta-casaco-feminino-inverno-marrom.jpg"
+    "name": "Tênis Branco",
+    "price": 850.95,
+    "image_url": "https://cdn.pixabay.com/photo/2016/11/19/18/06/feet-1840619_960_720.jpg"
+}
+
+
+###
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+    "userId": "18341856764221200",
+    "productId": "5367585264108779",
+    "quantity": "1"
 }

@@ -5,20 +5,15 @@ import getUsers from "../services/getUsers";
 const getAllUsers = async (req: Request, res: Response) => {
   try {
     const response: User[] = await getUsers();
-    let listUsers: string[] = [];
 
-    if (response.length !== 0) {
-      listUsers = response.map((n) => {
-        return n.name;
-      });
-    } else {
-      throw new Error(`No user found.`);
+    if (response.length < 1) {
+      throw new Error("No users found.");
     }
 
-    res.status(200).send(listUsers);
+    res.status(200).send({ users: response });
   } catch (error: any) {
     switch (error.message) {
-      case `No user found.`:
+      case "No users found.":
         res.status(200);
         break;
       default:

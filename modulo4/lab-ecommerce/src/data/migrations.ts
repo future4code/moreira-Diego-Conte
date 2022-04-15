@@ -1,5 +1,6 @@
 import connection from "../connection";
 
+
 const createTables = () =>
   connection
     .raw(
@@ -15,6 +16,16 @@ const createTables = () =>
         name VARCHAR(255) NOT NULL,
         price FLOAT NOT NULL,
         image_url VARCHAR(255) NOT NULL
+      );
+
+      CREATE TABLE IF NOT EXISTS labecommerce_purchases(
+        id VARCHAR(255) PRIMARY KEY,
+        user_id  VARCHAR(255),
+        product_id VARCHAR(255),
+        quantity INT DEFAULT "0",
+        total_price FLOAT DEFAULT "0",
+        FOREIGN KEY (user_id) REFERENCES labecommerce_users (id),
+        FOREIGN KEY (product_id) REFERENCES labecommerce_products (id)
       );
     `
     )

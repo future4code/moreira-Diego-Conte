@@ -4,7 +4,15 @@ import { User } from "../types";
 const getUsers = async (): Promise<User[]> => {
   try {
     const result: User[] = await connection("labecommerce_users");
-    return result;
+
+    const response: User[] = result.map((u) => {
+      return {
+        id: u.id,
+        name: u.name,
+      };
+    });
+
+    return response;
   } catch (error: any) {
     return error.response?.data || error.message;
   }

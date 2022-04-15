@@ -5,7 +5,7 @@ const createProducts = async (
   price: number,
   image_url: string
 ): Promise<void> => {
-    const id: number = Date.now() + Math.random();
+    const id: number = (Date.now()) * (Math.floor(Math.random() * 100000));
   try {
     await connection("labecommerce_products").insert({
       id,

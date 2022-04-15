@@ -5,17 +5,13 @@ const createUsers = async (
   email: string,
   password: string
 ): Promise<void> => {
-  try {
-    const id: number = Date.now() + Math.random();
-    await connection("labecommerce_users").insert({
-      id,
-      name,
-      email,
-      password,
-    });
-  } catch (error) {
-    console.error("An unexpected error occurred: ", error);
-  }
+  const id: number = (Date.now()) * (Math.floor(Math.random() * 100000));
+  await connection("labecommerce_users").insert({
+    id,
+    name,
+    email,
+    password,
+  });
 };
 
 export default createUsers;
