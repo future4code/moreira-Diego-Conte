@@ -1,5 +1,5 @@
 import connection from "../connection";
-import { User } from "../types";
+import { User } from "../data/types";
 
 const getUsers = async (): Promise<User[]> => {
   try {

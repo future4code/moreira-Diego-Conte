@@ -1,5 +1,5 @@
 import connection from "../connection";
-import { Product } from "../types";
+import { Product } from "../data/types";
 import getProducts from "./getProducts";
 
 const registerPurchases = async (

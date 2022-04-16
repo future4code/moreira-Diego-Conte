@@ -1,11 +1,37 @@
 import connection from "../connection";
-import { Product } from "../types";
+import { Product } from "../data/types";
 
-const getProducts = async (): Promise<Product[]> => {
+const getProducts = async (
+  order: string,
+  search: string
+): Promise<Product[]> => {
   try {
-    const result: Product[] = await connection(
-      "labecommerce_products"
-    ).select();
+    let result: Product[] = [];
+    // let result: Product[] = await connection("labecommerce_products")
+    //   .where("name", "LIKE", `%${search}%`)
+    //   .orderBy(order);
+
+    if (order && search) {
+      result = await connection("labecommerce_products")
+        .where("name", "LIKE", `%${search}%`)
+        .orderBy("name", order);
+    }
+
+    if (order && !search) {
+      result = await connection("labecommerce_products").orderBy("name", order);
+    }
+
+    if (!order && search) {
+      result = await connection("labecommerce_products").where(
+        "name",
+        "LIKE",
+        `%${search}%`
+      );
+    }
+
+    if (!order && !search) {
+      result = await connection("labecommerce_products");
+    }
 
     const response: Product[] = result.map((p) => {
       return {
@@ -17,7 +43,6 @@ const getProducts = async (): Promise<Product[]> => {
     });
 
     return response;
-
   } catch (error: any) {
     return error.response?.data || error.message;
   }

@@ -1,6 +1,6 @@
 import app from "./app";
 import getAllProducts from "./endpoints/getAllProducts";
-import getAllPurchases from "./endpoints/getAllPurchases";
+import getAllPurchases from "./endpoints/getUserPurchases";
 import getAllUsers from "./endpoints/getAllUsers";
 import postProducts from "./endpoints/postProducts";
 import purchases from "./endpoints/postPurchases";

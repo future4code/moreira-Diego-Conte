@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import getPurchases from "../services/getPurchases";
-import { listProducts } from "../types";
+import { listProducts } from "../data/types";
 
 const getAllPurchases = async (req: Request, res: Response) => {
   const id = req.params.userId;

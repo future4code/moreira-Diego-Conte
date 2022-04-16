@@ -1,5 +1,5 @@
 import connection from "../connection";
-import { listProducts } from "../types";
+import { listProducts } from "../data/types";
 
 const getPurchases = async (id: number): Promise<listProducts[]> => {
   const response: listProducts[] = await connection("labecommerce_purchases")
