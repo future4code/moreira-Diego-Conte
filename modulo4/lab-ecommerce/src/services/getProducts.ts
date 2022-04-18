@@ -7,9 +7,6 @@ const getProducts = async (
 ): Promise<Product[]> => {
   try {
     let result: Product[] = [];
-    // let result: Product[] = await connection("labecommerce_products")
-    //   .where("name", "LIKE", `%${search}%`)
-    //   .orderBy(order);
 
     if (order && search) {
       result = await connection("labecommerce_products")
