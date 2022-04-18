@@ -8,7 +8,7 @@ const registerPurchases = async (
   quantity: number
 ): Promise<void> => {
   const id: number = Date.now() * Math.floor(Math.random() * 100000);
-  const response: Product[] = await getProducts();
+  const response: Product[] = await getProducts("", "");
 
   const totalPrice = response
     .filter((i) => {
