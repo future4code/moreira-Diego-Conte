@@ -4,8 +4,7 @@ import { getUserById } from "../data/getUserById";
 
 export const getUserLogData = async (req: Request, res: Response) => {
   try {
-    const token = req.headers.Authorization as string;
-
+    const token = req.headers.authorization as string;
     const authenticationData = getTokenData(token);
 
     const user = await getUserById(authenticationData.id);
