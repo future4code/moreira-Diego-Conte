@@ -1,0 +1,21 @@
+GET http://localhost:3003/user/profile
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ1ZWQ5YTUxLTQ3Y2QtNDJjMi1hNzNiLWE4YmJkMTk4MjA1ZiIsImlhdCI6MTY1MDk5NjMwNSwiZXhwIjoxNjUxMDgyNzA1fQ.nXuiiJjBONWnInyILML58ag4Gj7My8rPj6yyQnWbFNE
+
+###
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "email": "diego@diego.com",
+    "password": "senha123456",
+    "role": "admin"
+}
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "diego@diego.com",
+    "password": "senha123456"
+}
