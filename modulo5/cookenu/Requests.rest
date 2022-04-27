@@ -1,0 +1,26 @@
+GET http://localhost:3003/user/4ad1d219-3ee0-49c5-9c22-48b050e20da3
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2OGVjYjZmLThjNTgtNGZjMi1hOWNlLTFmZGIyNDM1YzA4MyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MTA4NzYzMiwiZXhwIjoxNjUxMTc0MDMyfQ.JQ2UZbFfPCXbyP9vl55CQJgf5yDrQW9OBLO9wJnNCCg
+
+###
+GET http://localhost:3003/user/profile
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRhZDFkMjE5LTNlZTAtNDljNS05YzIyLTQ4YjA1MGUyMGRhMyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTEwODczMjIsImV4cCI6MTY1MTE3MzcyMn0.wJFOpHajAg-azD3XCl0zH6A7n-VMhnY2NorB_sTWnjY
+
+###
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Diego Moreira",
+    "email": "moreira@labenu.com",
+    "password": "senha1234",
+    "role": "Normal"
+}
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "diego@labenu.com",
+    "password": "senha1234"
+}
