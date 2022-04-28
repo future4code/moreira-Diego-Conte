@@ -17,7 +17,7 @@ export class RecipeDatabase extends BaseDatabase {
 
   public async getRecipeById(id: string): Promise<Recipes> {
     try {
-      const recipe = await BaseDatabase.connection("Cookenu_Users")
+      const recipe = await BaseDatabase.connection("Cookenu_Recipes")
         .select("*")
         .where({ id });
 
