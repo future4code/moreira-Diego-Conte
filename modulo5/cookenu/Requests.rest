@@ -24,3 +24,14 @@ Content-Type: application/json
     "email": "diego@labenu.com",
     "password": "senha1234"
 }
+
+
+###
+POST http://localhost:3003/recipe
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2OGVjYjZmLThjNTgtNGZjMi1hOWNlLTFmZGIyNDM1YzA4MyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MTA4NzYzMiwiZXhwIjoxNjUxMTc0MDMyfQ.JQ2UZbFfPCXbyP9vl55CQJgf5yDrQW9OBLO9wJnNCCg
+Content-Type: application/json
+
+{
+    "title": "Apfelstrudel",
+    "description": "Ingredientes e modo de fazer."
+}
