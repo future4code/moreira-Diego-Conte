@@ -20,13 +20,13 @@ export const getUserById = async (req: Request, res: Response) => {
       throw new Error("Please enter a valid token.");
     }
 
-    if (tokenData.role !== "ADMIN") {
-      res.statusCode = 401;
-      throw new Error("Access denied. Please switch to an administrator account.");
-    }
-
     const userDatabase = new UserDatabase();
     const userData = await userDatabase.getUserById(userId);
+
+    if (!userData) {
+      res.statusCode = 404;
+      throw new Error("No user found.");
+    }
 
     res.status(200).send({ userData });
   } catch (error: any) {

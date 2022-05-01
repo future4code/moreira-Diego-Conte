@@ -1,3 +1,4 @@
+import { Feed } from "../entities/feed";
 import { Recipes } from "../entities/recipes";
 import { BaseDatabase } from "./BaseDatabase";
 
@@ -9,6 +10,7 @@ export class RecipeDatabase extends BaseDatabase {
         title: recipe.getTitle(),
         description: recipe.getDescription(),
         createdAt: recipe.getCreatedAt(),
+        id_creator: recipe.getCreatorId(),
       });
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
@@ -25,5 +27,24 @@ export class RecipeDatabase extends BaseDatabase {
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
     }
+  }
+
+  public async getFeed(id: string): Promise<Feed> {
+    const data = await BaseDatabase.connection.raw(
+      `SELECT 
+      r.id,
+      r.title,
+      r.description,
+      r.createdAt,
+      u.id AS userId,
+      u.name AS userName
+      FROM Cookenu_Recipes r
+      JOIN Cookenu_UserFollowingConnection f ON r.id_creator = f.followed_id
+      JOIN Cookenu_Users u ON f.followed_id = u.id
+      WHERE f.follower_id = "${id}" 
+      ORDER BY createdAt DESC`
+    );
+   
+    return data[0];
   }
 }

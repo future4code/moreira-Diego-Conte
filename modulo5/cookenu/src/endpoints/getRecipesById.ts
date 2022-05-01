@@ -23,6 +23,11 @@ export const getRecipesById = async (req: Request, res: Response) => {
     const recipeDatabase = new RecipeDatabase();
     const recipeData = await recipeDatabase.getRecipeById(recipeId);
 
+    if (!recipeData) {
+      res.statusCode = 404;
+      throw new Error("Recipe not found.");
+    }
+
     res.status(200).send(recipeData);
   } catch (error: any) {
     if (res.statusCode === 200) {

@@ -30,7 +30,7 @@ export const createRecipe = async (req: Request, res: Response) => {
 
     const createdAt: string = moment().format("DD/MM/YYYY");
     
-    const recipe: Recipes = new Recipes(id, title, description, createdAt);
+    const recipe: Recipes = new Recipes(id, title, description, createdAt, tokenData.id);
     const recipeDatabase = new RecipeDatabase();
     await recipeDatabase.createRecipe(recipe);
 

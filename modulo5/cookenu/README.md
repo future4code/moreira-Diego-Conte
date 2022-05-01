@@ -2,20 +2,16 @@
 
 Cookenu é a sua mais nova rede social: nela, você pode dividir informações relevantes sobre comidas e receitas que tenha experimentado. Você tem disponível:
 
-1. **Cadastro**
-
+*Cadastro*
 É necessário informar e-mail, nome e a sua senha para realizar o cadastro. A senha tem uma regra: ela deve conter, no mínimo, 6 caracteres.
 
-2. **Login**
-
+*Login*
 Basta informar o email e a senha corretamente que poderá se logar na aplicação. Os endpoints de login e cadastro retornan un token confirmando seu acesso.
 
-3. **Informações do próprio perfil**
-
+*Informações do próprio perfil*
 A partir do token de autenticação fornecido no login, você poderá ver as suas informações não sensíveis salvas no banco (id e email).
 
-4. **Criar receitas**
-
+*Criar receitas*
 Você pode criar uma receita. A receita deve ter os seguintes atributos: título, descrição/modo de preparo e data de criação
 
 ## Desenvolvedor

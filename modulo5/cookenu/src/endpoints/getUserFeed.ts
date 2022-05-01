@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { Authenticator } from "../services/Authenticator";
-import { UserDatabase } from "../data/UserDatabase";
-import { User } from "../entities/user";
+import { RecipeDatabase } from "../data/RecipeDatabase";
 import AuthenticationData from "../entities/authenticationData";
+import { Feed } from "../entities/feed";
+import { Authenticator } from "../services/Authenticator";
 
-export const getUserProfile = async (req: Request, res: Response) => {
+export const getUserFeed = async (req: Request, res: Response) => {
   try {
-    const token = req.headers.authorization as string;
+    const token: string = req.headers.authorization as string;
 
     if (!token) {
       res.statusCode = 422;
@@ -17,19 +17,19 @@ export const getUserProfile = async (req: Request, res: Response) => {
     const tokenData: AuthenticationData = authenticator.getTokenData(token);
 
     if (!tokenData) {
-      res.statusCode = 422;
-      throw new Error("Please enter a valid token.");
+      res.statusCode = 401;
+      throw new Error("User not found. Please enter a valid token.");
     }
 
-    const userDatabase: UserDatabase = new UserDatabase();
-    const userData: User = await userDatabase.getUserById(tokenData.id);
+    const recipeDatabase = new RecipeDatabase();
+    const feed = await recipeDatabase.getFeed(tokenData.id);
 
-    if(!userData){
+    if (!feed) {
       res.statusCode = 404;
-      throw new Error("No user found.");
+      throw new Error("No recipes found.");
     }
 
-    res.status(200).send({ userData });
+    res.status(200).send({ recipes: feed });
   } catch (error: any) {
     if (res.statusCode === 200) {
       res.status(500).send({ message: error.sqlMessage || error.message });

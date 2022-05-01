@@ -31,7 +31,7 @@ export class UserDatabase extends BaseDatabase {
   public async getUserById(id: string): Promise<User> {
     try {
       const user = await BaseDatabase.connection("Cookenu_Users")
-        .select("id", "name", "email", "role")
+        .select("id", "name", "email")
         .where({ id });
 
       return user[0] && User.toUserModel(user[0]);
