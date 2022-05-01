@@ -12,7 +12,7 @@ Basta informar o email e a senha corretamente que poderá se logar na aplicaçã
 A partir do token de autenticação fornecido no login, você poderá ver as suas informações não sensíveis salvas no banco (id e email).
 
 *Criar receitas*
-Você pode criar uma receita. A receita deve ter os seguintes atributos: título, descrição/modo de preparo e data de criação
+Você pode criar uma receita. A receita deve ter os seguintes atributos: título, descrição/modo de preparo e data de criação.
 
 ## Desenvolvedor
 

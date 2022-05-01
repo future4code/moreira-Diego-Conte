@@ -1,36 +1,41 @@
-GET http://localhost:3003/user/4ad1d219-3ee0-49c5-9c22-48b050e20da3
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2OGVjYjZmLThjNTgtNGZjMi1hOWNlLTFmZGIyNDM1YzA4MyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MTM0OTAyMCwiZXhwIjoxNjUxNDM1NDIwfQ.RpBs9bQj-JYhvUpFfByGVZzhYE5uQZfpH3ePXeRmJFc
+GET https://cookenu-diego.herokuapp.com/user/4ad1d219-3ee0-49c5-9c22-48b050e20da3
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2MWU5N2ZhLWI1NjEtNDY0NS05YTM5LTM1MTE4ZTAyZTMyZiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTE0MTY4NzcsImV4cCI6MTY1MTUwMzI3N30.1tGWVq9ECQFgGYKVzbokSDYGPZrXEMNO7mev1l0GRrw
 
 
 ###
-GET http://localhost:3003/recipe/94081a8f-1bd6-419a-ac40-016f00916d01
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2OGVjYjZmLThjNTgtNGZjMi1hOWNlLTFmZGIyNDM1YzA4MyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MTM0OTAyMCwiZXhwIjoxNjUxNDM1NDIwfQ.RpBs9bQj-JYhvUpFfByGVZzhYE5uQZfpH3ePXeRmJFc
+GET https://cookenu-diego.herokuapp.com/recipe/94081a8f-1bd6-419a-ac40-016f00916d01
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2MWU5N2ZhLWI1NjEtNDY0NS05YTM5LTM1MTE4ZTAyZTMyZiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTE0MTY4NzcsImV4cCI6MTY1MTUwMzI3N30.1tGWVq9ECQFgGYKVzbokSDYGPZrXEMNO7mev1l0GRrw
 
 
 ###
-GET http://localhost:3003/user/profile
+GET https://cookenu-diego.herokuapp.com/user/profile
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2OGVjYjZmLThjNTgtNGZjMi1hOWNlLTFmZGIyNDM1YzA4MyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MTM1MDExMywiZXhwIjoxNjUxNDM2NTEzfQ.i3JSrWbTAsfNiyXQ2jZGSX1kdTf2SnFMJW76FuCm5uU
 
 
 ###
-GET http://localhost:3003/user/feed
+GET https://cookenu-diego.herokuapp.com/user/feed
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2MWU5N2ZhLWI1NjEtNDY0NS05YTM5LTM1MTE4ZTAyZTMyZiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTEzNzI5NDksImV4cCI6MTY1MTQ1OTM0OX0.J19qCFlaEsFtRlxvzX3MWnFsCZjO18aBT2tp0RbPKRo
 
 
 ###
-POST http://localhost:3003/user/signup
+POST https://cookenu-diego.herokuapp.com/populate
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2OGVjYjZmLThjNTgtNGZjMi1hOWNlLTFmZGIyNDM1YzA4MyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MTM0OTAyMCwiZXhwIjoxNjUxNDM1NDIwfQ.RpBs9bQj-JYhvUpFfByGVZzhYE5uQZfpH3ePXeRmJFc
+
+
+###
+POST https://cookenu-diego.herokuapp.com/user/signup
 Content-Type: application/json
 
 {
-    "name": "João Silva",
-    "email": "joao@silva.com",
+    "name": "Moreira Labenu",
+    "email": "moreira@labenu.com",
     "password": "senha1234",
     "role": "Normal"
 }
 
 
 ###
-POST http://localhost:3003/user/login
+POST https://cookenu-diego.herokuapp.com/user/login
 Content-Type: application/json
 
 {
@@ -40,7 +45,7 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:3003/recipe
+POST https://cookenu-diego.herokuapp.com/recipe
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2OGVjYjZmLThjNTgtNGZjMi1hOWNlLTFmZGIyNDM1YzA4MyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MTM3MDA2OCwiZXhwIjoxNjUxNDU2NDY4fQ.YoGTfDuoyxZPsSOWQvB5GRp6QMIGY-eBFOz8E_YRSTI
 Content-Type: application/json
 
@@ -51,7 +56,7 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:3003/user/follow
+POST https://cookenu-diego.herokuapp.com/user/follow
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2MWU5N2ZhLWI1NjEtNDY0NS05YTM5LTM1MTE4ZTAyZTMyZiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTEzNDk1MTAsImV4cCI6MTY1MTQzNTkxMH0.1dSTpPHgZPjkiaSdMW7_-h6FdZvah55AU7WPCGebBtk
 Content-Type: application/json
 
@@ -61,7 +66,7 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:3003/user/unfollow
+POST https://cookenu-diego.herokuapp.com/user/unfollow
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2MWU5N2ZhLWI1NjEtNDY0NS05YTM5LTM1MTE4ZTAyZTMyZiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTEzNDk1MTAsImV4cCI6MTY1MTQzNTkxMH0.1dSTpPHgZPjkiaSdMW7_-h6FdZvah55AU7WPCGebBtk
 Content-Type: application/json
 

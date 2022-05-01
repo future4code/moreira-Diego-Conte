@@ -1,6 +1,7 @@
 import { Feed } from "../entities/feed";
 import { Recipes } from "../entities/recipes";
 import { BaseDatabase } from "./BaseDatabase";
+import { populateData } from "./PopulateData";
 
 export class RecipeDatabase extends BaseDatabase {
   public async createRecipe(recipe: Recipes): Promise<void> {
@@ -44,7 +45,15 @@ export class RecipeDatabase extends BaseDatabase {
       WHERE f.follower_id = "${id}" 
       ORDER BY createdAt DESC`
     );
-   
+
     return data[0];
+  }
+
+  public async migrations(): Promise<any> {
+    try {
+      await BaseDatabase.connection("Cookenu_Recipes").insert(populateData);
+    } catch (error: any) {
+      throw new Error(error.sqlMessage || error.message);
+    }
   }
 }
