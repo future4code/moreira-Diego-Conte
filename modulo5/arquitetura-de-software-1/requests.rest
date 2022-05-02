@@ -1,0 +1,29 @@
+GET http://localhost:3003/all
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc2NGJlMTUwLTA3MzktNDVmOS1hYjk0LWRiOWE4OTI4ZWUzMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MTUxOTg3MiwiZXhwIjoxNjUxNjA2MjcyfQ.Ei8IR6cldmOUSqDU6AmJdvYFWEV2k5tChQKvjwRp55k
+
+
+###
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "name": "Administrador",
+	"email": "adm@labenu.com",
+	"password": "senha1234",
+	"role": "admin"
+}
+
+
+###
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+	"email": "adm@labenu.com",
+	"password": "senha1234"
+}
+
+
+###
+DELETE http://localhost:3003/e769c8d9-e885-4cac-ad13-ba4b9df856d9
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NjljOGQ5LWU4ODUtNGNhYy1hZDEzLWJhNGI5ZGY4NTZkOSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MTUxODM1OCwiZXhwIjoxNjUxNjA0NzU4fQ.uGJ7OY0lDpKXt2vozuBY4N7-UZy6mBWWjkEtK-t31D0
