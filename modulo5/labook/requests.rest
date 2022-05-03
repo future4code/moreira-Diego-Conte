@@ -1,0 +1,35 @@
+GET http://localhost:3003/post/iddd
+authorization: 
+
+
+###
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Diego Conte",
+    "email": "diego@labenu.com",
+    "password": "senha123"
+}
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "diego@labenu.com",
+    "password": "senha123"
+}
+
+
+###
+POST http://localhost:3003/post/create
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTYwODc5OSwiZXhwIjoxNjUxNjk1MTk5fQ.2feX7c9_1pCilqWtymPxkmhoH7qv9QukKmSvDoYDakY
+Content-Type: application/json
+
+{
+    "photo": "https://media-cdn.tripadvisor.com/media/photo-s/13/db/4a/fc/bungee-jump-o-maior-do.jpg",
+    "description": "Aventureiro? Pula nessa com a gente!",
+    "type": "normal"
+}
+
