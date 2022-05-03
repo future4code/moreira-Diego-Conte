@@ -11,6 +11,7 @@ const userController = new UserController(userBusiness);
 const postBusiness = new PostBusines(new PostData());
 const postController = new PostController(postBusiness);
 
+app.get("/post/:id", postController.getPostById);
 app.post("/user/signup", userController.signup);
 app.post("/user/login", userController.login);
 app.post("/post/create", postController.createPost);

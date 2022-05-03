@@ -4,6 +4,7 @@ import Post from "../model/Post";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
 import CreatePostInputTDO from "../types/createPostInputTDO";
+import GetPostByIdInputTDO from "../types/getPostByIdInputTDO";
 
 export default class PostBusines {
   constructor(private postData: PostData) {}
@@ -51,5 +52,30 @@ export default class PostBusines {
     await this.postData.insert(post);
 
     return id;
+  };
+
+  getPostById = async (input: GetPostByIdInputTDO, token: string) => {
+    const { id } = input;
+    if (!token) {
+      throw new Error("Please enter a token.");
+    }
+
+    const tokenData = Authenticator.getTokenData(token);
+    if (!tokenData) {
+      throw new Error("Please enter a valid token.");
+    }
+
+    const result = await this.postData.getPostById(id);
+
+    const response = {
+      id: result.id,
+      URLphoto: result.photo,
+      description: result.description,
+      type: result.type,
+      createdAt: moment(result.created_at, "X").format("DD/MM/YYYY HH:MM"),
+      authorId: result.author_id,
+    };
+
+    return response;
   };
 }
