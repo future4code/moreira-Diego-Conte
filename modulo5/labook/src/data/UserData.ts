@@ -1,8 +1,9 @@
+import IUserData from "../model/InterfaceUserData";
 import User from "../model/User";
 import FindByEmailResponse from "../types/findByEmailResponse";
 import { BaseDatabase } from "./BaseDatabase";
 
-export default class UserData extends BaseDatabase {
+export default class UserData extends BaseDatabase implements IUserData {
   protected TABLE_NAME = "labook_users";
 
   insert = async (user: User) => {
@@ -17,7 +18,7 @@ export default class UserData extends BaseDatabase {
     }
   };
 
-  findByEmail = async (email: string) => {
+  findByEmail = async (email: string): Promise<User> => {
     try {
       const queryResult: FindByEmailResponse = await UserData.connection(
         this.TABLE_NAME
@@ -25,7 +26,7 @@ export default class UserData extends BaseDatabase {
         .select()
         .where({ email });
 
-      return queryResult[0];
+      return queryResult[0] && User.toUserModel(queryResult[0]);
     } catch (error) {
       if (error instanceof Error) {
         throw new Error(error.message);

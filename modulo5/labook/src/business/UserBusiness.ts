@@ -1,4 +1,5 @@
 import UserData from "../data/UserData";
+import IUserData from "../model/InterfaceUserData";
 import User from "../model/User";
 import { Authenticator } from "../services/Authenticator";
 import { HashManager } from "../services/HashManager";
@@ -7,7 +8,11 @@ import LoginInputDTO from "../types/loginInputTDO";
 import SignupInputDTO from "../types/signupInputTDO";
 
 export default class UserBusiness {
-  constructor(private userData: UserData) {}
+  private userData: IUserData;
+
+  constructor(userData: IUserData) {
+    this.userData = userData;
+  }
 
   signup = async (input: SignupInputDTO) => {
     const { name, email, password } = input;
@@ -59,8 +64,8 @@ export default class UserBusiness {
       throw new Error("Email not registered.");
     }
 
-    const token: string = Authenticator.generate({id: userData.id});
+    const token: string = Authenticator.generate({ id: userData.getId() });
 
-    return {name: userData.name, token: token};
+    return { name: userData.getName(), token: token };
   };
 }

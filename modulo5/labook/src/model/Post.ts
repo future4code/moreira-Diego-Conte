@@ -36,4 +36,15 @@ export default class Post {
   public getAuthorId() {
     return this.authorId;
   }
+
+  static toUserPost(data: any): Post {
+    return new Post(
+      data.id,
+      data.photo,
+      data.description,
+      data.type,
+      data.created_at,
+      data.author_id
+    );
+  }
 }

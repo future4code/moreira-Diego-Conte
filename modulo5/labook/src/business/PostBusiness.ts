@@ -1,13 +1,27 @@
+// Starting imports >>>>>>>>>>>>>>>>>>>>
 import moment from "moment";
-import PostData from "../data/PostData";
+import IPostData from "../model/InterfacePostData";
 import Post from "../model/Post";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
 import CreatePostInputTDO from "../types/createPostInputTDO";
 import GetPostByIdInputTDO from "../types/getPostByIdInputTDO";
+// Ending imports <<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+// Starting frameworks configurations >>>>>>>>>>>>>>>>>>>> 
+moment.locale("pt-br");
+// Ending frameworks configurations <<<<<<<<<<<<<<<<<<<<<<<
+
+
 
 export default class PostBusines {
-  constructor(private postData: PostData) {}
+  private postData: IPostData;
+
+  constructor(postData: IPostData) {
+    this.postData = postData;
+  }
 
   createPost = async (input: CreatePostInputTDO, token: string) => {
     const { photo, description, type } = input;
@@ -68,12 +82,12 @@ export default class PostBusines {
     const result = await this.postData.getPostById(id);
 
     const response = {
-      id: result.id,
-      URLphoto: result.photo,
-      description: result.description,
-      type: result.type,
-      createdAt: moment(result.created_at, "X").format("DD/MM/YYYY HH:MM"),
-      authorId: result.author_id,
+      id: result.getId(),
+      URLphoto: result.getPhoto(),
+      description: result.getDescription(),
+      type: result.getType(),
+      createdAt: moment(result.getCreatedAt(), "X").format("LLLL"),
+      authorId: result.getAuthorId(),
     };
 
     return response;

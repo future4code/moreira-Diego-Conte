@@ -1,4 +1,4 @@
-GET http://localhost:3003/post/a672c79d-3e29-492a-b39c-b098a7699375
+GET http://localhost:3003/post/d4794239-5231-4734-a551-5c20dad036e1
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTYwODc5OSwiZXhwIjoxNjUxNjk1MTk5fQ.2feX7c9_1pCilqWtymPxkmhoH7qv9QukKmSvDoYDakY
 
 
@@ -7,8 +7,8 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name": "Diego Conte",
-    "email": "diego@labenu.com",
+    "name": "Turma Moreira",
+    "email": "moreira@labenu.com",
     "password": "senha123"
 }
 
@@ -17,7 +17,7 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-    "email": "diego@labenu.com",
+    "email": "moreira@labenu.com",
     "password": "senha123"
 }
 
