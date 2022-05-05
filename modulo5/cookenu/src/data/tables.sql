@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS Cookenu_Users (
+	id VARCHAR(255) PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+	email VARCHAR(255) UNIQUE NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	role ENUM("ADMIN", "NORMAL") DEFAULT "NORMAL" NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Cookenu_Recipes (
+	id VARCHAR(255) PRIMARY KEY,
+	title VARCHAR(255) NOT NULL,
+	description VARCHAR(255) NOT NULL,
+	createdAt VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Cookenu_UserFollowingConnection (
+	follower_id VARCHAR(255) NOT NULL,
+	followed_id VARCHAR(255) NOT NULL,
+	FOREIGN KEY (follower_id) REFERENCES Cookenu_Users(id),
+	FOREIGN KEY (followed_id) REFERENCES Cookenu_Users(id)
+);
