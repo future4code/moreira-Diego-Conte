@@ -1,19 +1,11 @@
-// Starting imports >>>>>>>>>>>>>>>>>>>>
-import moment from "moment";
+import moment from "moment"; moment.locale("pt-br");
 import IPostData from "../model/InterfacePostData";
 import Post from "../model/Post";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
+import authenticationData from "../types/authenticationData";
 import CreatePostInputTDO from "../types/createPostInputTDO";
-import GetPostByIdInputTDO from "../types/getPostByIdInputTDO";
-// Ending imports <<<<<<<<<<<<<<<<<<<<<<<
-
-
-
-// Starting frameworks configurations >>>>>>>>>>>>>>>>>>>> 
-moment.locale("pt-br");
-// Ending frameworks configurations <<<<<<<<<<<<<<<<<<<<<<<
-
+import transferIdAndTokenTDO from "../types/transferIdAndTokenTDO";
 
 
 export default class PostBusines {
@@ -46,16 +38,16 @@ export default class PostBusines {
       );
     }
 
-    const tokenData = Authenticator.getTokenData(token);
+    const tokenData: authenticationData = Authenticator.getTokenData(token);
 
     if (!tokenData) {
       throw new Error("Please enter a valid token.");
     }
 
-    const id = IdGenerator.generate();
+    const id: string = IdGenerator.generate();
     const createdAt: string = moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
 
-    const post = new Post(
+    const post: Post = new Post(
       id,
       photo,
       description,
@@ -68,18 +60,18 @@ export default class PostBusines {
     return id;
   };
 
-  getPostById = async (input: GetPostByIdInputTDO, token: string) => {
-    const { id } = input;
+  getPostById = async (input: transferIdAndTokenTDO) => {
+    const { id, token } = input;
     if (!token) {
       throw new Error("Please enter a token.");
     }
 
-    const tokenData = Authenticator.getTokenData(token);
+    const tokenData: authenticationData = Authenticator.getTokenData(token);
     if (!tokenData) {
       throw new Error("Please enter a valid token.");
     }
 
-    const result = await this.postData.getPostById(id);
+    const result: Post = await this.postData.getPostById(id);
 
     const response = {
       id: result.getId(),

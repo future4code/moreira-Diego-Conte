@@ -1,7 +1,7 @@
-type SignupInputDTO = {
+type signupInputDTO = {
   name: string;
   email: string;
   password: string;
 };
 
-export default SignupInputDTO;
+export default signupInputDTO;

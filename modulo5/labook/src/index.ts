@@ -1,6 +1,6 @@
+import app from "./controller/app";
 import PostBusines from "./business/PostBusiness";
 import UserBusiness from "./business/UserBusiness";
-import app from "./controller/app";
 import PostController from "./controller/PostController";
 import UserController from "./controller/UserController";
 import PostData from "./data/PostData";
@@ -15,3 +15,5 @@ app.get("/post/:id", postController.getPostById);
 app.post("/user/signup", userController.signup);
 app.post("/user/login", userController.login);
 app.post("/post/create", postController.createPost);
+app.post("/friendship/create/:id", userController.createRelationship);
+app.delete("/friendship/delete/:id", userController.deleteFriendship)

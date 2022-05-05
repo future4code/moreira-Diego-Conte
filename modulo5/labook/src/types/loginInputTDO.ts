@@ -1,6 +1,6 @@
-type LoginInputDTO = {
+type loginInputDTO = {
   email: string;
   password: string;
 };
 
-export default LoginInputDTO;
+export default loginInputDTO;

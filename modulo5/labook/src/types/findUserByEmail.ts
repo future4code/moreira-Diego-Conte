@@ -1,8 +1,8 @@
-type FindByEmailResponse = {
+type findUserByEmail = {
   id: string;
   name: string;
   email: string;
   password: string;
 }[];
 
-export default FindByEmailResponse;
+export default findUserByEmail;

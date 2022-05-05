@@ -1,5 +1,5 @@
-type AuthenticationData = {
+type authenticationData = {
   id: string;
 };
 
-export default AuthenticationData;
+export default authenticationData;
