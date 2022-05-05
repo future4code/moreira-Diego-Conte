@@ -13,9 +13,9 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
   Content-Type: application/json
 
    {
-   "name": "Turma Moreira",
-   "email": "moreira@labenu.com",
-   "password": "senha123"
+      "name": "Turma Moreira",
+      "email": "moreira@labenu.com",
+      "password": "senha123"
    }
   ```
 
@@ -31,7 +31,10 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
   Date: Tue, 17 Nov 2020 14:33:15 GMT
   Connection: keep-alive
 
-  {"message":"Success!", "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OGJjNDVlLTExZjEtNGEyMy04OTZhLTdmMmUyOWNmZTAxMiIsImlhdCI6MTYwNTYyMzU5NSwiZXhwIjoxNjA1NzA5OTk1fQ.pWxV2vtLnp0hKm0CXXnLpnDu6PEPkZM27A71oTTCYfE"}
+   {  
+      "message":"Success!", 
+      "token":"${token}"
+   }
   ```
 
 2. Login
@@ -43,8 +46,8 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
   Content-Type: application/json
 
    {
-   "email": "moreira@labenu.com",
-   "password": "senha123"
+      "email": "moreira@labenu.com",
+      "password": "senha123"
    }
   ```
 
@@ -61,8 +64,8 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
   Connection: close
 
   {
-  "message": "Hi, Turma Moreira, you have successfully logged in.",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjliNjRjOWI1LTQ1ZjAtNGZhMy1iMWQyLTg2ODZhYWY1YjUzNyIsImlhdCI6MTY1MTc1MjgwMSwiZXhwIjoxNjUxODM5MjAxfQ.We2WAgFxbdRFV8qQ7Pnllm8XT-u1g17NKQbBGzkb5mc"
+      "message": "Hi, Turma Moreira, you have successfully logged in.",
+      "token": "${token}"
   }
   ```
 
@@ -76,9 +79,9 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
   Content-Type: application/json
 
    {
-   "photo": "https://img.freepik.com/fotos-gratis/quadro-negro-com-livro-de-pilha_488220-9873.jpg?w=2000",
-   "description": "Ler é viajar sem sair do lugar",
-   "type": "normal"
+      "photo": "https://img.freepik.com/fotos-gratis/quadro-negro-com-livro-de-pilha_488220-9873.jpg?w=2000",
+      "description": "Ler é viajar sem sair do lugar",
+      "type": "normal"
    }
   ```
 
@@ -95,8 +98,8 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
   Connection: close
 
    {
-   "message": "Post successfully created.",
-   "post_id": "3c7db4ef-5f9d-4904-92a8-b42b1247163f"
+      "message": "Post successfully created.",
+      "post_id": "${id}"
    }
   ```
 
@@ -122,12 +125,12 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
   Connection: close
 
    {
-   "id": "d4794239-5231-4734-a551-5c20dad036e1",
-   "URLphoto": "shorturl.at/jCHI6",
-   "description": "Venha sonhar ao som do 'O Lago dos Cisnes', de Tchaikovski.",
-   "type": "event",
-   "createdAt": "terça-feira, 3 de maio de 2022 às 17:38",
-   "authorId": "6202eb95-2386-4dd4-b077-3fa8e8081c08"
+      "id": "${id}",
+      "URLphoto": "shorturl.at/jCHI6",
+      "description": "Venha sonhar ao som do 'O Lago dos Cisnes', de Tchaikovski.",
+      "type": "event",
+      "createdAt": "terça-feira, 3 de maio de 2022 às 17:38",
+      "authorId": "${id}"
    }
   ```
 
