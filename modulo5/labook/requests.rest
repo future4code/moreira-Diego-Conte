@@ -1,5 +1,5 @@
 GET http://localhost:3003/post/d4794239-5231-4734-a551-5c20dad036e1
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTYwODc5OSwiZXhwIjoxNjUxNjk1MTk5fQ.2feX7c9_1pCilqWtymPxkmhoH7qv9QukKmSvDoYDakY
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjliNjRjOWI1LTQ1ZjAtNGZhMy1iMWQyLTg2ODZhYWY1YjUzNyIsImlhdCI6MTY1MTc1MjgwMSwiZXhwIjoxNjUxODM5MjAxfQ.We2WAgFxbdRFV8qQ7Pnllm8XT-u1g17NKQbBGzkb5mc
 
 
 ###
@@ -24,12 +24,12 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3003/post/create
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTYwODc5OSwiZXhwIjoxNjUxNjk1MTk5fQ.2feX7c9_1pCilqWtymPxkmhoH7qv9QukKmSvDoYDakY
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjliNjRjOWI1LTQ1ZjAtNGZhMy1iMWQyLTg2ODZhYWY1YjUzNyIsImlhdCI6MTY1MTc1MjgwMSwiZXhwIjoxNjUxODM5MjAxfQ.We2WAgFxbdRFV8qQ7Pnllm8XT-u1g17NKQbBGzkb5mc
 Content-Type: application/json
 
 {
-    "photo": "https://media-cdn.tripadvisor.com/media/photo-s/13/db/4a/fc/bungee-jump-o-maior-do.jpg",
-    "description": "Aventureiro? Pula nessa com a gente!",
+    "photo": "https://img.freepik.com/fotos-gratis/quadro-negro-com-livro-de-pilha_488220-9873.jpg?w=2000",
+    "description": "Ler é viajar sem sair do lugar",
     "type": "normal"
 }
 

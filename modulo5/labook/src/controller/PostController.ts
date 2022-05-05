@@ -1,10 +1,9 @@
 import { Request, Response } from "express";
 import PostBusines from "../business/PostBusiness";
-import Post from "../model/Post";
 import CreatePostInputTDO from "../types/createPostInputTDO";
 import GetPostByIdInputTDO from "../types/getPostByIdInputTDO";
 
-export class PostController {
+export default class PostController {
   constructor(private postBusiness: PostBusines) {}
 
   createPost = async (req: Request, res: Response) => {
