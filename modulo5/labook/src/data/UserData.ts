@@ -3,7 +3,7 @@ import User from "../model/User";
 import UserRelationships from "../model/UserFriendships";
 import findUserByEmail from "../types/findUserByEmail";
 import findUserById from "../types/findUserById";
-import { BaseDatabase } from "./BaseDatabase";
+import BaseDatabase from "./BaseDatabase";
 
 export default class UserData extends BaseDatabase implements IUserData {
   protected TABLE_1_NAME = "labook_users";

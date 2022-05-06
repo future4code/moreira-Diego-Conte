@@ -21,7 +21,7 @@ export default class PostController {
 
       res
         .status(201)
-        .send({ message: "Post successfully created.", post_id: postId });
+        .send({ message: "Post successfully created.", postId: postId });
     } catch (error) {
       if (error instanceof Error) {
         return res.status(400).send(error.message);

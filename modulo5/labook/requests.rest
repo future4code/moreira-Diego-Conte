@@ -1,5 +1,5 @@
-GET http://localhost:3003/post/d4794239-5231-4734-a551-5c20dad036e1
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTYwODc5OSwiZXhwIjoxNjUxNjk1MTk5fQ.2feX7c9_1pCilqWtymPxkmhoH7qv9QukKmSvDoYDakY
+GET https://dc-labook.herokuapp.com/post/d4794239-5231-4734-a551-5c20dad036e1
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTg2NzYxMCwiZXhwIjoxNjUxOTU0MDEwfQ.xsoDXqnSMT2EHNYHEyGjk5RA8HNpGhreQ3DK8LD4p0Q
 
 
 ###
@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3003/user/login
+POST https://dc-labook.herokuapp.com/user/login
 Content-Type: application/json
 
 {
@@ -23,23 +23,23 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:3003/post/create
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjliNjRjOWI1LTQ1ZjAtNGZhMy1iMWQyLTg2ODZhYWY1YjUzNyIsImlhdCI6MTY1MTc1MjgwMSwiZXhwIjoxNjUxODM5MjAxfQ.We2WAgFxbdRFV8qQ7Pnllm8XT-u1g17NKQbBGzkb5mc
+POST https://dc-labook.herokuapp.com/post/create
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTg2NzYxMCwiZXhwIjoxNjUxOTU0MDEwfQ.xsoDXqnSMT2EHNYHEyGjk5RA8HNpGhreQ3DK8LD4p0Q
 Content-Type: application/json
 
 {
-    "photo": "https://img.freepik.com/fotos-gratis/quadro-negro-com-livro-de-pilha_488220-9873.jpg?w=2000",
-    "description": "Ler é viajar sem sair do lugar",
-    "type": "normal"
+    "photo": "shorturl.at/ltxT6",
+    "description": "Ballet clássico.",
+    "type": "event"
 }
 
 
 ###
-POST http://localhost:3003/friendship/create/9b64c9b5-45f0-4fa3-b1d2-8686aaf5b537
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTc3MTkxOCwiZXhwIjoxNjUxODU4MzE4fQ.-CcFE1kFlvQMoAaBfp7oOYD3G8-8Sv48UrvzaQBv0C8
+POST https://dc-labook.herokuapp.com/friendship/create/9b64c9b5-45f0-4fa3-b1d2-8686aaf5b537
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTg2NzYxMCwiZXhwIjoxNjUxOTU0MDEwfQ.xsoDXqnSMT2EHNYHEyGjk5RA8HNpGhreQ3DK8LD4p0Q
 
 
 ###
-DELETE http://localhost:3003/friendship/delete/9b64c9b5-45f0-4fa3-b1d2-8686aaf5b537
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTc3MTkxOCwiZXhwIjoxNjUxODU4MzE4fQ.-CcFE1kFlvQMoAaBfp7oOYD3G8-8Sv48UrvzaQBv0C8
+DELETE https://dc-labook.herokuapp.com/friendship/delete/9b64c9b5-45f0-4fa3-b1d2-8686aaf5b537
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTg2NzYxMCwiZXhwIjoxNjUxOTU0MDEwfQ.xsoDXqnSMT2EHNYHEyGjk5RA8HNpGhreQ3DK8LD4p0Q
 

@@ -1,4 +1,5 @@
-import moment from "moment"; moment.locale("pt-br");
+import moment from "moment";
+moment.locale("pt-br");
 import IPostData from "../model/InterfacePostData";
 import Post from "../model/Post";
 import { Authenticator } from "../services/Authenticator";
@@ -6,7 +7,6 @@ import { IdGenerator } from "../services/IdGenerator";
 import authenticationData from "../types/authenticationData";
 import CreatePostInputTDO from "../types/createPostInputTDO";
 import transferIdAndTokenTDO from "../types/transferIdAndTokenTDO";
-
 
 export default class PostBusines {
   private postData: IPostData;

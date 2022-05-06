@@ -1,4 +1,8 @@
-import { BaseDatabase } from "./BaseDatabase";
+import BaseDatabase from "./BaseDatabase";
+
+const printError = (error: any) => {
+  console.log(error.sqlMessage || error.message);
+};
 
 export default class Migrations extends BaseDatabase {
   static migrations = async () => {
@@ -30,9 +34,15 @@ export default class Migrations extends BaseDatabase {
          );
         `
       )
-      .then(console.log)
-      .catch(console.log);
+      .then(() => {
+        console.log("Migration successfully completed.");
+      })
+      .catch(printError);
+  };
+
+  static closeConnection = () => {
+    Migrations.connection.destroy();
   };
 }
 
-Migrations.migrations();
+Migrations.migrations().finally(Migrations.closeConnection);

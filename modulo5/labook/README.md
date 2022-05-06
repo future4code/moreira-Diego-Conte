@@ -9,7 +9,7 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
 - Exemplo de requisição:
 
   ```bash
-  http://localhost:3003/user/signup
+  https://dc-labook.herokuapp.com/user/signup
   Content-Type: application/json
 
    {
@@ -31,8 +31,8 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
   Date: Tue, 17 Nov 2020 14:33:15 GMT
   Connection: keep-alive
 
-   {  
-      "message":"Success!", 
+   {
+      "message":"Success!",
       "token":"${token}"
    }
   ```
@@ -42,7 +42,7 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
 - Exemplo de requisição:
 
   ```bash
-  http://localhost:3003/user/login
+  https://dc-labook.herokuapp.com/user/login
   Content-Type: application/json
 
    {
@@ -74,7 +74,7 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
 - Exemplo de requisição:
 
   ```bash
-  http://localhost:3003/post/create
+  https://dc-labook.herokuapp.com/post/create
   authorization: ${token}
   Content-Type: application/json
 
@@ -108,7 +108,7 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
 - Exemplo de requisição:
 
   ```bash
-  http://localhost:3003/post/${id}
+  https://dc-labook.herokuapp.com/post/${id}
   authorization:${token}
   ```
 
@@ -132,6 +132,58 @@ O _LaBook_ é uma rede social com o objetivo de promover a conexão e interaçã
       "createdAt": "terça-feira, 3 de maio de 2022 às 17:38",
       "authorId": "${id}"
    }
+  ```
+
+5. Criar amizades
+
+- Exemplo de requisição:
+
+  ```bash
+  https://dc-labook.herokuapp.com/friendship/create/9b64c9b5-45f0-4fa3-b1d2-8686aaf5b537
+  authorization:${token}
+  ```
+
+- Exemplo de resposta (sucesso):
+
+  ```bash
+  HTTP/1.1 200 OK
+  X-Powered-By: Express
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json; charset=utf-8
+  Content-Length: 59
+  ETag: W/"3b-3HdFaAkQwV74b8VMVMN4/nVQU6k"
+  Date: Thu, 05 May 2022 23:27:26 GMT
+  Connection: close
+
+  {
+    "message": "Great! ${nameFriend} and you are friends now."
+  }
+  ```
+
+6. Remover amizades
+
+- Exemplo de requisição:
+
+  ```bash
+  https://dc-labook.herokuapp.com/friendship/delete/${idFriend}
+  authorization:${token}
+  ```
+
+- Exemplo de resposta (sucesso):
+
+  ```bash
+  HTTP/1.1 200 OK
+  X-Powered-By: Express
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json; charset=utf-8
+  Content-Length: 60
+  ETag: W/"3c-5lr+oLnpA6g6ur9nabC7E7plaZo"
+  Date: Thu, 05 May 2022 23:25:52 GMT
+  Connection: close
+
+  {
+  "message": "${nameFriend} and you are not friends anymore."
+  }
   ```
 
 ## Desenvolvedor

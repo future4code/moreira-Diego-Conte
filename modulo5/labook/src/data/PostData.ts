@@ -1,6 +1,6 @@
 import IPostData from "../model/InterfacePostData";
 import Post from "../model/Post";
-import { BaseDatabase } from "./BaseDatabase";
+import BaseDatabase from "./BaseDatabase";
 
 export default class PostData extends BaseDatabase implements IPostData {
   protected TABLE_NAME = "labook_posts";
