@@ -82,12 +82,12 @@ export class UserBusiness {
   public async getUserById(id: string, token: string) {
     try {
       if (!token) {
-        throw new Error("Please enter a token.");
+        throw new CustomError(422, "Please enter a token.");
       }
 
       const tokenData: AuthenticationData = tokenGenerator.verify(token);
       if (!tokenData) {
-        throw new Error("Please enter a valid token.");
+        throw new CustomError(401, "Please enter a valid token.");
       }
 
       if (!id) {
@@ -108,6 +108,45 @@ export class UserBusiness {
       };
 
       return user;
+    } catch (error) {
+      throw new CustomError(error.statusCode, error.message);
+    }
+  }
+
+  public async getAllUsers(token: string) {
+    try {
+      if (!token) {
+        throw new CustomError(422, "Please enter a token.");
+      }
+
+      const tokenData: AuthenticationData = tokenGenerator.verify(token);
+      if (!tokenData) {
+        throw new CustomError(401, "Please enter a valid token.");
+      }
+
+      if (tokenData.role !== "ADMIN") {
+        throw new CustomError(
+          401,
+          "Please, sign in with or switch to an administrator account to access this endpoint."
+        );
+      }
+
+      const response = await userDatabase.getAllUsers();
+
+      if (response.length < 1) {
+        throw new CustomError(404, "No users found");
+      }
+
+      const users = response.map((user) => {
+        return {
+          id: user.getId(),
+          name: user.getName(),
+          email: user.getEmail(),
+          role: user.getRole(),
+        };
+      });
+
+      return users;
     } catch (error) {
       throw new CustomError(error.statusCode, error.message);
     }

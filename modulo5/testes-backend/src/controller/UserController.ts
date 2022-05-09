@@ -36,6 +36,18 @@ export class UserController {
       res.status(statusCode || 400).send({ message });
     }
   }
+
+  public async getAllUsers(req: Request, res: Response) {
+    try {
+      const token: string = req.headers.authorization as string;
+
+      const result = await userBusiness.getAllUsers(token);
+      res.status(200).send(result);
+    } catch (error: any) {
+      const { statusCode, message } = error;
+      res.status(statusCode || 400).send({ message });
+    }
+  }
 }
 
 export default new UserController();
