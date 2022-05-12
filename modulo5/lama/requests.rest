@@ -3,10 +3,10 @@ POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {
-	"name": "Diego",
+	"name": "Diego Conte",
 	"email": "diego@gmail.com",
-	"password": "123456",
-   	"role":"ADMIN"
+	"password": "senha123",
+   	"role": "admin"
 }
 
 
@@ -15,6 +15,22 @@ POST http://localhost:3003/users/login
 Content-Type: application/json
 
 {
-	"email": "diego@gmail.com",
-	"password": "123456"
+	"email": "admin@gmail.com",
+	"password": "senha123"
 }
+
+
+### REGISTER
+POST http://localhost:3003/bands/register
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5MTYxM2Q2LTlhOTItNGJhOS1iZThmLWQzMTFhNzZmYzI0NiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MjM4MzgyNywiZXhwIjoxNjUyNDcwMjI3fQ.iP5DlCYNHhBjmY9emYQmduP_SzpzOC0nrtln_DVuZ4s
+Content-Type: application/json
+
+{
+	"name": "LabRock!",
+	"musicGenre": "Metal Sinfônico",
+	"responsible": "Diego Conte"
+}
+
+
+### GET BAND INFORMATIONS
+GET http://localhost:3003/bands/informations?query=Lab

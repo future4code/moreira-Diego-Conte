@@ -1,3 +1,5 @@
+import { CustomError } from "../errors/CustomErrors";
+
 export class User {
   constructor(
     private id: string,
@@ -7,38 +9,41 @@ export class User {
     private role: USER_ROLE
   ) {}
 
-  getId() {
+  public getId() {
     return this.id;
   }
 
-  getName() {
+  public getName() {
     return this.name;
   }
 
-  getEmail() {
+  public getEmail() {
     return this.email;
   }
 
-  getPassword() {
+  public getPassword() {
     return this.password;
   }
 
-  getRole() {
+  public getRole() {
     return this.role;
   }
 
-  static stringToUserRole(input: string): USER_ROLE {
-    switch (input) {
+  public static stringToUserRole(input: string): USER_ROLE {
+    switch (input.toUpperCase()) {
       case "NORMAL":
         return USER_ROLE.NORMAL;
       case "ADMIN":
         return USER_ROLE.ADMIN;
       default:
-        throw new Error("Invalid user role");
+        throw new CustomError(
+          422,
+          "Invalid role: only 'ADMIN' or 'NORMAL' role is allowed."
+        );
     }
   }
 
-  static toUserModel(user: any): User {
+  public static toUserModel(user: any): User {
     return new User(
       user.id,
       user.name,
