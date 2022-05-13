@@ -20,17 +20,31 @@ Content-Type: application/json
 }
 
 
-### REGISTER
+### REGISTER BAND
 POST http://localhost:3003/bands/register
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5MTYxM2Q2LTlhOTItNGJhOS1iZThmLWQzMTFhNzZmYzI0NiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MjM4MzgyNywiZXhwIjoxNjUyNDcwMjI3fQ.iP5DlCYNHhBjmY9emYQmduP_SzpzOC0nrtln_DVuZ4s
 Content-Type: application/json
 
 {
-	"name": "LabRock!",
-	"musicGenre": "Metal Sinfônico",
-	"responsible": "Diego Conte"
+	"name": "LabOrquestra",
+	"musicGenre": "Erudita",
+	"responsible": "Maestro Karajan"
 }
 
 
 ### GET BAND INFORMATIONS
-GET http://localhost:3003/bands/informations?query=Lab
+GET http://localhost:3003/bands/informations?query=LabR
+
+
+
+### REGISTER SHOW
+POST http://localhost:3003/shows/register
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5MTYxM2Q2LTlhOTItNGJhOS1iZThmLWQzMTFhNzZmYzI0NiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MjQ2NTM5NiwiZXhwIjoxNjUyNTUxNzk2fQ.mZE0UZkluUC9tWsjz6_4I300r-43mXkmrPCxCo2vprg
+Content-Type: application/json
+
+{
+	"bandId": "9fa7cecb-c7ee-40e0-913a-967de81cd3bb",
+	"weekDay": "domingo",
+	"startTime": 12,
+	"endTime": 13
+}
