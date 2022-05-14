@@ -25,7 +25,7 @@ export class ShowDatabase extends BaseDatabase {
     }
   }
 
-  public async getShowsByWeekDay(weekDay: string): Promise<Show[] | undefined> {
+  public async getScheduleByDay(weekDay: string): Promise<Show[] | undefined> {
     try {
       const result = await BaseDatabase.connection(this.tableName)
         .select()

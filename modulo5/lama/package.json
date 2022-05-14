@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "LAMA - Labenu",
   "main": "index.js",
+  "engines": {
+    "node": "16.14.2"
+  },
   "scripts": {
     "dev": "ts-node-dev ./src/index.ts",
-    "start": "node build/index.js",
+    "build": "tsc",
+    "start": "node build/src/index.js",
     "migrations": "tsc && node ./build/src/data/migrations.js",
     "postinstall": "npm run build",
     "test": "clear && echo \"Running tests...\" && jest"

@@ -90,9 +90,8 @@ export class ShowBusiness {
           "Invalid show time. Formats allowed: 9, 16, 22."
         );
       }
-      
-      const allShowsByDay =
-        await this.showDatabase.getShowsByWeekDay(weekDay);
+
+      const allShowsByDay = await this.showDatabase.getScheduleByDay(weekDay);
 
       let isRangeAvailable: boolean = true;
       allShowsByDay?.find((show: any) => {
@@ -100,7 +99,6 @@ export class ShowBusiness {
           (show.start_time <= startTime && show.end_time > startTime) ||
           (show.start_time >= endTime && show.end_time <= endTime) ||
           (show.start_time > startTime && show.end_time < endTime)
-          
         ) {
           isRangeAvailable = false;
         }
@@ -132,27 +130,35 @@ export class ShowBusiness {
     }
   }
 
-  //   public async getBandInfos(query: string) {
-  //     try {
-  //       if (!query) {
-  //         throw new CustomError(
-  //           422,
-  //           "Missing inputs: please, enter a band name or a band ID."
-  //         );
-  //       }
+  public async getScheduleByDay(query: string) {
+    try {
+      if (!query) {
+        throw new CustomError(422, "Missing inputs: please, enter a day.");
+      }
 
-  //       const bandInformations: Band | undefined =
-  //         await this.bandDatabase.getBandInfos(query);
+      const showData: Show[] | undefined =
+        await this.showDatabase.getScheduleByDay(query);
 
-  //       if (bandInformations) {
-  //         return { band_informations: bandInformations };
-  //       } else {
-  //         return { message: "Band not found." };
-  //       }
-  //     } catch (error) {
-  //       if (error instanceof CustomError) {
-  //         throw new CustomError(error.statusCode, error.message);
-  //       }
-  //     }
-  //   }
+      if (showData?.length == 0) {
+        return { message: "No shows available." };
+      }
+
+      let bandsData: Band[] = [];
+      for (const band of showData as any) {
+        bandsData.push(
+          (await this.bandDatabase.getBandInfos(band.band_id)) as Band
+        );
+      }
+
+      const showsSchedule = bandsData.map((band: any) => {
+        return { Band: band.name, Music: band.music_genre };
+      });
+
+      return { Schedule: showsSchedule };
+    } catch (error) {
+      if (error instanceof CustomError) {
+        throw new CustomError(error.statusCode, error.message);
+      }
+    }
+  }
 }
