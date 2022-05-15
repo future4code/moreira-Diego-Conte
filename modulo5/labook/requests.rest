@@ -1,0 +1,45 @@
+GET https://dc-labook.herokuapp.com/post/d4794239-5231-4734-a551-5c20dad036e1
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTg2NzYxMCwiZXhwIjoxNjUxOTU0MDEwfQ.xsoDXqnSMT2EHNYHEyGjk5RA8HNpGhreQ3DK8LD4p0Q
+
+
+###
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Turma Moreira",
+    "email": "moreira@labenu.com",
+    "password": "senha123"
+}
+
+###
+POST https://dc-labook.herokuapp.com/user/login
+Content-Type: application/json
+
+{
+    "email": "diego@labenu.com",
+    "password": "senha123"
+}
+
+
+###
+POST https://dc-labook.herokuapp.com/post/create
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTg2NzYxMCwiZXhwIjoxNjUxOTU0MDEwfQ.xsoDXqnSMT2EHNYHEyGjk5RA8HNpGhreQ3DK8LD4p0Q
+Content-Type: application/json
+
+{
+    "photo": "shorturl.at/ltxT6",
+    "description": "Ballet clássico.",
+    "type": "event"
+}
+
+
+###
+POST https://dc-labook.herokuapp.com/friendship/create/9b64c9b5-45f0-4fa3-b1d2-8686aaf5b537
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTg2NzYxMCwiZXhwIjoxNjUxOTU0MDEwfQ.xsoDXqnSMT2EHNYHEyGjk5RA8HNpGhreQ3DK8LD4p0Q
+
+
+###
+DELETE https://dc-labook.herokuapp.com/friendship/delete/9b64c9b5-45f0-4fa3-b1d2-8686aaf5b537
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDJlYjk1LTIzODYtNGRkNC1iMDc3LTNmYThlODA4MWMwOCIsImlhdCI6MTY1MTg2NzYxMCwiZXhwIjoxNjUxOTU0MDEwfQ.xsoDXqnSMT2EHNYHEyGjk5RA8HNpGhreQ3DK8LD4p0Q
+
