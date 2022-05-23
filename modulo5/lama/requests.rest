@@ -1,0 +1,54 @@
+### SIGNUP
+POST https://lama-diego.herokuapp.com/users/signup
+Content-Type: application/json
+
+{
+	"name": "Labenu Future4",
+	"email": "labenu@labenu.com",
+	"password": "senha123",
+   	"role": "admin"
+}
+
+
+### LOGIN
+POST https://lama-diego.herokuapp.com/users/login
+Content-Type: application/json
+
+{
+	"email": "admin@gmail.com",
+	"password": "senha123"
+}
+
+
+### REGISTER BAND
+POST https://lama-diego.herokuapp.com/bands/register
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5MTYxM2Q2LTlhOTItNGJhOS1iZThmLWQzMTFhNzZmYzI0NiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MjUzMzA5NiwiZXhwIjoxNjUyNjE5NDk2fQ.uCE7z-sdmOhNQx_hG5hwBKURptynpA2wsXCODFnK9V4
+Content-Type: application/json
+
+{
+	"name": "Quarteto de violinos",
+	"musicGenre": "Erudita",
+	"responsible": "Beethoven"
+}
+
+
+### GET BAND INFORMATIONS
+GET https://lama-diego.herokuapp.com/bands/informations?query=LabO
+
+
+
+### REGISTER SHOW
+POST https://lama-diego.herokuapp.com/shows/register
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5MTYxM2Q2LTlhOTItNGJhOS1iZThmLWQzMTFhNzZmYzI0NiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MjQ2NTM5NiwiZXhwIjoxNjUyNTUxNzk2fQ.mZE0UZkluUC9tWsjz6_4I300r-43mXkmrPCxCo2vprg
+Content-Type: application/json
+
+{
+	"bandId": "a8782f8d-afff-42a6-8b1a-c6455512a66c",
+	"weekDay": "sábado",
+	"startTime": 15,
+	"endTime": 20
+}
+
+
+### GET SCHEDULE SHOW BY DAY
+GET https://lama-diego.herokuapp.com/shows?query=sabado
