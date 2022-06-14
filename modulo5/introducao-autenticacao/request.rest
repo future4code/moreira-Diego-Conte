@@ -1,0 +1,20 @@
+GET http://localhost:3003/user/profile
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY3MTMwMjdlLWJkMjMtNDQ0Yi1hN2QyLWNiNGY4NDUxMDRjZSIsImlhdCI6MTY1MDkxNjU4NCwiZXhwIjoxNjUxMDAyOTg0fQ.L_msRjEs7o6dNizCyQ3qa4ar2q7pvCKG7u3wR81E4gU
+
+###
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "email": "labenu@labenu.com",
+    "password": "senha123456"
+}
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "diego@moreira.com",
+    "password": "senha123456"
+}
