@@ -1,0 +1,34 @@
+### CADASTRO
+
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Diego",
+	"email": "diego@gmail.com",
+	"password": "123456",
+   	"role":"NORMAL"
+}
+
+### LOGIN
+
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+	"email": "diego@gmail.com",
+	"password": "123456"
+}
+
+
+### PROCURAR USUÁRIO VIA ID
+
+GET http://localhost:3003/users/profile/eccd1365-3bc4-4fe2-b56d-4f38281de911
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjY2QxMzY1LTNiYzQtNGZlMi1iNTZkLTRmMzgyODFkZTkxMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MjExNzU2NiwiZXhwIjoxNjUyMjAzOTY2fQ.TIY5G4gImW3RbKfUatd1GyJv3FkpyB3p2HY9_DcZcUs
+
+
+
+### PEGAR TODOS OS USUÁRIOS
+
+GET http://localhost:3003/users/all
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjY2QxMzY1LTNiYzQtNGZlMi1iNTZkLTRmMzgyODFkZTkxMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MjExNzU2NiwiZXhwIjoxNjUyMjAzOTY2fQ.TIY5G4gImW3RbKfUatd1GyJv3FkpyB3p2HY9_DcZcUs
